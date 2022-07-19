@@ -1,0 +1,34 @@
+name: Call of Chaos
+version: '0.0.1'
+author: Back Burner
+description: COC
+minecraft: 1.19
+
+pipeline:
+  - mecha
+
+require:
+  - bolt
+  - bolt_expressions
+  - plugins.nbt_literals
+  - beet.contrib.lantern_load.base_data_pack
+
+
+data_pack:
+  name: Call of Chaos
+  load:
+    - .
+  render:
+    functions:
+      - coc:*
+
+resource_pack:
+  name: Call of Chaos [RP]
+  load:
+    - .
+
+output: '__dist__'
+
+meta:
+  bolt_expressions:
+    init_path: 'technical/init'

@@ -1,0 +1,19 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:potion",
+            "functions": [
+              {
+                "function": "minecraft:set_nbt",
+                "tag": "{CustomModelData:4260001,display:{Name:'{\"translate\":\"item.coc.blood_vial\",\"italic\":false}'},smithed:{id:\"coc:blood_vial\"},CustomPotionColor:16777215,HideFlags:32}"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

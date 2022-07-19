@@ -1,0 +1,19 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:dropper",
+            "functions": [
+              {
+                "function": "minecraft:set_nbt",
+                "tag": "{CustomModelData:4260001,display:{Name:'{\"translate\":\"block.coc.chaotic_converter\",\"italic\":false}'},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:chaotic_converter\"}}}}]}}"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

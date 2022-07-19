@@ -1,0 +1,16 @@
+{
+    "block.coc.offering_altar": "Offering Altar",
+    "block.coc.focusing_crystal": "Focusing Crystal",
+    "block.coc.chaotic_converter": "Chaotic Converter",
+
+    "item.coc.syringe": "Syringe",
+    "item.coc.blood_vial": "Blood Vial",
+    "item.coc.blood_vial.owner": "Belongs to %s",
+    
+    "death.coc.natural_rift": "%s was consumed by the chaos",
+    "death.coc.syringe": "%s drew too much blood",
+    
+    "text.coc.natural_rift.activate.fail": "The rift does not seem to respond",
+    "text.coc.natural_rift.activate.pass": "The rift begins to shift slightly in response",
+    "text.coc.natural_rift.relation.level_up": "You sense a change in the rift's energy"
+}
