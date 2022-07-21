@@ -1,0 +1,59 @@
+{
+    "parent": "minecraft:block/structure_block",
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 4260001
+            },
+            "model": "coc:item/chaos_crystal"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260002
+            },
+            "model": "coc:item/chaos_crystal_shard"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260003
+            },
+            "model": "coc:item/chaos_alloy"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260004
+            },
+            "model": "coc:item/nebulous_powder"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260005
+            },
+            "model": "coc:item/nebulous_crystal"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260006
+            },
+            "model": "coc:item/crystaline_lens"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260007
+            },
+            "model": "coc:item/entropic_lens"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260008
+            },
+            "model": "coc:item/polymorphic_lens"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260009
+            },
+            "model": "coc:item/chaos_focuser"
+        }
+    ]
+}

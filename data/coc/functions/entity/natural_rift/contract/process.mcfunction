@@ -11,14 +11,9 @@ temp.Contracts = rift.Contracts
 rift.Contracts = []
 
 mobs = [
-    {"id": "minecraft:zombie", cost: 1, weight:7, nbt: {}},
-    {"id": "minecraft:skeleton", cost: 3, weight:10, nbt: {}}
+    {id: "minecraft:zombie", cost: 1, weight:7, nbt: {}},
+    {id: "minecraft:skeleton", cost: 3, weight:10, nbt: {}}
 ]
-
-
-
-
-
 
 execute function ./process/each:
     temp.Contract = temp.Contracts[-1]
