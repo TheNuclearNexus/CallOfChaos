@@ -9,7 +9,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{CustomModelData:4260001,display:{Name:'{\"translate\":\"block.coc.chaos_flame\",\"italic\":false}'},smithed:{id:\"coc:chaos_flame\"},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:chaos_flame\"}}}}]}}"
+                "tag": "{CustomModelData:4260005,display:{Name:'{\"translate\":\"block.coc.eternal_burner\",\"italic\":false}'},smithed:{id:\"coc:eternal_burner\"},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:eternal_burner\"}}}}]}}"
               }
             ]
           }

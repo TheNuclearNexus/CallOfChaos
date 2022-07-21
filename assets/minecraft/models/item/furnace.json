@@ -18,6 +18,30 @@
                 "custom_model_data": 4260003
             },
             "model": "coc:block/focusing_crystal"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260004
+            },
+            "model": "coc:block/gathering_crystal"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260005
+            },
+            "model": "coc:block/eternal_burner_disabled"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260006
+            },
+            "model": "coc:block/eternal_burner"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260007
+            },
+            "model": "coc:block/eternal_burner_flame"
         }
     ]
 }

@@ -1,6 +1,8 @@
 {
     "block.coc.offering_altar": "Offering Altar",
     "block.coc.focusing_crystal": "Focusing Crystal",
+    "block.coc.gathering_crystal": "Gathering Crystal",
+    "block.coc.eternal_burner": "Eternal Burner",
     "block.coc.chaotic_converter": "Chaotic Converter",
 
     "item.coc.syringe": "Syringe",

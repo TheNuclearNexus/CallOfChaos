@@ -36,7 +36,7 @@ store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data
 
 store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data storage smithed.crafter:input recipe{
     0:[{Slot:0b,id:"minecraft:deepslate_tiles"},{Slot:1b,id:"minecraft:furnace",tag:{smithed:{id:"coc:offering_altar"}}},{Slot:2b,id:"minecraft:deepslate_tiles"}],
-    1:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}},{Slot:1b,id:"minecraft:furnace",tag:{smithed:{id:"coc:chaos_flame"}}},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}}],
+    1:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}},{Slot:1b,id:"minecraft:furnace",tag:{smithed:{id:"coc:eternal_burner"}}},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}}],
     2:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}},{Slot:1b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:entropic_lens"}}},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_alloy"}}}]}:
         loot replace block ~ ~ ~ container.16 loot coc:item/excluder
 

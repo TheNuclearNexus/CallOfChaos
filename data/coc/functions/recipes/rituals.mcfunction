@@ -17,11 +17,11 @@ if entity @s[tag=!coc.has_contract] if data storage coc:temp Items[{id:"minecraf
     function ../../entity/natural_rift/contract/generate
 
 with ritual(
-    name='chaos_flame', 
+    name='eternal_burner', 
     ingredients=[{'id':"minecraft:blaze_powder"},{'id':"minecraft:furnace",'tag':{smithed:{'id': "coc:offering_altar"}}}],
     counts=[1,1]):
     scoreboard players set $suc coc.dummy 1
-    loot spawn ~ ~ ~ loot coc:item/chaos_flame
+    loot spawn ~ ~ ~ loot coc:item/eternal_burner
     
     
     
