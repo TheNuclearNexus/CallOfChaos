@@ -27,7 +27,7 @@ append function ./place/disable:
     as @e[type=armor_stand,tag=coc.offering_altar,sort=nearest,distance=..8] function ./place/clean_altars:
         tag @s add coc.disabled
         tag @s remove coc.has_item
-        data modify entity @s ArmorItems[3].tag.CustomModelData set value 0
+        data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260002
 
     positioned ~ ~1 ~ as @e[type=item,tag=coc.offering_item,sort=nearest,distance=..8] function ./place/clean_items:
         tag @s remove coc.offering_item

@@ -5,6 +5,6 @@ summon armor_stand ~ ~-0.5 ~ {
     ArmorItems:[{},{},{},{
         id:"minecraft:furnace",
         Count:1b,
-        tag:{CustomModelData:4260002}
+        tag:{CustomModelData:4260003}
     }]
 }

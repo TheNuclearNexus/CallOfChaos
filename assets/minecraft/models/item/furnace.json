@@ -11,43 +11,13 @@
             "predicate": {
                 "custom_model_data": 4260002
             },
-            "model": "coc:block/focusing_crystal"
+            "model": "coc:block/offering_altar_disabled"
         },
         {
             "predicate": {
                 "custom_model_data": 4260003
             },
-            "model": "coc:block/chaotic_converter_off"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260004
-            },
-            "model": "coc:block/chaotic_converter_on"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260005
-            },
-            "model": "coc:block/chaotic_converter_up_off"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260006
-            },
-            "model": "coc:block/chaotic_converter_up_on"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260007
-            },
-            "model": "coc:block/chaotic_converter_down_off"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260008
-            },
-            "model": "coc:block/chaotic_converter_down_on"
+            "model": "coc:block/focusing_crystal"
         }
     ]
 }
