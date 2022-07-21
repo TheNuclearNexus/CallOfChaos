@@ -1,0 +1,19 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:structure_block",
+            "functions": [
+              {
+                "function": "minecraft:set_nbt",
+                "tag": "{CustomModelData:4260001,display:{Name:'{\"translate\":\"item.coc.chaos_crystal\",\"italic\":false}'},smithed:{id:\"coc:chaos_crystal\"}}"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

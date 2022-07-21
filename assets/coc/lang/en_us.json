@@ -7,6 +7,17 @@
     "item.coc.blood_vial": "Blood Vial",
     "item.coc.blood_vial.owner": "Belongs to %s",
     
+    "item.coc.chaos_crystal": "§fChaos Crystal",
+    "item.coc.chaos_crystal_shard": "§fChaos Crystal Shard",
+    "item.coc.chaos_alloy": "§fChaos Alloy",
+    "item.coc.nebulous_powder": "§fNebulous Powder",
+    "item.coc.nebulous_crystal": "§fNebulous Crystal",
+    "item.coc.crystaline_lens": "§fCrystaline Lens",
+    "item.coc.entropic_lens": "§fEntropic Lens",
+    "item.coc.polymorphic_lens": "§fPolymorphic Lens",
+    "item.coc.chaos_focuser": "§fChaos Focuser",
+
+
     "death.coc.natural_rift": "%s was consumed by the chaos",
     "death.coc.syringe": "%s drew too much blood",
     
