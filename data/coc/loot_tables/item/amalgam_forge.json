@@ -9,7 +9,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{CustomModelData:4260001,display:{Name:'{\"translate\":\"block.coc.amalgam_forge\",\"italic\":false}'},smithed:{id:\"coc:amalgam_forge\"},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:amalgam_forge\"}}}}]}}"
+                "tag": "{CustomModelData:4260008,display:{Name:'{\"translate\":\"block.coc.amalgam_forge\",\"italic\":false}'},smithed:{id:\"coc:amalgam_forge\"},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:amalgam_forge\"}}}}]}}"
               }
             ]
           }

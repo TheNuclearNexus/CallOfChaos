@@ -42,6 +42,24 @@
                 "custom_model_data": 4260007
             },
             "model": "coc:block/eternal_burner_flame"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260008
+            },
+            "model": "coc:block/amalgam_forge_disabled"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260009
+            },
+            "model": "coc:block/amalgam_forge"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260010
+            },
+            "model": "coc:block/amalgam_forge_smelting"
         }
     ]
 }

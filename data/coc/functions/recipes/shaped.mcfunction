@@ -44,7 +44,7 @@ store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data
     0:[{Slot:0b,id:"minecraft:obsidian"},{Slot:1b,id:"minecraft:obsidian"},{Slot:2b,id:"minecraft:obsidian"}],
     1:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_crystal"}}},{Slot:1b,id:"minecraft:blast_furnace"},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:chaos_crystal"}}}],
     2:[{Slot:0b,id:"minecraft:obsidian"},{Slot:1b,id:"minecraft:obsidian"},{Slot:2b,id:"minecraft:obsidian"}]}:
-        loot replace block ~ ~ ~ container.16 loot coc:item/chaos_forge
+        loot replace block ~ ~ ~ container.16 loot coc:item/amalgam_forge
 
 store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data storage smithed.crafter:input recipe{
     0:[{Slot:0b,id:"minecraft:air"},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:iron_nugger"}],
