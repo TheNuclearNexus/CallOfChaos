@@ -1,0 +1,52 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [24, 24],
+	"textures": {
+		"0": "coc:block/focusing_crystal_tier1",
+		"particle": "coc:block/focusing_crystal_tier1"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 3],
+			"to": [13, 3, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 3]},
+			"faces": {
+				"north": {"uv": [0, 6.66667, 6.66667, 8.66667], "texture": "#0"},
+				"east": {"uv": [0, 6.66667, 6.66667, 8.66667], "texture": "#0"},
+				"south": {"uv": [0, 6.66667, 6.66667, 8.66667], "texture": "#0"},
+				"west": {"uv": [0, 6.66667, 6.66667, 8.66667], "texture": "#0"},
+				"up": {"uv": [0, 8.66667, 6.66667, 15.33333], "texture": "#0"},
+				"down": {"uv": [0, 8.66667, 6.66667, 15.33333], "texture": "#0"}
+			}
+		},
+		{
+			"shade": false,
+			"from": [8, 3, 5],
+			"to": [8, 13, 11],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 6.66667], "texture": "#missing"},
+				"east": {"uv": [1.33333, 0, 5.33333, 6.66667], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 6.66667], "texture": "#missing"},
+				"west": {"uv": [1.33333, 0, 5.33333, 6.66667], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 4], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 4], "texture": "#missing"}
+			}
+		},
+		{
+			"shade": false,
+			"from": [5, 3, 8],
+			"to": [11, 13, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [1.33333, 0, 5.33333, 6.66667], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 6.66667], "texture": "#missing"},
+				"south": {"uv": [1.33333, 0, 5.33333, 6.66667], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 6.66667], "texture": "#missing"},
+				"up": {"uv": [0, 0, 0, 4], "rotation": 90, "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 4], "rotation": 270, "texture": "#missing"}
+			}
+		}
+	],
+	"display": {}
+}
