@@ -23,6 +23,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [0, 0, 0],
 			"to": [0, 20, 16],
 			"faces": {
@@ -36,6 +37,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [16, 0, 0],
 			"to": [16, 20, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [24, 8, 8]},
@@ -50,6 +52,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [0, 0, 16],
 			"to": [16, 20, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 16]},
@@ -64,6 +67,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [0, 0, 0],
 			"to": [16, 20, 0],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 0]},
@@ -78,6 +82,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [0, 0, 5],
 			"to": [16, 20, 5],
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
@@ -92,6 +97,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [5, 0, 0],
 			"to": [5, 20, 16],
 			"rotation": {"angle": -22.5, "axis": "z", "origin": [5, 0, 8]},
@@ -106,6 +112,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [11, 0, 0],
 			"to": [11, 20, 16],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [11, 0, 8]},
@@ -120,6 +127,7 @@
 		},
 		{
 			"name": "flame",
+"shade": false,
 			"from": [0, 0, 11],
 			"to": [16, 20, 11],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 11]},
