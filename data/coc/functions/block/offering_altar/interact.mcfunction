@@ -1,7 +1,8 @@
+from coc:block/api import interact
+interact('offering_altar')
+
 data remove storage coc:temp Item
 data modify storage coc:temp Item set from entity @s SelectedItem
-title @s actionbar ""
-stopsound @a * minecraft:block.chest.locked
 
 tag @s add coc.activator
 anchored eyes function ./raycast:
@@ -11,4 +12,3 @@ anchored eyes function ./raycast:
     if entity @s[distance=..5] unless block ^ ^ ^0.01 minecraft:furnace{Lock:"\\uf001coc.offering_altar"} positioned ^ ^ ^0.01 run function ./raycast
 
 tag @s remove coc.activator
-advancement revoke @s only coc:technical/interact/offering_altar

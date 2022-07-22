@@ -1,3 +1,5 @@
+from beet import Advancement
+
 def register(id, fiveTick=False, oneSecond=False):
     append function ./generic_place:
         if data storage smithed.custom_block:main blockApi{id:f"coc:{id}"} function f'coc:block/{id}/place'
@@ -16,3 +18,26 @@ register('chaotic_converter', oneSecond=True)
 register('eternal_burner', oneSecond=True)
 register('focusing_crystal')
 register('offering_altar')
+
+def interact(id):
+    ctx.data[f'coc:technical/interact/{id}'] = Advancement({
+        "criteria": {
+            "requirement": {
+                "trigger": "minecraft:item_used_on_block",
+                "conditions": {
+                    "location": {
+                        "block": {  
+                            "nbt": "{Lock:\"\\\\uf001coc." + id + "\"}"
+                        }
+                    }
+                }
+            }
+        },
+        "rewards": {
+            "function": f"coc:block/{id}/interact"
+        }
+    })
+
+    advancement revoke @s only f'coc:technical/interact/{id}'
+    title @s actionbar ""
+    stopsound @a * minecraft:block.chest.locked

@@ -1,9 +1,10 @@
 {
-    "block.coc.offering_altar": "Offering Altar",
+    "block.coc.amalgam_forge": "Amalgam Forge",
+    "block.coc.chaotic_converter": "Chaotic Converter",
+    "block.coc.eternal_burner": "Eternal Burner",
     "block.coc.focusing_crystal": "Focusing Crystal",
     "block.coc.gathering_crystal": "Gathering Crystal",
-    "block.coc.eternal_burner": "Eternal Burner",
-    "block.coc.chaotic_converter": "Chaotic Converter",
+    "block.coc.offering_altar": "Offering Altar",
 
     "item.coc.syringe": "Syringe",
     "item.coc.blood_vial": "Blood Vial",

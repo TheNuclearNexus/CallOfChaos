@@ -16,12 +16,12 @@ states = {
 
 if score @s coc.rift_energy matches 0:
     data modify entity @s ArmorItems[3].tag.CustomModelData set value states.off
-positioned ~ ~-1 ~ unless entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
-    data modify entity @s ArmorItems[3].tag.CustomModelData set value states.off
 
-positioned ~ ~-1 ~  if entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
-    positioned ~ ~1 ~ if score @s coc.rift_energy matches 1.. function ./update_model:
-        data modify entity @s Fire set value 2s
-        if block ~ ~1 ~ #coc:air data modify entity @s ArmorItems[3].tag.CustomModelData set value states.on
-        unless block ~ ~1 ~ #coc:air data modify entity @s ArmorItems[3].tag.CustomModelData set value states.smelting
+if score @s coc.rift_energy matches 1.. function ./update_model:
+    data modify entity @s Fire set value 2s
+    
+    positioned ~ ~-1 ~ unless entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
+        data modify entity @s ArmorItems[3].tag.CustomModelData set value states.on
+    positioned ~ ~-1 ~ if entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
+        data modify entity @s ArmorItems[3].tag.CustomModelData set value states.smelting
 
