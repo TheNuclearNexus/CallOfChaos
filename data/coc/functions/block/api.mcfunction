@@ -13,9 +13,9 @@ def register(id, fiveTick=False, oneSecond=False):
         append function ./1second:
             if entity @s[tag=f'coc.{id}'] function f'coc:block/{id}/1second'
 
-register('amalgam_forge', oneSecond=True)
-register('chaotic_converter', oneSecond=True)
-register('eternal_burner', oneSecond=True)
+register('amalgam_forge',       fiveTick=True,  oneSecond=True)
+register('chaotic_converter',   fiveTick=False, oneSecond=True)
+register('eternal_burner',      fiveTick=True,  oneSecond=true)
 register('focusing_crystal')
 register('offering_altar')
 

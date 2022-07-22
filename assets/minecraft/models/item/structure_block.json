@@ -11,13 +11,13 @@
             "predicate": {
                 "custom_model_data": 4260002
             },
-            "model": "coc:item/chaos_crystal_shard"
+            "model": "coc:item/chaos_shard"
         },
         {
             "predicate": {
                 "custom_model_data": 4260003
             },
-            "model": "coc:item/chaos_alloy"
+            "model": "coc:item/blight_steel"
         },
         {
             "predicate": {

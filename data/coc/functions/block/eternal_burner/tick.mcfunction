@@ -6,8 +6,11 @@ unless block ~ ~ ~ furnace function ./break:
         kill @s
     kill @s
 
-if score @s coc.rift_energy matches 0 data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260005
+scoreboard players set $cmd coc.dummy 4260005
 if score @s coc.rift_energy matches 1.. function ./update_model:
     data modify entity @s Fire set value 2s
-    if block ~ ~1 ~ #coc:air data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260007
-    unless block ~ ~1 ~ #coc:air data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260006
+    scoreboard players set $cmd coc.dummy 4260006
+
+    if block ~ ~1 ~ #coc:air if score @s coc.rift_energy matches 5.. scoreboard players set $cmd coc.dummy 4260007
+    # tellraw @a [{"score":{"objective":"coc.rift_energy","name":"@s"}}]
+store result entity @s ArmorItems[3].tag.CustomModelData int 1 scoreboard players get $cmd coc.dummy

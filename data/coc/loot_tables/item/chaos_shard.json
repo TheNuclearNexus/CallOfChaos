@@ -9,7 +9,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{CustomModelData:4260003,display:{Name:'{\"translate\":\"item.coc.chaos_alloy\",\"italic\":false}'},smithed:{id:\"coc:chaos_alloy\"}}"
+                "tag": "{CustomModelData:4260002,display:{Name:'{\"translate\":\"item.coc.chaos_shard\",\"italic\":false}'},smithed:{id:\"coc:chaos_shard\"}}"
               }
             ]
           }

@@ -4,6 +4,8 @@ unless block ~ ~ ~ furnace function ./break:
         store result score $count coc.dummy data get entity @s Item.Count
         loot spawn ~ ~ ~ loot coc:block/amalgam_forge
         kill @s
+
+    positioned ~ ~0.58 ~ kill @e[type=area_effect_cloud,tag=coc.amalgam_forge.display,distance=..0.5]
     kill @s
 
 states = {
@@ -14,14 +16,15 @@ states = {
 
 
 
-if score @s coc.rift_energy matches 0:
-    data modify entity @s ArmorItems[3].tag.CustomModelData set value states.off
+scoreboard players set $cmd coc.dummy states.off
 
 if score @s coc.rift_energy matches 1.. function ./update_model:
     data modify entity @s Fire set value 2s
     
-    positioned ~ ~-1 ~ unless entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
-        data modify entity @s ArmorItems[3].tag.CustomModelData set value states.on
-    positioned ~ ~-1 ~ if entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}]:
-        data modify entity @s ArmorItems[3].tag.CustomModelData set value states.smelting
+    scoreboard players set $cmd coc.dummy states.on
+
+    positioned ~ ~-1 ~ if entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}] if score @s coc.rift_energy matches 20..:
+        scoreboard players set $cmd coc.dummy states.smelting
+store result entity @s ArmorItems[3].tag.CustomModelData int 1 scoreboard players get $cmd coc.dummy
+
 
