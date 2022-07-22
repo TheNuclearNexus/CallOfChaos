@@ -30,7 +30,7 @@
             "ascent": 11,
             "height": 16,
             "chars": [
-                "\uc003"
+                "\uc004"
             ]
         },
         {
@@ -39,7 +39,7 @@
             "ascent": 11,
             "height": 16,
             "chars": [
-                "\uc004"
+                "\uc005"
             ]
         },
         {
@@ -48,7 +48,7 @@
             "ascent": 11,
             "height": 16,
             "chars": [
-                "\uc005"
+                "\uc006"
             ]
         },
         {
@@ -57,7 +57,7 @@
             "ascent": 11,
             "height": 16,
             "chars": [
-                "\uc006"
+                "\uc007"
             ]
         }
     ]
