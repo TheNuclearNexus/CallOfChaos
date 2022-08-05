@@ -1,0 +1,14 @@
+{
+    "structures": [
+      {
+        "structure": "coc:cultist_base",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "salt": 122340124,
+      "spacing": 35,
+      "separation": 10,
+      "type": "minecraft:random_spread"
+    }
+  }

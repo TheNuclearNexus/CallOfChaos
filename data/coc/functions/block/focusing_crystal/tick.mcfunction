@@ -1,8 +1,6 @@
-unless block ~ ~ ~ lantern function ./break:
-    playsound block.glass.break master @a
-    particle minecraft:block minecraft:amethyst_cluster ~ ~ ~ 0.25 0.25 0.25 0 20
+unless block ~ ~ ~ #minecraft:flower_pots function ./break:
 
-    as @e[type=item,nbt={Item:{"id":"minecraft:lantern"}},distance=..3]:
+    as @e[type=item,nbt={Item:{"id":"minecraft:flower_pot"}},distance=..3]:
         scoreboard players set $count coc.dummy 0
         store result score $rawCount coc.dummy data get entity @s Item.Count
         as @e[type=minecraft:armor_stand,tag=coc.focusing_crystal,distance=..4,tag=!coc.broken] at @s unless block ~ ~ ~ lantern:

@@ -5,6 +5,7 @@
 		"0": "coc:block/gathering_lantern_disabled",
 		"particle": "coc:block/gathering_lantern_disabled"
 	},
+	"gui_light": "front",
 	"elements": [
 		{
 			"from": [5, 0, 5],
@@ -52,14 +53,12 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
+			"rotation": [69, 46, 0],
+			"translation": [0, -2.75, -2]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
+			"rotation": [70, 45, 0],
+			"translation": [0, -2.75, -2]
 		},
 		"firstperson_righthand": {
 			"rotation": [0, 45, 0],
@@ -74,12 +73,11 @@
 			"scale": [0.25, 0.25, 0.25]
 		},
 		"gui": {
-			"rotation": [30, 225, 0],
-			"scale": [0.625, 0.625, 0.625]
+			"translation": [0, 2, 0]
 		},
 		"head": {
-			"translation": [0, -43.23, 0],
-			"scale": [1.601, 1.601, 1.601]
+			"translation": [0, -30.43, 0],
+			"scale": [1.602, 1.602, 1.602]
 		},
 		"fixed": {
 			"scale": [0.5, 0.5, 0.5]

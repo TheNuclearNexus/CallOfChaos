@@ -20,7 +20,7 @@ as @e[type=armor_stand,tag=coc.natural_rift,sort=nearest,limit=1,distance=..8] a
             unless score $altars coc.dummy matches f'..{numAltars[i]}' function ./place/disable
             if score $altars coc.dummy matches f'..{numAltars[i]}' function ./place/enable
 
-unless entity @e[type=armor_stand,tag=coc.natural_rift,distance=..8] data modify entity @e[type=armor_stand,tag=coc.offering_altar,distance=..1,sort=nearest,limit=1] ArmorItems[3].tag.CustomModelData set value 0
+unless entity @e[type=armor_stand,tag=coc.natural_rift,distance=..8] data modify entity @e[type=armor_stand,tag=coc.offering_altar,distance=..1,sort=nearest,limit=1] ArmorItems[3].tag.CustomModelData set value 4260002
 
 
 append function ./place/disable:

@@ -15,18 +15,6 @@
         },
         {
             "predicate": {
-                "custom_model_data": 4260003
-            },
-            "model": "coc:block/focusing_crystal"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260004
-            },
-            "model": "coc:block/gathering_crystal"
-        },
-        {
-            "predicate": {
                 "custom_model_data": 4260005
             },
             "model": "coc:block/eternal_burner_disabled"
@@ -60,6 +48,42 @@
                 "custom_model_data": 4260010
             },
             "model": "coc:block/amalgam_forge_smelting"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260011
+            },
+            "model": "coc:block/focusing_crystal_tier1"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260012
+            },
+            "model": "coc:block/focusing_crystal_tier2"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260013
+            },
+            "model": "coc:block/gathering_lantern_disabled"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260014
+            },
+            "model": "coc:block/gathering_lantern"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260015
+            },
+            "model": "coc:block/gathering_lantern_hanging_disabled"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260016
+            },
+            "model": "coc:block/gathering_lantern_hanging"
         }
     ]
 }

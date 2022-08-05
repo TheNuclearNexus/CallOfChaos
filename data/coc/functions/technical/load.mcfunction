@@ -38,11 +38,19 @@ if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     scoreboard objectives add coc.rift_id dummy
     scoreboard objectives add coc.player_id dummy
     scoreboard objectives add coc.pact_id dummy
+    scoreboard objectives add coc.pact_members dummy 
     scoreboard objectives add coc.rift_energy dummy
     scoreboard objectives add coc.rift_energy_pool dummy
+    scoreboard objectives add coc.rift.flow dummy
+
+
+    scoreboard objectives add coc.lifetime dummy
+    scoreboard objectives add coc.cost dummy
 
     scoreboard objectives add coc.relation.lvl dummy
     scoreboard objectives add coc.relation.pts dummy
+
+
 
     setblock -30000000 3 1600 barrel
 
@@ -55,5 +63,6 @@ if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     function coc:technical/5tick
     function coc:technical/1second
 
+    if data storage coc:rift Contracts[] schedule function coc:entity/natural_rift/contract/process 1t replace
 
 

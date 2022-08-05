@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:furnace",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CustomModelData:4260013,display:{Name:'{\"translate\":\"block.coc.gathering_lantern\",\"italic\":false}'},smithed:{id:\"coc:gathering_lantern\"},BlockEntityTag:{Items:[{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{smithed:{block:{id:\"coc:gathering_lantern\"}}}}]}}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

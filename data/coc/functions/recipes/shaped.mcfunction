@@ -47,7 +47,13 @@ store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data
         loot replace block ~ ~ ~ container.16 loot coc:item/amalgam_forge
 
 store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data storage smithed.crafter:input recipe{
-    0:[{Slot:0b,id:"minecraft:air"},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:iron_nugger"}],
-    1:[{Slot:0b,id:"minecraft:air"},{Slot:1b,id:"minecraft:glass_block"},{Slot:2b,id:"minecraft:air"}],
+    0:[{Slot:0b,id:"minecraft:air"},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:iron_nugget"}],
+    1:[{Slot:0b,id:"minecraft:air"},{Slot:1b,id:"minecraft:glass"},{Slot:2b,id:"minecraft:air"}],
     2:[{Slot:0b,id:"minecraft:iron_ingot"},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:air"}]}:
         loot replace block ~ ~ ~ container.16 loot coc:item/syringe
+
+store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data storage smithed.crafter:input recipe{
+    0:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:blight_steel"}}},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:air"}],
+    1:[{Slot:0b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:blight_steel"}}},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:air"}],
+    2:[{Slot:0b,id:"minecraft:stick"},{Slot:1b,id:"minecraft:air"},{Slot:2b,id:"minecraft:air"}]}:
+        loot replace block ~ ~ ~ container.16 loot coc:item/blight_steel_dagger

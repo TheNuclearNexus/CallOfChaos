@@ -12,6 +12,7 @@ require:
   - bolt_expressions
   - plugins.nbt_literals
   - beet.contrib.lantern_load.base_data_pack
+  - beet.contrib.worldgen
 
 
 data_pack:

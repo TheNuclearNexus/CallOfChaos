@@ -5,8 +5,10 @@ append function ./try_distribute:
             scoreboard players remove $naturalRift coc.rift_energy 1
 
 append function ./draw_wire:
-    particle dragon_breath ^ ^0.35 ^0.5 0 0 0 0 1
-    particle dragon_breath ^ ^0.35 ^0 0 0 0 0 1
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.75 0 0 0 0 5
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.50 0 0 0 0 5
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.25 0 0 0 0 5
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.00 0 0 0 0 5
 
     positioned ^ ^ ^1 unless entity @s[distance=..0.5] function ./draw_wire 
 
@@ -30,21 +32,25 @@ append function ./transfer:
     handleTransferer('..16')
 
 
+execute function ./init_transfer:
+    scoreboard players set $naturalRift coc.rift_energy 1
+    as @e[type=armor_stand,tag=coc.focusing_crystal,distance=..8,limit=4,sort=nearest] function ./get_focusing:
+        scoreboard players add $naturalRift coc.rift_energy 1
+        positioned ~ ~2 ~ facing entity @s feet function ./draw_wire
 
-if score @s coc.rift_energy_pool matches 1.. function ./move_from_pool:     
-    scoreboard players remove @s coc.rift_energy_pool 4
-    scoreboard players add @s coc.rift_energy 4
+    scoreboard players operation $max coc.rift_energy = @s coc.relation.lvl
+    if score @s coc.rift.flow matches 1.. function ./add_flow:
+        scoreboard players add $max coc.rift_energy 1
+        scoreboard players remove @s coc.rift.flow 1
+    if score $naturalRift coc.rift_energy > $max coc.rift_energy scoreboard players operation $naturalRift coc.rift_energy = $max coc.rift_energy
 
-if score @s coc.rift_energy matches 1.. function ./init_transfer:
-    scoreboard players operation $naturalRift coc.rift_energy = @s coc.rift_energy
 
-
-    handleReciever('..32')
-    handleTransferer('..32')
+    positioned ~ ~2 ~ function ./init_transfer/handle:
+        handleReciever('..12')
+        handleTransferer('..12')
     
         # tag @s remove coc.transfered
 
     tag @e remove coc.transfered
     tag @e remove coc.received
-    scoreboard players operation @s coc.rift_energy = $naturalRift coc.rift_energy
 

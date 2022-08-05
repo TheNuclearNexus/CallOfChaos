@@ -1,4 +1,4 @@
 __dist__/
 .beet_cache/
-
+.vscode/
 **/__pycache__/

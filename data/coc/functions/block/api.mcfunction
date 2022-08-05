@@ -17,6 +17,7 @@ register('amalgam_forge',       fiveTick=True,  oneSecond=True)
 register('chaotic_converter',   fiveTick=False, oneSecond=True)
 register('eternal_burner',      fiveTick=True,  oneSecond=true)
 register('focusing_crystal')
+register('gathering_lantern')
 register('offering_altar')
 
 def interact(id):
