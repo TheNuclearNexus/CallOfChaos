@@ -6,6 +6,7 @@ minecraft: 1.19
 
 pipeline:
   - mecha
+  - beet.contrib.copy_files
 
 require:
   - bolt
@@ -23,6 +24,7 @@ data_pack:
     functions:
       - coc:*
 
+
 resource_pack:
   name: Call of Chaos [RP]
   load:
@@ -33,3 +35,6 @@ output: '__dist__'
 meta:
   bolt_expressions:
     init_path: 'technical/init'
+  copy_files:
+    data_pack: 
+     data/coc/item_groups: data/coc/item_groups

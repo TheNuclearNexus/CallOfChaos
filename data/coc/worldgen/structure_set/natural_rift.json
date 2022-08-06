@@ -1,0 +1,18 @@
+{
+    "structures": [
+      {
+        "structure": "coc:natural_rift",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "salt": 456322680,
+      "spacing": 24,
+      "separation": 10,
+      "type": "minecraft:random_spread",
+      "exclusion_zone": {
+        "chunk_count": 5,
+        "other_set": "coc:cultist_base"
+      }
+    }
+  }

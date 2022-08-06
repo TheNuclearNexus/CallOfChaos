@@ -61,8 +61,9 @@ execute function ./process/each:
         store result score $time coc.dummy time query gametime
 
         if score $endTime coc.dummy <= $time coc.dummy function ./process/fail:
-            title @a title "LOST"
+            # TODO: Add contract lost message 
             dummy["$id"] = temp.Contract.pactId
+            as @a if score @s coc.pact_id = $id coc.pact_id tellraw @s {"translate":"text.coc.natural_rift.contract.loss","color":"gray"}
             as @e[tag=coc.contract_enemy] if score @s coc.pact_id = $id coc.dummy tp @s ~ -128 ~
 
         dummy["$cycle"] = dummy["$time"] % 5
@@ -88,9 +89,13 @@ execute function ./process/each:
     #     \__/  \__/     |__| |__| \__| 
     #
     if score $acquiredCost coc.dummy matches ..0 function ./process/win:
-        title @a title "WIN"
-
+        # TODO: add win message
         dummy["$id"] = temp.Contract.pactId
+        as @a if score @s coc.pact_id = $id coc.pact_id tellraw @s {"translate":"text.coc.natural_rift.contract.win","color":"gray"}
+        as @e[type=minecraft:armor_stand,tag=coc.natural_rift]:
+            scoreboard players add @s coc.relation.pts 5
+            function coc:entity/natural_rift/relation/check_level_up
+
         as @e[tag=coc.contract_enemy] if score @s coc.pact_id = $id coc.dummy tp @s ~ -128 ~
 
 append function ./process/spawn:

@@ -15,6 +15,12 @@
                 "custom_model_data": 4260002
             },
             "model": "coc:item/blightsight_goggles"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260003
+            },
+            "model": "coc:item/rift_blade"
         }
     ]
   }

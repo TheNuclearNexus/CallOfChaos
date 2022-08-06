@@ -10,7 +10,7 @@ as @e[type=minecraft:armor_stand,tag=coc.offering_altar,dx=0] if entity @s[tag=c
                 as @e[type=minecraft:item,tag=coc.offering_item,distance=..8]:
                     data modify storage coc:temp Items append from entity @s Item
             
-            scoreboard players set $xp coc.dummy 1
+            scoreboard players set $xp coc.dummy 0
             scoreboard players set $suc coc.dummy 0
 
             function ../../recipes/rituals

@@ -1,4 +1,6 @@
+kill @s
 unless entity @e[tag=coc.natural_rift,distance=..196] align xyz positioned ~.5 ~ ~.5 function ./summon/valid:
+    fill ~ ~ ~ ~ ~1 ~ air
     summon armor_stand ~ ~ ~ {Tags:["coc.natural_rift","coc.ticking","coc.setup"],Marker:1b,Invisible:1b,NoGravity:1b}
     summon snowball ~ ~2.25 ~ {Tags:["coc.natural_rift.display","coc.setup"],Item:{id:"minecraft:snowball",tag:{CustomModelData:4260001},Count:1b},NoGravity:1b,Invulnerable:1b}
 

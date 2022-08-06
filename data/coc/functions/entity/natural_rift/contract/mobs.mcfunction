@@ -71,5 +71,29 @@ leveledMobs = [
             nbt: {Tags:["coc.level.4"],ActiveEffects:[{Id:14,Amplifier:0b,Duration:90}]},
             cost: 28, weight:9, lifetime: 60
         }
+    ],
+    [
+        {
+            id: "minecraft:husk", 
+            nbt: {Tags:["coc.level.5"], ActiveEffects:[{Id:1,Amplifier:3b,Duration:999999}],Attributes:[{Name:"generic.attack_damage",Base:4}]},
+            cost: 39, weight:12, lifetime: 30
+        },
+        {
+            id: "minecraft:skeleton", 
+            nbt: {Tags:["coc.level.5"],HandItems:[{id:"minecraft:bow",Count:1b,tag:{Enchantments:[{id:"minecraft:power",lvl:2s}]}},{id:"minecraft:tipped_arrow",Count:1b,tag:{CustomPotionEffects:[{Id:15,Amplifier:0b,Duration:60}],CustomPotionColor:1644825}}]},
+            cost: 33, weight:7, lifetime: 60
+        }
+    ],
+    [
+        {
+            id: "minecraft:husk", 
+            nbt: {Tags:["coc.level.6"], ActiveEffects:[{Id:1,Amplifier:3b,Duration:999999}],Attributes:[{Name:"generic.attack_damage",Base:4}]},
+            cost: 46, weight:12, lifetime: 30
+        },
+        {
+            id: "minecraft:skeleton", 
+            nbt: {Tags:["coc.level.6"],HandItems:[{id:"minecraft:bow",Count:1b,tag:{Enchantments:[{id:"minecraft:power",lvl:2s},{id: "minecraft:flame", lvl:1s}]}},{id:"minecraft:tipped_arrow",Count:1b,tag:{CustomPotionEffects:[{Id:15,Amplifier:0b,Duration:60}],CustomPotionColor:1644825}}]},
+            cost: 39, weight:3, lifetime: 60
+        }
     ]
 ]

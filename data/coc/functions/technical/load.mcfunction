@@ -50,6 +50,8 @@ if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     scoreboard objectives add coc.relation.lvl dummy
     scoreboard objectives add coc.relation.pts dummy
 
+    scoreboard objectives add coc.goggles.id dummy
+    scoreboard objectives add coc.goggles.energy dummy
 
 
     setblock -30000000 3 1600 barrel

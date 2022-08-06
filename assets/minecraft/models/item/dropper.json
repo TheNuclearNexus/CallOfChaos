@@ -5,37 +5,37 @@
             "predicate": {
                 "custom_model_data": 4260001
             },
-            "model": "coc:block/chaotic_converter_off"
+            "model": "coc:block/entropic_accelerator_disabled"
         },
         {
             "predicate": {
                 "custom_model_data": 4260002
             },
-            "model": "coc:block/chaotic_converter_on"
+            "model": "coc:block/entropic_accelerator"
         },
         {
             "predicate": {
                 "custom_model_data": 4260003
             },
-            "model": "coc:block/chaotic_converter_up_off"
+            "model": "coc:block/entropic_accelerator_disabled_up"
         },
         {
             "predicate": {
                 "custom_model_data": 4260004
             },
-            "model": "coc:block/chaotic_converter_up_on"
+            "model": "coc:block/entropic_accelerator_up"
         },
         {
             "predicate": {
                 "custom_model_data": 4260005
             },
-            "model": "coc:block/chaotic_converter_down_off"
+            "model": "coc:block/entropic_accelerator_disabled_down"
         },
         {
             "predicate": {
                 "custom_model_data": 4260006
             },
-            "model": "coc:block/chaotic_converter_down_on"
+            "model": "coc:block/entropic_accelerator_down"
         }
     ]
 }

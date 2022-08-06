@@ -84,6 +84,12 @@
                 "custom_model_data": 4260016
             },
             "model": "coc:block/gathering_lantern_hanging"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260017
+            },
+            "model": "coc:block/rift_stabilizer"
         }
     ]
 }

@@ -10,6 +10,8 @@ append function ./level_up:
 
 maxLevel = 20
 
+levelRequirements = []
+
 for lvl in range(1,maxLevel):
     if lvl > 0 and lvl <= 7:
         reqPts = 2 * lvl + 7
@@ -17,6 +19,9 @@ for lvl in range(1,maxLevel):
         reqPts = 5 * lvl + 35
     elif lvl > 14 and lvl <= 21:
         reqPts = 10 * lvl + 100
-    
-    if score @s coc.relation.lvl matches lvl if score @s coc.relation.pts matches f'{reqPts}..' function ./level_up
+    levelRequirements.append(reqPts)
+
+for lvl in range(len(levelRequirements)):    
+    reqPts = levelRequirements[lvl]
+    if score @s coc.relation.lvl matches (lvl+1) if score @s coc.relation.pts matches f'{reqPts}..' function ./level_up
         

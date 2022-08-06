@@ -3,13 +3,13 @@ import nbtlib
 def summonStand(model, rot):
     rot = nbtlib.Float(rot)
 
-    tags = ["coc.chaotic_converter","coc.ticking","coc.energy.receiver"]
+    tags = ["coc.entropic_accelerator","coc.ticking","coc.energy.receiver"]
     if model == 4260003:
         tags.append("coc.up")
     elif model == 4260005:
         tags.append("coc.down")
         
-    summon armor_stand ~ ~-0.5 ~ {
+    summon armor_stand ~ ~ ~ {
         Tags:tags,
         Invisible:1b,Invulnerable:1b,Marker:1b,NoGravity:1b,
         ArmorItems:[{},{},{},{
@@ -38,5 +38,5 @@ if block ~ ~ ~ dropper[facing=up]:
 if block ~ ~ ~ dropper[facing=down]:
     summonStand(4260005, 0f)
 
-setblock ~ ~ ~ furnace{Lock:'\\\\uf001coc.chaotic_converter',CustomName:'{"translate":"block.coc.chaotic_converter"}'}
+setblock ~ ~ ~ furnace{Lock:'\\uf001coc.entropic_accelerator',CustomName:'{"translate":"block.coc.entropic_accelerator"}'}
 

@@ -1,6 +1,6 @@
 {
     "block.coc.amalgam_forge": "Amalgam Forge",
-    "block.coc.chaotic_converter": "Chaotic Converter",
+    "block.coc.entropic_accelerator": "Entropic Accelerator",
     "block.coc.eternal_burner": "Eternal Burner",
     "block.coc.focusing_crystal": "Focusing Crystal",
     "block.coc.gathering_crystal": "Gathering Crystal",
@@ -15,17 +15,35 @@
     "item.coc.blight_steel": "§fBlight Steel",
     "item.coc.nebulous_powder": "§fNebulous Powder",
     "item.coc.nebulous_crystal": "§fNebulous Crystal",
+    
     "item.coc.crystaline_lens": "§fCrystaline Lens",
     "item.coc.entropic_lens": "§fEntropic Lens",
     "item.coc.polymorphic_lens": "§fPolymorphic Lens",
+
     "item.coc.chaos_focuser": "§fChaos Focuser",
     "item.coc.blight_steel_dagger": "Blight Steel Dagger",
     "item.coc.blightsight_goggles": "Blightsight Goggles",
+
+    "item.coc.raw_copper_chunk": "§fRaw Copper Chunk",
+    "item.coc.raw_gold_chunk": "§fRaw Gold Chunk",
+    "item.coc.raw_iron_chunk": "§fRaw Iron Chunk",
+
+    "item.coc.entropic_accelterator": "Entropic Accelerator",
+
+    "itemGroup.coc.main": "Call of Chaos",
 
     "death.coc.natural_rift": "%s was consumed by the chaos",
     "death.coc.syringe": "%s drew too much blood",
     
     "text.coc.natural_rift.activate.fail": "The rift does not seem to respond",
     "text.coc.natural_rift.activate.pass": "The rift begins to shift slightly in response",
-    "text.coc.natural_rift.relation.level_up": "You sense a change in the rift's energy"
+    "text.coc.natural_rift.relation.level_up": "You sense a change in the rift's energy",
+    "text.coc.natural_rift.contract.win": "The pounding in your heads seems to subside.\n- Contract Completed -",
+    "text.coc.natural_rift.contract.loss": "You feel the world tremble beneath you.\n- Contract Failed -",
+
+    "text.coc.goggles.energy": "Chaos Flux: %s",
+    "text.coc.goggles.relation": "Relation Level: %s (%s/%s)",
+    "text.coc.goggles.energy_output": "Chaos Flux Output: %s/%s",
+    "text.coc.goggles.flow": "Remaining Flow: %s"
+
 }

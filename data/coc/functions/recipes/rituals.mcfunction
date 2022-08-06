@@ -11,7 +11,8 @@ def ritual(name, ingredients, counts, level=0):
             if score f'${idx}' coc.dummy matches counts[idx] scoreboard players add $validIngredients coc.dummy 1
         if score $validIngredients coc.dummy matches len(ingredients) function f'coc:recipes/rituals/{name}/matched':
             yield
-
+            if entity @s[tag=!f'coc.{name}'] scoreboard players set $xp coc.dummy 1
+            tag @s add f'coc.{name}'
 if entity @s[tag=!coc.has_contract] if data storage coc:temp Items[{id:"minecraft:writable_book"}] function ./rituals/contract:
     scoreboard players set $suc coc.dummy 1
     function ../../entity/natural_rift/contract/generate
@@ -54,6 +55,14 @@ with ritual(
     loot spawn ~ ~ ~ loot coc:item/eternal_burner
     
 with ritual(
+    name='blightsight_goggles', 
+    level=2,
+    ingredients=[{'id':"minecraft:tinted_glass"},{'id':"minecraft:structure_block",'tag':{smithed:{'id': "coc:blight_steel"}}}],
+    counts=[1,1]):
+    scoreboard players set $suc coc.dummy 1
+    loot spawn ~ ~ ~ loot coc:item/blightsight_goggles
+
+with ritual(
     name='focusing_crystal', 
     level=2,
     ingredients=[{'id':"minecraft:diamond"},{'id':"minecraft:structure_block",'tag':{smithed:{'id': "coc:chaos_crystal"}}}],
@@ -76,3 +85,20 @@ with ritual(
     counts=[1,1,1]):
     scoreboard players set $suc coc.dummy 1
     loot spawn ~ ~ ~ loot coc:item/gathering_lantern
+
+with ritual(
+    name='entropic_lens', 
+    level=3,
+    ingredients=[{'id':"minecraft:ender_pearl"},{'id':"minecraft:structure_block",'tag':{smithed:{'id': "coc:chaos_crystal"}}},{'id':"minecraft:glass_pane"}],
+    counts=[1,1,1]):
+    scoreboard players set $suc coc.dummy 1
+    loot spawn ~ ~ ~ loot coc:item/entropic_lens
+
+
+with ritual(
+    name='crystaline_lens', 
+    level=3,
+    ingredients=[{'id':"minecraft:quartz"},{'id':"minecraft:structure_block",'tag':{smithed:{'id': "coc:chaos_crystal"}}},{'id':"minecraft:glass_pane"}],
+    counts=[1,1,1]):
+    scoreboard players set $suc coc.dummy 1
+    loot spawn ~ ~ ~ loot coc:item/crystaline_lens

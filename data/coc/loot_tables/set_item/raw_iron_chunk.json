@@ -5,7 +5,7 @@
         "entries": [
           {
             "type": "minecraft:loot_table",
-            "name": "coc:item/chaotic_converter",
+            "name": "coc:item/raw_iron_chunk",
             "functions": [
               {
                 "function": "minecraft:set_count",

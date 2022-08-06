@@ -53,7 +53,25 @@
             "predicate": {
                 "custom_model_data": 4260009
             },
-            "model": "coc:item/chaos_focuser"
+            "model": "coc:block/chaos_focuser"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260010
+            },
+            "model": "coc:item/raw_copper_chunk"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260011
+            },
+            "model": "coc:item/raw_gold_chunk"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260012
+            },
+            "model": "coc:item/raw_iron_chunk"
         }
     ]
 }

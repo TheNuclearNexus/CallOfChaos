@@ -5,10 +5,10 @@ append function ./try_distribute:
             scoreboard players remove $naturalRift coc.rift_energy 1
 
 append function ./draw_wire:
-    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.75 0 0 0 0 5
-    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.50 0 0 0 0 5
-    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.25 0 0 0 0 5
-    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.00 0 0 0 0 5
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.75 0 0 0 0 5 normal @a[tag=coc.goggles]
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.50 0 0 0 0 5 normal @a[tag=coc.goggles]
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.25 0 0 0 0 5 normal @a[tag=coc.goggles]
+    particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^0.35 ^0.00 0 0 0 0 5 normal @a[tag=coc.goggles]
 
     positioned ^ ^ ^1 unless entity @s[distance=..0.5] function ./draw_wire 
 
@@ -31,8 +31,7 @@ append function ./transfer:
     handleReciever('..16')
     handleTransferer('..16')
 
-
-execute function ./init_transfer:
+append function ./get_energy_stats:
     scoreboard players set $naturalRift coc.rift_energy 1
     as @e[type=armor_stand,tag=coc.focusing_crystal,distance=..8,limit=4,sort=nearest] function ./get_focusing:
         scoreboard players add $naturalRift coc.rift_energy 1
@@ -40,9 +39,15 @@ execute function ./init_transfer:
 
     scoreboard players operation $max coc.rift_energy = @s coc.relation.lvl
     if score @s coc.rift.flow matches 1.. function ./add_flow:
-        scoreboard players add $max coc.rift_energy 1
-        scoreboard players remove @s coc.rift.flow 1
+        scoreboard players add $max coc.rift_energy 2
     if score $naturalRift coc.rift_energy > $max coc.rift_energy scoreboard players operation $naturalRift coc.rift_energy = $max coc.rift_energy
+
+execute function ./init_transfer:
+    tag @a[nbt={Inventory:[{Slot:103b,tag:{smithed:{id:"coc:blightsight_goggles"}}}]}] add coc.goggles
+
+    function ./get_energy_stats
+    if score @s coc.rift.flow matches 1..:
+        scoreboard players remove @s coc.rift.flow 1
 
 
     positioned ~ ~2 ~ function ./init_transfer/handle:
@@ -50,6 +55,7 @@ execute function ./init_transfer:
         handleTransferer('..12')
     
         # tag @s remove coc.transfered
+    tag @a remove coc.goggles
 
     tag @e remove coc.transfered
     tag @e remove coc.received
