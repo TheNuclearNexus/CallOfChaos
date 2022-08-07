@@ -25,6 +25,8 @@ temp.Contract.remainingCost = dummy["$baseCost"]
 store result storage coc:temp Contract.pactId int 1 scoreboard players get @s coc.pact_id
 
 store result score $time coc.dummy time query gametime
+store result storage coc:temp Contract.startTime int 1 scoreboard players get $time coc.dummy
+
 scoreboard players add $time coc.dummy (10*60*20)
 
 store result storage coc:temp Contract.endTime int 1 scoreboard players get $time coc.dummy

@@ -4,7 +4,7 @@ append function ./level_up:
     scoreboard players set @s coc.relation.pts 1
 
     as @a if score @s coc.pact_id = $id coc.pact_id:
-        tellraw @s [{"translate":"text.coc.natural_rift.relation.level_up","italic":true,"color":"gray"}]
+        tellraw @s [{"translate":"text.coc.natural_rift.relation.level_up","italic":true,"color":"purple"}]
 
     particle dragon_breath ~ ~1 ~ 1 1 1 1 20
 

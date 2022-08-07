@@ -14,4 +14,8 @@ store result score @s coc.dummy schedule function coc:block/offering_altar/activ
         particle minecraft:explosion ~ ~1 ~ 0.5 0.5 0.5 1 10
         playsound minecraft:entity.generic.explode master @a ~ ~1 ~ 2 0
         playsound minecraft:block.respawn_anchor.charge master @a ~ ~1 ~ 2 2
+
+        
+        as @a at @s playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.2 2
+        as @a at @s playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 1.3
         tag @s remove coc.explode

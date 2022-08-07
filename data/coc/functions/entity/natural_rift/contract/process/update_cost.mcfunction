@@ -28,5 +28,5 @@ schedule function ./schedule 1t append:
                 dummy["$acquiredCost"] -= dummy["$totalCost"]
                 temp.Contract.acquiredCost = dummy["$acquiredCost"]
             rift.Contracts.append(temp.Contract)
-        tellraw @a {"nbt":"Contracts","storage": "coc:rift"}
+        # tellraw @a {"nbt":"Contracts","storage": "coc:rift"}
     tag @a remove coc.killer

@@ -38,8 +38,13 @@
     "text.coc.natural_rift.activate.fail": "The rift does not seem to respond",
     "text.coc.natural_rift.activate.pass": "The rift begins to shift slightly in response",
     "text.coc.natural_rift.relation.level_up": "You sense a change in the rift's energy",
+    "text.coc.natural_rift.contract.start": "Your head begins to pound perfously\n- Contract Started -",
+    "text.coc.natural_rift.contract.bossbar": "Contract Progress: (%s%%)",
     "text.coc.natural_rift.contract.win": "The pounding in your heads seems to subside.\n- Contract Completed -",
     "text.coc.natural_rift.contract.loss": "You feel the world tremble beneath you.\n- Contract Failed -",
+    "text.coc.natural_rift.contract.half_time": "The pounding increases slightly.\n- Half of your time remains -",
+    "text.coc.natural_rift.contract.quarter_time": "The pounding increases dramatically.\n- A fourth of your time remains -",
+    "text.coc.natural_rift.contract.minute_left": "The pounding becomes excruciating.\n- One minute of your time remains -",
 
     "text.coc.goggles.energy": "Chaos Flux: %s",
     "text.coc.goggles.relation": "Relation Level: %s (%s/%s)",

@@ -53,6 +53,16 @@ if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     scoreboard objectives add coc.goggles.id dummy
     scoreboard objectives add coc.goggles.energy dummy
 
+    execute function ./generate_bossbars:
+        for i in range(0,21):
+            bossbar add f'coc:contract.{i*5}' {"text": ""}
+            bossbar set f'coc:contract.{i*5}' name {"translate":"text.coc.natural_rift.contract.bossbar","color":"light_purple","with":[{"text":f'{i*5}',"color":"gold"}]}
+            bossbar set f'coc:contract.{i*5}' color purple 
+            bossbar set f'coc:contract.{i*5}' style notched_20 
+            bossbar set f'coc:contract.{i*5}' max 20
+            bossbar set f'coc:contract.{i*5}' value i 
+
+
 
     setblock -30000000 3 1600 barrel
 

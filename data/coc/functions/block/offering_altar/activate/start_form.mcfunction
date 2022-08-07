@@ -40,7 +40,7 @@ if data storage coc:temp Item.tag.smithed{id:"coc:blood_vial"} if data storage c
                         if score @s coc.dummy matches ..20 tp @s ~ ~ ~ ~5 0
                         if score @s coc.dummy matches 21..35 tp @s ~ ~0.1 ~ ~5 0
                         if score @s coc.dummy matches 36..45 tp @s ~ ~0.05 ~ ~5 0
-                        if score @s coc.dummy matches 46..80 positioned ~ ~1 ~ facing entity @e[type=minecraft:armor_stand,tag=coc.natural_rift,sort=nearest,limit=1] feet positioned ~ ~-1 ~ positioned ^ ^ ^0.1 rotated as @s tp @s ~ ~ ~ ~5 0
+                        if score @s coc.dummy matches 46..80 positioned ~ ~-2 ~ facing entity @e[type=minecraft:armor_stand,tag=coc.natural_rift,sort=nearest,limit=1] feet positioned ~ ~2 ~ positioned ^ ^ ^0.1 rotated as @s tp @s ~ ~ ~ ~5 0
                         if score @s coc.dummy matches 80.. kill @s
                         if entity @e[type=minecraft:armor_stand,tag=coc.natural_rift,dx=0] kill @s
                     if entity @e[type=armor_stand,tag=coc.offering_item.animating] schedule function ./animate_item 1t replace

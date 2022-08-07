@@ -11,10 +11,17 @@ def ritual(name, ingredients, counts, level=0):
             if score f'${idx}' coc.dummy matches counts[idx] scoreboard players add $validIngredients coc.dummy 1
         if score $validIngredients coc.dummy matches len(ingredients) function f'coc:recipes/rituals/{name}/matched':
             yield
-            if entity @s[tag=!f'coc.{name}'] scoreboard players set $xp coc.dummy 1
-            tag @s add f'coc.{name}'
+            # if entity @s[tag=!f'coc.{name}'] scoreboard players set $xp coc.dummy 1
+            # tag @s add f'coc.{name}'
 if entity @s[tag=!coc.has_contract] if data storage coc:temp Items[{id:"minecraft:writable_book"}] function ./rituals/contract:
     scoreboard players set $suc coc.dummy 1
+    playsound minecraft:entity.wither.spawn master @a ~ ~ ~ 0.5 2
+    playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1.3
+    playsound minecraft:entity.ender_dragon.ambient master @a ~ ~ ~ 1 1
+
+    scoreboard players operation $id coc.dummy = @s coc.pact_id
+    as @a if score @s coc.pact_id = $id coc.dummy tellraw @s {"translate":"text.coc.natural_rift.contract.start","color":"gray"}
+
     function ../../entity/natural_rift/contract/generate
 
 

@@ -56,16 +56,42 @@ execute function ./process/each:
     temp.Contracts.remove(-1)
 
     dummy["$acquiredCost"] = temp.Contract.acquiredCost
+    dummy["$goalCost"] = temp.Contract.goalCost
+
+    dummy["$percent"] = 20 - (dummy["$acquiredCost"]*100 / dummy["$goalCost"] / 5)
+     
+    dummy["$id"] = temp.Contract.pactId
+    for i in range(0,21):
+        if score $percent coc.dummy matches i as @a if score @s coc.pact_id = $id coc.dummy tag @s add f'coc.bossbar.{i}'
+
+
     if score $acquiredCost coc.dummy matches 1.. function ./process/each/active:
         dummy["$endTime"] = temp.Contract.endTime
+        dummy["$startTime"] = temp.Contract.startTime
+        dummy["$totalTime"] = dummy["$endTime"] - dummy["$startTime"]
         store result score $time coc.dummy time query gametime
+        dummy["$remainingTime"] = dummy["$endTime"] - dummy["$time"]
+
+        dummy["$halfTime"] = dummy["$totalTime"] / 2
+        dummy["$quarterTime"] = dummy["$totalTime"] / 4
+        
+        if score $remainingTime coc.dummy = $halfTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy:
+            tellraw @s {"translate":"text.coc.natural_rift.contract.half_time","color":"gray"}
+        if score $remainingTime coc.dummy = $quarterTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy:
+            tellraw @s {"translate":"text.coc.natural_rift.contract.quarter_time","color":"gray"}
+        if score $remainingTime coc.dummy matches 1200 as @a if score @s coc.pact_id = $id coc.dummy:
+            tellraw @s {"translate":"text.coc.natural_rift.contract.minute_left","color":"gray"}
 
         if score $endTime coc.dummy <= $time coc.dummy function ./process/fail:
             # TODO: Add contract lost message 
-            dummy["$id"] = temp.Contract.pactId
-            as @a if score @s coc.pact_id = $id coc.pact_id tellraw @s {"translate":"text.coc.natural_rift.contract.loss","color":"gray"}
+            as @a if score @s coc.pact_id = $id coc.pact_id at @s function ./process/fail/sfx:
+                tellraw @s {"translate":"text.coc.natural_rift.contract.loss","color":"gray"}
+                playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 1
+                playsound minecraft:entity.enderman.stare master @s ~ ~ ~ 0.5 2
+                playsound minecraft:entity.evoker.prepare_summon master @s ~ ~ ~ 1 0.5
+                
             as @e[tag=coc.contract_enemy] if score @s coc.pact_id = $id coc.dummy tp @s ~ -128 ~
-
+                
         dummy["$cycle"] = dummy["$time"] % 5
         unless score $endTime coc.dummy <= $time coc.dummy function ./process/continue:
             dummy["$remainingCost"] = temp.Contract.remainingCost 
@@ -91,12 +117,22 @@ execute function ./process/each:
     if score $acquiredCost coc.dummy matches ..0 function ./process/win:
         # TODO: add win message
         dummy["$id"] = temp.Contract.pactId
-        as @a if score @s coc.pact_id = $id coc.pact_id tellraw @s {"translate":"text.coc.natural_rift.contract.win","color":"gray"}
-        as @e[type=minecraft:armor_stand,tag=coc.natural_rift]:
-            scoreboard players add @s coc.relation.pts 5
+        as @a if score @s coc.pact_id = $id coc.pact_id function ./process/win/sfx:
+            tellraw @s {"translate":"text.coc.natural_rift.contract.win","color":"gray"}
+            playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 1.5
+            playsound minecraft:block.amethyst_block.step master @s ~ ~ ~ 1 2
+            playsound minecraft:entity.evoker.prepare_summon master @s ~ ~ ~ 1 1.2
+        as @e[type=minecraft:armor_stand,tag=coc.natural_rift] if score @s coc.pact_id = $id coc.pact_id:
+            if score @s coc.relation.lvl matches 1 scoreboard players add @s coc.relation.pts 20
+            if score @s coc.relation.lvl matches 2.. scoreboard players add @s coc.relation.pts 5
             function coc:entity/natural_rift/relation/check_level_up
 
         as @e[tag=coc.contract_enemy] if score @s coc.pact_id = $id coc.dummy tp @s ~ -128 ~
+
+for i in range(0,21):
+    bossbar set f'coc:contract.{i*5}' players @a[tag=f'coc.bossbar.{i}']
+    tag @a remove f'coc.bossbar.{i}'
+
 
 append function ./process/spawn:
     loot replace block -30000000 3 1600 container.0 loot coc:technical/generate_attribute 
@@ -152,6 +188,9 @@ append function ./process/spawn:
         dummy["$valid"] = 0
         unless block ~ ~-1 ~ #coc:no_collision if block ~ ~ ~ #coc:no_collision if block ~ ~1 ~ #coc:no_collision function ./process/tp/sucess:
             scoreboard players set $valid coc.dummy 1
+            playsound minecraft:block.respawn_anchor.charge master @a ~ ~ ~ 1 0
+            particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ~ ~15 ~ 0 5 0 0 1000
+            particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ~ ~ ~ 0.4 0 0.4 0 1000
             tp @s ~ ~ ~
         unless score $valid coc.dummy matches 1.. unless block ~ ~ ~ #coc:no_collision function ./process/tp/y/up:
             if block ~ ~ ~ #coc:no_collision if block ~ ~1 ~ #coc:no_collision function ./process/tp/success
@@ -233,3 +272,7 @@ execute function ./process/tick_mobs:
 
 
 if data storage coc:rift Contracts[] schedule function ./process 1t replace
+unless data storage coc:rift Contracts[] function ./clear_bossbars:
+    for i in range(0,21):
+        bossbar set f'coc:contract.{i*5}' players
+        tag @a remove f'coc.bossbar.{i}'
