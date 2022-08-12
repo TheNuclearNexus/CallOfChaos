@@ -1,0 +1,1 @@
+beet -s 'data_pack.zipped = True' -s 'data_pack.name = "Call of Chaos {{project_version}}"' -s 'resource_pack.zipped = True' -s 'resource_pack.name = "Call of Chaos RP {{project_version}}"' 
