@@ -52,14 +52,15 @@
     "text.coc.goggles.flow": "Remaining Flow: %s",
 
     "text.coc.level": "Level %s",
-
+    "text.coc.refresh_knowledge": "Knowledge successfully refreshed!",
+    
     "subtitle.coc.entity.player.heartbeat": "Heartbeat",
     "subtitle.coc.entity.natural_rift.whisper": "Whispers",
 
     "ritual.coc.flow": "Flow I",
 
 
-    "advancements.coc.main.root.title": "Call of Chaos",
+    "advancements.coc.main.root.title": "Call of Chaos: §fProgression",
     "advancements.coc.main.root.description": "",
 
     "advancements.coc.main.rift.title": "A Powerful Force",
@@ -136,7 +137,7 @@
 
     "recipes.coc.workbench.offering_altar.title":           "Offering Altar      ",
     "recipes.coc.workbench.offering_altar.description":     "\uf001\n\n\n\n\n\n\n\n",
-    "recipes.coc.workbench.offering_altar.subtext":         "§fRight Click: §7Add/Remove item\n§fShift+Right Click: §7Activate",
+    "recipes.coc.workbench.offering_altar.subtext":         "You can place one per rift level\n§fRight Click: §7Add/Remove item\n§fShift+Right Click: §7Activate",
     "recipes.coc.workbench.syringe.title":                  "Syringe             ",
     "recipes.coc.workbench.syringe.description":            "\uf002\n\n\n\n\n\n\n\n",
     "recipes.coc.workbench.syringe.subtext":                "§fRight Click: §7Fill a bottle in your inventory with blood",
@@ -150,9 +151,9 @@
     "recipes.coc.workbench.entropic_accelerator.title":     "Entropic Accelerator",
     "recipes.coc.workbench.entropic_accelerator.description":"\uf006\n\n\n\n\n\n\n\n",
     "recipes.coc.workbench.entropic_accelerator.subtext":   "Converts §ftuff§7, §fgranite§7 and §fblackstone§7 into their respective ore chunks. The number of chunks is based on the amount of energy stored.\n§fRight Click:§7 Activate",
-    "recipes.coc.workbench.blight_steel_dagger.title":     "Blight Steel Dagger  ",
+    "recipes.coc.workbench.blight_steel_dagger.title":      "Blight Steel Dagger  ",
     "recipes.coc.workbench.blight_steel_dagger.description":"\uf007\n\n\n\n\n\n\n\n",
-    "recipes.coc.workbench.blight_steel_dagger.subtext":   "",
+    "recipes.coc.workbench.blight_steel_dagger.subtext":    "",
     
     "recipes.coc.amalgam_forge.blight_steel.title":          "Blight Steel   ",
     "recipes.coc.amalgam_forge.blight_steel.description":    "\uf001\n\n\n\n\n\n",

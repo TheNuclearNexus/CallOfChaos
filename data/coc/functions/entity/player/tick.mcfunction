@@ -8,3 +8,4 @@ unless score @s coc.player_id matches 1.. function ./set_id:
     scoreboard players add $global coc.player_id 1
     scoreboard players operation @s coc.player_id = $global coc.player_id
     
+    

@@ -53,6 +53,8 @@ if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     scoreboard objectives add coc.goggles.id dummy
     scoreboard objectives add coc.goggles.energy dummy
 
+    scoreboard objectives add coc.refresh_knowledge trigger
+
     execute function ./generate_bossbars:
         for i in range(0,21):
             bossbar add f'coc:contract.{i*5}' {"text": ""}

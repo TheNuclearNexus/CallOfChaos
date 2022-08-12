@@ -11,6 +11,10 @@ for lvl in range(1,maxLevel):
         reqPts = 10 * lvl + 100
     levelRequirements.append(reqPts)
 
+append function ./give_advancements:
+    for lvl in range(len(levelRequirements)):
+        if score $lvl coc.relation.lvl matches f'{lvl+1}..' advancement grant @s only f'coc:main/level{lvl+1}'
+        if score $lvl coc.relation.lvl matches f'{lvl+1}..' advancement grant @s only f'coc:knowledge/level{lvl+1}/root'
 
 append function ./level_up:
     scoreboard players operation $id coc.pact_id = @s coc.pact_id
@@ -19,11 +23,8 @@ append function ./level_up:
 
     scoreboard players operation $lvl coc.relation.lvl = @s coc.relation.lvl
     as @a if score @s coc.pact_id = $id coc.pact_id:
-        tellraw @s [{"translate":"text.coc.natural_rift.relation.level_up","italic":true,"color":"purple"}]
-        
-        for lvl in range(len(levelRequirements)):
-            if score $lvl coc.relation.lvl matches f'{lvl+1}..' advancement grant @s only f'coc:main/level{lvl+1}'
-            if score $lvl coc.relation.lvl matches f'{lvl+1}..' advancement grant @s only f'coc:knowledge/level{lvl+1}/root'
+        tellraw @s [{"translate":"text.coc.natural_rift.relation.level_up","italic":true,"color":"light_purple"}]
+        function ./give_advancements
     particle dragon_breath ~ ~1 ~ 1 1 1 1 20
 
 for lvl in range(len(levelRequirements)):    
