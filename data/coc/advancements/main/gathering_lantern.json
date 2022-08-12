@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:furnace",
+      "nbt": "{CustomModelData:4260014}"
+    },
+    "title": {
+      "translate": "advancements.coc.main.gathering_lantern.title",
+      "color": "light_purple"
+    },
+    "description": {
+      "translate": "advancements.coc.main.gathering_lantern.description",
+      "color": "gray"
+    }
+  },
+  "parent": "coc:main/level3",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:furnace"
+            ],
+            "nbt": "{smithed:{id:\"coc:gathering_lantern\"}}"
+          }
+        ]
+      }
+    }
+  }
+}

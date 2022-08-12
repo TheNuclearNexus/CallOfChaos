@@ -1,4 +1,5 @@
 as @e[type=armor_stand,tag=coc.ticking] at @s function ../entity/1second_armor_stand:
+    as @a at @s function ../entity/player/1second
     if entity @s[tag=coc.natural_rift] function ../entity/natural_rift/1second
 
     # blocks

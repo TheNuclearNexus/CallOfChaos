@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:writable_book"
+    },
+    "title": [
+      {
+        "translate": "recipes.coc.ritual.contract.title",
+        "color": "white"
+      }
+    ],
+    "description": [
+      {
+        "translate": "recipes.coc.ritual.contract.description",
+        "color": "white",
+        "font": "coc:rituals"
+      },
+      {
+        "translate": "recipes.coc.ritual.contract.subtext",
+        "color": "gray",
+        "font": "minecraft:default"
+      }
+    ],
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "parent": "coc:knowledge/level1/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

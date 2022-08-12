@@ -1,0 +1,27 @@
+{
+    "display": {
+      "icon": {
+        "item": "minecraft:structure_block",
+        "nbt": "{CustomModelData:4260006}"
+      },
+      "title": [
+        {
+          "translate": "recipes.coc.ritual.crystaline_lens.title",
+          "color": "white"
+        }
+      ],
+      "description": {
+        "translate": "recipes.coc.ritual.crystaline_lens.description",
+        "color": "white",
+        "font": "coc:rituals"
+      },
+      "show_toast": false,
+      "announce_to_chat": false
+    },
+    "parent": "coc:knowledge/level3/root",
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  }

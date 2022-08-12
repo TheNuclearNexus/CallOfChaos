@@ -1,0 +1,75 @@
+{
+    "providers": [
+        {
+            "type": "space",
+            "advances": {
+              " ": 4,
+              "S": -2,
+              "C": -50
+            }
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/offering_altar.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/syringe.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/amalgam_forge.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/chaos_crystal.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/chaos_focuser.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf005"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/entropic_accelerator.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf006"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/heavy_workbench/blight_steel_dagger.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf007"
+            ]
+        }
+    ]
+}

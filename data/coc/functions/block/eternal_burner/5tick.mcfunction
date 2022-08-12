@@ -14,5 +14,6 @@ if score @s coc.rift_energy matches 6.. function ./activate:
 
             tag @s add coc.checked
 
-        if score $suc coc.dummy matches 1 scoreboard players set @s coc.rift_energy 0
-
+        if score $suc coc.dummy matches 1 function ./activate/success:
+            scoreboard players set @s coc.rift_energy 0
+            playsound minecraft:entity.generic.extinguish_fire master @a ~ ~ ~ 1 1

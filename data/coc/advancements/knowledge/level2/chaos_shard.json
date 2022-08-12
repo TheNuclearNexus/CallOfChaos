@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:structure_block",
+      "nbt": "{CustomModelData:4260002}"
+    },
+    "title": [
+      {
+        "translate": "recipes.coc.eternal_burner.chaos_shard.title",
+        "color": "white"
+      }
+    ],
+      "description": {
+      "translate": "recipes.coc.eternal_burner.chaos_shard.description",
+      "color": "white",
+      "font": "coc:eternal_burner"
+    },
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "parent": "coc:knowledge/level2/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

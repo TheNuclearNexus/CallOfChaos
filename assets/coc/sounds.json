@@ -1,0 +1,14 @@
+{
+    "entity.player.heartbeat": {
+        "sounds":   [
+            "coc:heartbeat"
+        ],
+        "subtitle" : "subtitle.coc.entity.player.heartbeat"
+    },
+    "entity.natural_rift.whisper": {
+        "sounds":   [
+            "coc:whisper"
+        ],
+        "subtitle" : "subtitle.coc.entity.natural_rift.whisper"
+    }
+}

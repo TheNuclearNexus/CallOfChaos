@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:writable_book"
+    },
+    "title": {
+      "translate": "advancements.coc.main.contract.title",
+      "color": "gold"
+    },
+    "description": {
+      "translate": "advancements.coc.main.contract.description",
+      "color": "gray"
+    },
+    "frame": "challenge"
+  },
+  "parent": "coc:main/offering_altar",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

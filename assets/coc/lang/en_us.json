@@ -3,7 +3,7 @@
     "block.coc.entropic_accelerator": "Entropic Accelerator",
     "block.coc.eternal_burner": "Eternal Burner",
     "block.coc.focusing_crystal": "Focusing Crystal",
-    "block.coc.gathering_crystal": "Gathering Crystal",
+    "block.coc.gathering_lantern": "Gathering Lantern",
     "block.coc.offering_altar": "Offering Altar",
 
     "item.coc.syringe": "Syringe",
@@ -49,6 +49,114 @@
     "text.coc.goggles.energy": "Chaos Flux: %s",
     "text.coc.goggles.relation": "Relation Level: %s (%s/%s)",
     "text.coc.goggles.energy_output": "Chaos Flux Output: %s/%s",
-    "text.coc.goggles.flow": "Remaining Flow: %s"
+    "text.coc.goggles.flow": "Remaining Flow: %s",
 
+    "text.coc.level": "Level %s",
+
+    "subtitle.coc.entity.player.heartbeat": "Heartbeat",
+    "subtitle.coc.entity.natural_rift.whisper": "Whispers",
+
+    "ritual.coc.flow": "Flow I",
+
+
+    "advancements.coc.main.root.title": "Call of Chaos",
+    "advancements.coc.main.root.description": "",
+
+    "advancements.coc.main.rift.title": "A Powerful Force",
+    "advancements.coc.main.rift.description": "Locate a natural rift",
+
+    "advancements.coc.main.observatory.title": "Remanents of the Past",
+    "advancements.coc.main.observatory.description": "Locate an observatory",
+
+    "advancements.coc.main.blood_vial.title": "Blood Boiling",
+    "advancements.coc.main.blood_vial.description": "Draw your own blood.",
+
+    "advancements.coc.main.offering_altar.title": "A Worth While Sacrifice",
+    "advancements.coc.main.offering_altar.description": "Offer your blood to the rift.",
+
+    "advancements.coc.main.contract.title": "A Test of Strength",
+    "advancements.coc.main.contract.description": "Complete a contract.",
+    
+    "advancements.coc.main.level2.title": "It truly begins...",
+    "advancements.coc.main.level2.description": "Reach Rift Level 2",
+
+    "advancements.coc.main.chaos_shard.title": "The Purest I've Ever Seen",
+    "advancements.coc.main.chaos_shard.description": "Create a chaos shard",
+
+    "advancements.coc.main.focusing_crystal.title": "Imaginable power",
+    "advancements.coc.main.focusing_crystal.description": "Obtain a focusing crystal",
+
+    "advancements.coc.main.blightsteel.title": "An Amalgam of Qualities",
+    "advancements.coc.main.blightsteel.description": "Obtain blightsteel",
+
+    "advancements.coc.main.blightsight_goggles.title": "Let the Power Flow",
+    "advancements.coc.main.blightsight_goggles.description": "Equip blightsight goggles",
+
+    "advancements.coc.main.level3.title": "Ever growing, Ever plenty",
+    "advancements.coc.main.level3.description": "Reach Rift Level 3",
+
+    "advancements.coc.main.gathering_lantern.title": "Let there be... Light?",
+    "advancements.coc.main.gathering_lantern.description": "Obtain a gathering lantern",
+
+    "advancements.coc.main.entropic_accelerator.title": "Decay, and don't stop",
+    "advancements.coc.main.entropic_accelerator.description": "Obtain an entropic accelerator",
+
+    "advancements.coc.main.crystalizer.title": "Decay, and don't stop",
+    "advancements.coc.main.crystalizer.description": "Obtain an entropic accelerator",
+
+    
+    "advancements.coc.knowledge.root.title": "Call of Chaos: §fKnowledge",
+
+
+    "recipes.coc.ritual.binding.title":                     "Ritual of Binding           ",
+    "recipes.coc.ritual.binding.description":               "\uf001S\uf002\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.binding.subtext":                   "Add another player to your pact, use your own blood and theirs",
+    "recipes.coc.ritual.blightsight_goggles.title":         "Blightsight Goggles         ",
+    "recipes.coc.ritual.blightsight_goggles.description":   "\uf003S\uf004\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.blightsight_goggles.subtext":       "§fPassive: §7Shows beams of transfer\n§fSneaking: §7Shows bubbles of transfer radius\n§fSneak+Look at block/rift: §7Show Stats",
+    "recipes.coc.ritual.crystaline_lens.title":             "Crystaline Lens       ",
+    "recipes.coc.ritual.crystaline_lens.description":       "\uf005S\uf006\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.entropic_lens.title":               "Entropic Lens         ",
+    "recipes.coc.ritual.entropic_lens.description":         "\uf007S\uf008\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.eternal_burner.title":              "Eternal Burner        ",
+    "recipes.coc.ritual.eternal_burner.description":        "\uf009S\uf010\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.flow.title":                        "Ritual of Flow I            ",
+    "recipes.coc.ritual.flow.description":                  "\uf011S\uf012\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.flow.subtext":                      "Increase your energy cap by 2 for 3 minutes",
+    "recipes.coc.ritual.focusing_crystal.title":            "Focusing Crystal            ",
+    "recipes.coc.ritual.focusing_crystal.description":      "\uf013S\uf014\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.focusing_crystal.subtext":          "Increase your energy cap by 1 per crystal §f(Max: 4)",
+    "recipes.coc.ritual.gathering_lantern.title":           "Gathering Lantern           ",
+    "recipes.coc.ritual.gathering_lantern.description":     "\uf015S\uf016\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.gathering_lantern.subtext":         "Used to extend the range of your rift's energy",
+
+    "recipes.coc.ritual.contract.title":                    "Contract                    ",
+    "recipes.coc.ritual.contract.description":              "\uf017S\uf018\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "recipes.coc.ritual.contract.subtext":                  "Activate a trial of mobs, use this to level up your rift",
+
+    "recipes.coc.workbench.offering_altar.title":           "Offering Altar      ",
+    "recipes.coc.workbench.offering_altar.description":     "\uf001\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.offering_altar.subtext":         "§fRight Click: §7Add/Remove item\n§fShift+Right Click: §7Activate",
+    "recipes.coc.workbench.syringe.title":                  "Syringe             ",
+    "recipes.coc.workbench.syringe.description":            "\uf002\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.syringe.subtext":                "§fRight Click: §7Fill a bottle in your inventory with blood",
+    "recipes.coc.workbench.amalgam_forge.title":            "Amalgam Forge       ",
+    "recipes.coc.workbench.amalgam_forge.description":      "\uf003\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.amalgam_forge.subtext":          "§fRight click§7 ingredients on to the forge, or input them §fvia hoppers§7 on the left and right",
+    "recipes.coc.workbench.chaos_crystal.title":            "Chaos Crystal ",
+    "recipes.coc.workbench.chaos_crystal.description":      "\uf004\n\n\n\n\n\n",
+    "recipes.coc.workbench.chaos_focuser.title":            "Chaos Focuser ",
+    "recipes.coc.workbench.chaos_focuser.description":      "\uf005\n\n\n\n\n\n",
+    "recipes.coc.workbench.entropic_accelerator.title":     "Entropic Accelerator",
+    "recipes.coc.workbench.entropic_accelerator.description":"\uf006\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.entropic_accelerator.subtext":   "Converts §ftuff§7, §fgranite§7 and §fblackstone§7 into their respective ore chunks. The number of chunks is based on the amount of energy stored.\n§fRight Click:§7 Activate",
+    "recipes.coc.workbench.blight_steel_dagger.title":     "Blight Steel Dagger  ",
+    "recipes.coc.workbench.blight_steel_dagger.description":"\uf007\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.blight_steel_dagger.subtext":   "",
+    
+    "recipes.coc.amalgam_forge.blight_steel.title":          "Blight Steel   ",
+    "recipes.coc.amalgam_forge.blight_steel.description":    "\uf001\n\n\n\n\n\n",
+
+    "recipes.coc.eternal_burner.chaos_shard.title":          "Chaos Shard    ",
+    "recipes.coc.eternal_burner.chaos_shard.description":    "\uf001\n\n\n\n\n\n"
 }

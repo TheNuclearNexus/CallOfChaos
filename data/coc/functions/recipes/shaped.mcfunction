@@ -12,7 +12,7 @@ store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data
 
 store result score @s smithed.data if entity @s[scores={smithed.data=0}] if data storage smithed.crafter:input recipe{
     0:[{Slot:0b,id:"minecraft:deepslate_tiles"},{Slot:1b,id:"minecraft:deepslate_tiles"},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:blight_steel"}}}],
-    1:[{Slot:0b,id:"minecraft:deepslate_tiles"},{Slot:1b,id:"minecraft:furnace",tag:{smithed:{id:"coc:gathering_crystal"}}},{Slot:2b,id:"minecraft:furnace",tag:{smithed:{id:"coc:focusing_crystal"}}}],
+    1:[{Slot:0b,id:"minecraft:deepslate_tiles"},{Slot:1b,id:"minecraft:furnace",tag:{smithed:{id:"coc:gathering_lantern"}}},{Slot:2b,id:"minecraft:furnace",tag:{smithed:{id:"coc:focusing_crystal"}}}],
     2:[{Slot:0b,id:"minecraft:deepslate_tiles"},{Slot:1b,id:"minecraft:deepslate_tiles"},{Slot:2b,id:"minecraft:structure_block",tag:{smithed:{id:"coc:blight_steel"}}}]}:
         loot replace block ~ ~ ~ container.16 loot coc:item/chaos_focuser
 

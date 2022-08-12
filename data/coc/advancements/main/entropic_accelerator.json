@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:dropper",
+      "nbt": "{CustomModelData:4260002}"
+    },
+    "title": {
+      "translate": "advancements.coc.main.entropic_accelerator.title",
+      "color": "light_purple"
+    },
+    "description": {
+      "translate": "advancements.coc.main.entropic_accelerator.description",
+      "color": "gray"
+    }
+  },
+  "parent": "coc:main/level3",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dropper"
+            ],
+            "nbt": "{smithed:{id:\"coc:entropic_accelerator\"}}"
+          }
+        ]
+      }
+    }
+  }
+}

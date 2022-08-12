@@ -22,10 +22,10 @@
                     "translate": "attribute.modifier.equals.0",
                     "with": [
                       {
-                        "text": " 1"
+                        "text": " 4"
                       },
                       {
-                        "translate": "attribute.name.generic.attack_speed"
+                        "translate": "attribute.name.generic.attack_damage"
                       }
                     ],
                     "color": "dark_green",
@@ -35,15 +35,16 @@
                     "translate": "attribute.modifier.equals.0",
                     "with": [
                       {
-                        "text": " 4"
+                        "text": " 1"
                       },
                       {
-                        "translate": "attribute.name.generic.attack_damage"
+                        "translate": "attribute.name.generic.attack_speed"
                       }
                     ],
                     "color": "dark_green",
                     "italic": false
                   }
+                
                 ]
               },
               {
@@ -65,14 +66,14 @@
                   {
                     "attribute": "minecraft:generic.attack_speed",
                     "name": "",
-                    "amount": 1,
+                    "amount": -1,
                     "operation": "addition",
                     "slot": "mainhand"
                   },
                   {
                     "attribute": "minecraft:generic.attack_damage",
                     "name": "",
-                    "amount": 1.2,
+                    "amount": 4,
                     "operation": "addition",
                     "slot": "mainhand"
                   }

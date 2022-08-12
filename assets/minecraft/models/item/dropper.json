@@ -36,6 +36,18 @@
                 "custom_model_data": 4260006
             },
             "model": "coc:block/entropic_accelerator_down"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260007
+            },
+            "model": "coc:block/crystalizer_disabled"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260008
+            },
+            "model": "coc:block/crystalizer"
         }
     ]
 }

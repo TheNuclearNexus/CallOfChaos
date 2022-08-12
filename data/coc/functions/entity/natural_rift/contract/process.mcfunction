@@ -75,12 +75,43 @@ execute function ./process/each:
         dummy["$halfTime"] = dummy["$totalTime"] / 2
         dummy["$quarterTime"] = dummy["$totalTime"] / 4
         
-        if score $remainingTime coc.dummy = $halfTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy:
+        if score $remainingTime coc.dummy = $halfTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy at @s:
             tellraw @s {"translate":"text.coc.natural_rift.contract.half_time","color":"gray"}
-        if score $remainingTime coc.dummy = $quarterTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy:
+            playsound coc:entity.natural_rift.whisper ambient @s ~ ~ ~ 0.75 1
+        if score $remainingTime coc.dummy = $quarterTime coc.dummy as @a if score @s coc.pact_id = $id coc.dummy at @s:
             tellraw @s {"translate":"text.coc.natural_rift.contract.quarter_time","color":"gray"}
-        if score $remainingTime coc.dummy matches 1200 as @a if score @s coc.pact_id = $id coc.dummy:
+            playsound coc:entity.natural_rift.whisper ambient @s ~ ~ ~ 0.75 1
+        if score $remainingTime coc.dummy matches 1200 as @a if score @s coc.pact_id = $id coc.dummy at @s:
             tellraw @s {"translate":"text.coc.natural_rift.contract.minute_left","color":"gray"}
+            playsound coc:entity.natural_rift.whisper ambient @s ~ ~ ~ 0.75 1
+
+        dummy["$cycle"] = dummy["$time"] % 20
+        if score $remainingTime coc.dummy > $halfTime coc.dummy:
+            as @a if score @s coc.pact_id = $id coc.dummy at @s:
+                if score $cycle coc.dummy matches 0:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 0.5 0
+        if score $remainingTime coc.dummy < $halfTime coc.dummy if score $remainingTime coc.dummy > $quarterTime coc.dummy:
+            as @a if score @s coc.pact_id = $id coc.dummy at @s:
+                if score $cycle coc.dummy matches 0:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 0.75 0
+                if score $cycle coc.dummy matches 10:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 0.75 0
+
+        if score $remainingTime coc.dummy < $quarterTime coc.dummy if score $remainingTime coc.dummy matches 1200..:
+            as @a if score @s coc.pact_id = $id coc.dummy at @s:
+                if score $cycle coc.dummy matches 0:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 1 0
+                if score $cycle coc.dummy matches 10:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 1 0
+        if score $remainingTime coc.dummy matches ..1200:
+            as @a if score @s coc.pact_id = $id coc.dummy at @s:
+                if score $cycle coc.dummy matches 0:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 1 0
+                if score $cycle coc.dummy matches 7:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 1 0
+                if score $cycle coc.dummy matches 14:
+                    playsound coc:entity.player.heartbeat ambient @s ~ ~ ~ 1 0
+
 
         if score $endTime coc.dummy <= $time coc.dummy function ./process/fail:
             # TODO: Add contract lost message 

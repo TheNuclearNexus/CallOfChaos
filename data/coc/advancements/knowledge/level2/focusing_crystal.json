@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:furnace",
+      "nbt": "{CustomModelData:4260011}"
+    },
+    "title": [
+      {
+        "translate": "recipes.coc.ritual.focusing_crystal.title",
+        "color": "white"
+      }
+    ],
+    "description": [
+      {
+        "translate": "recipes.coc.ritual.focusing_crystal.description",
+        "color": "white",
+        "font": "coc:rituals"
+      },
+      {
+        "translate": "recipes.coc.ritual.focusing_crystal.subtext",
+        "color": "gray",
+        "font": "minecraft:default"
+      }
+    ],
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "parent": "coc:knowledge/level2/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

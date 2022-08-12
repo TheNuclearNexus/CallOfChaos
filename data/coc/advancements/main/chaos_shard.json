@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:structure_block",
+      "nbt": "{CustomModelData:4260002}"
+    },
+    "title": {
+      "translate": "advancements.coc.main.chaos_shard.title",
+      "color": "light_purple"
+    },
+    "description": {
+      "translate": "advancements.coc.main.chaos_shard.description",
+      "color": "gray"
+    }
+  },
+  "parent": "coc:main/level2",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:structure_block"
+            ],
+            "nbt": "{smithed:{id:\"coc:chaos_shard\"}}"
+          }
+        ]
+      }
+    }
+  }
+}

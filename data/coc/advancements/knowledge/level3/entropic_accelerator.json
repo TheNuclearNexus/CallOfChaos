@@ -1,0 +1,34 @@
+{
+    "display": {
+      "icon": {
+        "item": "minecraft:dropper",
+        "nbt": "{CustomModelData:4260002}"
+      },
+      "title": [
+        {
+          "translate": "recipes.coc.workbench.entropic_accelerator.title",
+          "color": "white"
+        }
+      ],
+      "description": [
+        {
+          "translate": "recipes.coc.workbench.entropic_accelerator.description",
+          "color": "white",
+          "font": "coc:heavy_workbench"
+        },
+        {
+          "translate": "recipes.coc.workbench.entropic_accelerator.subtext",
+          "color": "gray",
+          "font": "minecraft:default"
+        }
+      ],
+      "show_toast": false,
+      "announce_to_chat": false
+    },
+    "parent": "coc:knowledge/level3/root",
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:impossible"
+      }
+    }
+  }

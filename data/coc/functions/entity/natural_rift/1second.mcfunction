@@ -1,4 +1,4 @@
-unless entity @e[type=snowball,tag=coc.natural_rift.display,distance=..3] function ./1second/respawn_display:
+unless entity @e[type=snowball,tag=coc.natural_rift.display,distance=..2.5] function ./1second/respawn_display:
     scoreboard players operation $id coc.rift_id = @s coc.rift_id
     as @e[type=snowball,tag=coc.natural_rift.display] if score @s coc.rift_id = $id coc.rift_id kill @s
     summon snowball ~ ~2.25 ~ {Tags:["coc.natural_rift.display","coc.setup"],Item:{id:"minecraft:snowball",tag:{CustomModelData:4260001},Count:1b},NoGravity:1b,Invulnerable:1b}

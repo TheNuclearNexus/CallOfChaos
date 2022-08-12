@@ -1,4 +1,4 @@
 {
     "python.defaultInterpreterPath": "B:\\Programs\\Python310\\python.exe",
-    "explorer.excludeGitIgnore": false
+    "explorer.excludeGitIgnore": true
 }

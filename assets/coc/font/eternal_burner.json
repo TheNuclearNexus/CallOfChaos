@@ -1,0 +1,21 @@
+{
+    "providers": [
+        {
+            "type": "space",
+            "advances": {
+              " ": 4,
+              "S": -2,
+              "C": -50
+            }
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/eternal_burner/chaos_shard.png",
+            "ascent": 8,
+            "height": 55,
+            "chars": [
+                "\uf001"
+            ]
+        }
+    ]
+}

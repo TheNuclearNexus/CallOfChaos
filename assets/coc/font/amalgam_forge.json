@@ -59,6 +59,15 @@
             "chars": [
                 "\uc007"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/amalgam_forge/blight_steel.png",
+            "ascent": 6,
+            "height": 62,
+            "chars": [
+                "\uf001"
+            ]
         }
     ]
 }

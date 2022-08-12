@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:carrot_on_a_stick",
+      "nbt": "{CustomModelData:4260002}"
+    },
+    "title": {
+      "translate": "advancements.coc.main.blightsight_goggles.title",
+      "color": "gold"
+    },
+    "description": {
+      "translate": "advancements.coc.main.blightsight_goggles.description",
+      "color": "gray"
+    }
+  },
+  "parent": "coc:main/blightsteel",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

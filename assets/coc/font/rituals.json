@@ -1,0 +1,174 @@
+{
+    "providers": [
+        {
+            "type": "space",
+            "advances": {
+              " ": 4,
+              "S": -2,
+              "C": -50
+            }
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/binding1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/binding2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/blightsight_goggles1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/blightsight_goggles2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/crystaline_lens1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf005"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/crystaline_lens2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf006"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/entropic_lens1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf007"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/entropic_lens2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf008"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/eternal_burner1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf009"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/eternal_burner2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf010"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/flow1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf011"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/flow2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf012"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/focusing_crystal1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf013"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/focusing_crystal2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf014"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/gathering_lantern1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf015"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/gathering_lantern2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf016"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/contract1.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf017"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:recipes/rituals/contract2.png",
+            "ascent": 8,
+            "height": 110,
+            "chars": [
+                "\uf018"
+            ]
+        }
+    ]
+}

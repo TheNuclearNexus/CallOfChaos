@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-
+from coc:entity/natural_rift/relation/check_level_up import levelRequirements
 @contextmanager
 def ritual(name, ingredients, counts, level=0):
     # print(name,ingredients,counts,loot)
@@ -37,18 +37,21 @@ with ritual(
     as @a[distance=..16] if score @s coc.player_id = $playerB coc.dummy tag @s add coc.player.b
 
     scoreboard players operation $pactId coc.dummy = @s coc.pact_id
+    scoreboard players operation $lvl coc.relation.lvl = @s coc.relation.lvl
 
     unless score $playerA coc.dummy = $playerB coc.dummy if entity @p[tag=coc.player.a] if entity @p[tag=coc.player.b] function ./rituals/binding/start:
         if score @p[tag=coc.player.a] coc.pact_id = $pactId coc.dummy:
             unless score @p[tag=coc.player.b] coc.pact_id = $pactId coc.dummy:
                 scoreboard players operation @p[tag=coc.player.b] coc.pact_id = $pactId coc.dummy
-                scoreboard players add @s coc.pact_members 1
-                scoreboard players set $suc coc.dummy 1
+                execute function ./rituals/binding/setup:
+                    scoreboard players add @s coc.pact_members 1
+                    scoreboard players set $suc coc.dummy 1
+                    for lvl in range(len(levelRequirements)):
+                        if score $lvl coc.relation.lvl matches f'{lvl+1}..' advancement grant @s only f'coc:main/level{lvl+1}'
         unless score @p[tag=coc.player.a] coc.pact_id = $pactId coc.dummy:
             if score @p[tag=coc.player.b] coc.pact_id = $pactId coc.dummy:
                 scoreboard players operation @p[tag=coc.player.a] coc.pact_id = $pactId coc.dummy
-                scoreboard players add @s coc.pact_members 1
-                scoreboard players set $suc coc.dummy 1
+                function ./rituals/binding/setup
     
     tag @a remove coc.player.a
     tag @a remove coc.player.b

@@ -43,7 +43,7 @@ append function ./get_energy_stats:
     if score $naturalRift coc.rift_energy > $max coc.rift_energy scoreboard players operation $naturalRift coc.rift_energy = $max coc.rift_energy
 
 execute function ./init_transfer:
-    tag @a[nbt={Inventory:[{Slot:103b,tag:{smithed:{id:"coc:blightsight_goggles"}}}]}] add coc.goggles
+    as @a if data entity @s Inventory[{Slot:103b,tag:{smithed:{id:"coc:blightsight_goggles"}}}] tag @s add coc.goggles
 
     function ./get_energy_stats
     if score @s coc.rift.flow matches 1..:

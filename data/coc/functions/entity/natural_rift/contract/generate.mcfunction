@@ -18,8 +18,8 @@ for i in range(1,maxLevel+1):
 dummy["$costMultiplier"] = dummy["$baseCost"] / 2
 dummy["$baseCost"] += dummy["$costMultiplier"] * (members["@s"] - 1)
  
-temp.Contract.acquiredCost = dummy["$baseCost"]
-temp.Contract.goalCost = dummy["$baseCost"]
+temp.Contract.acquiredCost = dummy["$baseCost"] * 2
+temp.Contract.goalCost = dummy["$baseCost"] * 2
 temp.Contract.remainingCost = dummy["$baseCost"]
 
 store result storage coc:temp Contract.pactId int 1 scoreboard players get @s coc.pact_id

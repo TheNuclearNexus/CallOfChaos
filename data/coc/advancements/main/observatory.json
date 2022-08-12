@@ -1,0 +1,32 @@
+{
+    "display": {
+      "icon": {
+        "item": "minecraft:purple_candle"
+      },
+      "title": {
+        "translate": "advancements.coc.main.observatory.title",
+        "color": "white"
+      },
+      "description": {
+        "translate": "advancements.coc.main.observatory.description",
+        "color": "gray"
+      },
+      "background": "minecraft:textures/block/polished_deepslate.png"
+    },
+    "parent": "coc:main/root",
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "structure": "coc:cultist_base"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

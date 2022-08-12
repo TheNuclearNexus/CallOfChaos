@@ -9,3 +9,4 @@ if data storage coc:temp Item.tag.smithed{id:"coc:blightsight_goggles"} unless d
     unless data storage coc:temp Item.Slot function ./equip_mainhand:
         item replace entity @s armor.head from entity @s weapon.mainhand
         item replace entity @s weapon.mainhand with air
+    advancement grant @s only coc:main/blightsight_goggles
