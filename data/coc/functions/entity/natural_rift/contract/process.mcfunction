@@ -115,7 +115,7 @@ execute function ./process/each:
 
         if score $endTime coc.dummy <= $time coc.dummy function ./process/fail:
             # TODO: Add contract lost message 
-            as @a if score @s coc.pact_id = $id coc.pact_id at @s function ./process/fail/sfx:
+            as @a if score @s coc.pact_id = $id coc.dummy at @s function ./process/fail/sfx:
                 tellraw @s {"translate":"text.coc.natural_rift.contract.loss","color":"gray"}
                 playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 1
                 playsound minecraft:entity.enderman.stare master @s ~ ~ ~ 0.5 2
