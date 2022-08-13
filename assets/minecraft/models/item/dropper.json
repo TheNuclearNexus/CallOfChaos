@@ -48,6 +48,30 @@
                 "custom_model_data": 4260008
             },
             "model": "coc:block/crystalizer"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260009
+            },
+            "model": "coc:block/crystalizer_disabled_up"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260010
+            },
+            "model": "coc:block/crystalizer_up"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260011
+            },
+            "model": "coc:block/crystalizer_disabled_down"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260012
+            },
+            "model": "coc:block/crystalizer_down"
         }
     ]
 }

@@ -1,6 +1,7 @@
 {
     "block.coc.amalgam_forge": "Amalgam Forge",
     "block.coc.entropic_accelerator": "Entropic Accelerator",
+    "block.coc.crystalizer": "Entropic Accelerator",
     "block.coc.eternal_burner": "Eternal Burner",
     "block.coc.focusing_crystal": "Focusing Crystal",
     "block.coc.gathering_lantern": "Gathering Lantern",
@@ -143,7 +144,7 @@
     "recipes.coc.workbench.syringe.subtext":                "§fRight Click: §7Fill a bottle in your inventory with blood",
     "recipes.coc.workbench.amalgam_forge.title":            "Amalgam Forge       ",
     "recipes.coc.workbench.amalgam_forge.description":      "\uf003\n\n\n\n\n\n\n\n",
-    "recipes.coc.workbench.amalgam_forge.subtext":          "§fRight click§7 ingredients on to the forge, or input them §fvia hoppers§7 on the left and right",
+    "recipes.coc.workbench.amalgam_forge.subtext":          "§fRight click§7 ingredients on to the forge, or input them §fvia hoppers§7 on the left and right.\nMust be placed on an §5Eternal Burner.",
     "recipes.coc.workbench.chaos_crystal.title":            "Chaos Crystal ",
     "recipes.coc.workbench.chaos_crystal.description":      "\uf004\n\n\n\n\n\n",
     "recipes.coc.workbench.chaos_focuser.title":            "Chaos Focuser ",

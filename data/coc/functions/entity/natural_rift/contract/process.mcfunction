@@ -148,12 +148,12 @@ execute function ./process/each:
     if score $acquiredCost coc.dummy matches ..0 function ./process/win:
         # TODO: add win message
         dummy["$id"] = temp.Contract.pactId
-        as @a if score @s coc.pact_id = $id coc.pact_id function ./process/win/sfx:
+        as @a if score @s coc.pact_id = $id coc.dummy function ./process/win/sfx:
             tellraw @s {"translate":"text.coc.natural_rift.contract.win","color":"gray"}
             playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 1.5
             playsound minecraft:block.amethyst_block.step master @s ~ ~ ~ 1 2
             playsound minecraft:entity.evoker.prepare_summon master @s ~ ~ ~ 1 1.2
-        as @e[type=minecraft:armor_stand,tag=coc.natural_rift] if score @s coc.pact_id = $id coc.pact_id:
+        as @e[type=minecraft:armor_stand,tag=coc.natural_rift] if score @s coc.dummy = $id coc.dummy:
             if score @s coc.relation.lvl matches 1 scoreboard players add @s coc.relation.pts 20
             if score @s coc.relation.lvl matches 2.. scoreboard players add @s coc.relation.pts 5
             function coc:entity/natural_rift/relation/check_level_up
