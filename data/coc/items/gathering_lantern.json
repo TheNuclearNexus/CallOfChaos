@@ -1,0 +1,11 @@
+{
+  "id": "gathering_lantern",
+  "type": "smithed:block",
+  "base": "minecraft:furnace",
+  "models": {
+    "disabled": "coc:block/gathering_lantern_disabled",
+    "enabled": "coc:block/gathering_lantern",
+    "disabled_hanging": "coc:block/gathering_lantern_hanging_disabled",
+    "enabled_hanging": "coc:block/gathering_lantern_hanging"
+  }
+}

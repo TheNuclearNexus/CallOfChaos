@@ -1,3 +1,5 @@
+from plugins.smithed.custom_items import get_item
+
 setblock ~ ~ ~ flower_pot
 summon armor_stand ~ ~-0.5 ~ {
     Tags:["coc.focusing_crystal",'coc.ticking'],
@@ -5,6 +7,6 @@ summon armor_stand ~ ~-0.5 ~ {
     ArmorItems:[{},{},{},{
         id:"minecraft:furnace",
         Count:1b,
-        tag:{CustomModelData:4260011}
+        tag:{CustomModelData: get_item(ctx, 'coc:focusing_crystal').models.default}
     }]
 }

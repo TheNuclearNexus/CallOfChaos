@@ -153,8 +153,8 @@ execute function ./process/each:
             playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 1.5
             playsound minecraft:block.amethyst_block.step master @s ~ ~ ~ 1 2
             playsound minecraft:entity.evoker.prepare_summon master @s ~ ~ ~ 1 1.2
-        as @e[type=minecraft:armor_stand,tag=coc.natural_rift] if score @s coc.dummy = $id coc.dummy:
-            if score @s coc.relation.lvl matches 1 scoreboard players add @s coc.relation.pts 20
+        as @e[type=minecraft:armor_stand,tag=coc.natural_rift] if score @s coc.pact_id = $id coc.dummy:
+            unless score @s coc.relation.lvl matches 2.. scoreboard players add @s coc.relation.pts 20
             if score @s coc.relation.lvl matches 2.. scoreboard players add @s coc.relation.pts 5
             function coc:entity/natural_rift/relation/check_level_up
 

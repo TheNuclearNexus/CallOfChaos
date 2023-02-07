@@ -28,8 +28,5 @@
         ]
       }
     }
-  },
-  "rewards": {
-    "function": "coc:entity/player/unlock_root"
   }
 }

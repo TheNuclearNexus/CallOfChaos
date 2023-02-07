@@ -1,0 +1,23 @@
+{
+    "type": "smithed:crafting_shaped",
+    "category": "block",
+    "key": {
+      "D": {
+        "item": "minecraft:deepslate_tiles"
+      },
+      "C": {
+        "item": "coc:chaos_crystal"
+      },
+      "O": {
+        "item": "minecraft:obsidian"
+      }
+    },
+    "pattern": [
+      "DDD",
+      "DCD",
+      "OOO"
+    ],
+    "result": {
+      "item": "coc:offering_altar"
+    }
+  }

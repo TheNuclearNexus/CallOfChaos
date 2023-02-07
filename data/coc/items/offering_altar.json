@@ -1,0 +1,9 @@
+{
+  "id": "offering_altar",
+  "type": "smithed:block",
+  "base": "minecraft:furnace",
+  "models": {
+    "disabled": "coc:block/offering_altar_disabled",
+    "enabled": "coc:block/offering_altar"
+  }
+}

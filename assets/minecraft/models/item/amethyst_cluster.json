@@ -1,0 +1,161 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:block/amethyst_cluster"
+  },
+  "display": {
+    "head": {
+      "translation": [
+        0,
+        14,
+        -5
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 4260001
+      },
+      "model": "coc:block/crystalizer/bud/small/diamond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260002
+      },
+      "model": "coc:block/crystalizer/bud/medium/diamond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260003
+      },
+      "model": "coc:block/crystalizer/bud/large/diamond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260004
+      },
+      "model": "coc:block/crystalizer/cluster/diamond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260005
+      },
+      "model": "coc:block/crystalizer/bud/small/emerald"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260006
+      },
+      "model": "coc:block/crystalizer/bud/medium/emerald"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260007
+      },
+      "model": "coc:block/crystalizer/bud/large/emerald"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260008
+      },
+      "model": "coc:block/crystalizer/cluster/emerald"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260009
+      },
+      "model": "coc:block/crystalizer/bud/small/redstone"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260010
+      },
+      "model": "coc:block/crystalizer/bud/medium/redstone"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260011
+      },
+      "model": "coc:block/crystalizer/bud/large/redstone"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260012
+      },
+      "model": "coc:block/crystalizer/cluster/redstone"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260013
+      },
+      "model": "coc:block/crystalizer/bud/small/lapis"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260014
+      },
+      "model": "coc:block/crystalizer/bud/medium/lapis"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260015
+      },
+      "model": "coc:block/crystalizer/bud/large/lapis"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260016
+      },
+      "model": "coc:block/crystalizer/cluster/lapis"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260017
+      },
+      "model": "coc:block/crystalizer/bud/small/chaos"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260018
+      },
+      "model": "coc:block/crystalizer/bud/medium/chaos"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260019
+      },
+      "model": "coc:block/crystalizer/bud/large/chaos"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260020
+      },
+      "model": "coc:block/crystalizer/cluster/chaos"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260021
+      },
+      "model": "coc:block/crystalizer/bud/small/quartz"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260022
+      },
+      "model": "coc:block/crystalizer/bud/medium/quartz"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260023
+      },
+      "model": "coc:block/crystalizer/bud/large/quartz"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4260024
+      },
+      "model": "coc:block/crystalizer/cluster/quartz"
+    }
+  ]
+}

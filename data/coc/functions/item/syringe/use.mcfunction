@@ -1,3 +1,6 @@
+from plugins.smithed.custom_items import get_item
+blood_vial = get_item(ctx, 'coc:blood_vial')
+
 append function_tag coc:item/coas {"values": [
     "coc:item/syringe/use"
 ]}
@@ -28,10 +31,10 @@ if data storage coc:temp Item.tag.smithed{id:"coc:syringe"} function ./check_bot
             Tags:["coc.new_vial"],
             PickupDelay:0s,
             Item:{
-                id:"minecraft:potion",
+                id: blood_vial.base,
                 Count:1b,
                 tag:{
-                    CustomModelData:4260001,
+                    CustomModelData: blood_vial.models.default,
                     HideFlags:32,
                     CustomPotionColor:16777215,
                     smithed:{id:"coc:blood_vial"},

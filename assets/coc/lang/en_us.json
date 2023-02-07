@@ -155,6 +155,9 @@
     "recipes.coc.workbench.blight_steel_dagger.title":      "Blight Steel Dagger  ",
     "recipes.coc.workbench.blight_steel_dagger.description":"\uf007\n\n\n\n\n\n\n\n",
     "recipes.coc.workbench.blight_steel_dagger.subtext":    "",
+    "recipes.coc.workbench.crystalizer.title":              "Crystalizer          ",
+    "recipes.coc.workbench.crystalizer.description":        "\uf008\n\n\n\n\n\n\n\n",
+    "recipes.coc.workbench.crystalizer.subtext":            "Grows §fcrystaline ores§r and §fcrying obsidian§r into their respective crystals. The number of items is based on the amount of energy stored.\n§fRight Click:§7 Activate",
     
     "recipes.coc.amalgam_forge.blight_steel.title":          "Blight Steel   ",
     "recipes.coc.amalgam_forge.blight_steel.description":    "\uf001\n\n\n\n\n\n",

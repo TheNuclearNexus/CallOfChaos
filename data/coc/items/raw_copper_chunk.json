@@ -1,0 +1,8 @@
+{
+    "id": "raw_copper_chunk",
+    "type": "smithed:simple",
+    "base": "minecraft:structure_block",
+    "models": {
+		"default": "coc:item/raw_copper_chunk"
+	}
+}

@@ -1,3 +1,7 @@
+from plugins.smithed.custom_items import get_item
+offering_altar = get_item(ctx, 'coc:offering_altar').models
+
+
 setblock ~ ~ ~ air
 setblock ~ ~ ~ furnace{Lock:"\\uf001coc.offering_altar",CustomName:'{"translate":"block.coc.offering_altar"}'}
 summon armor_stand ~ ~ ~ {
@@ -6,7 +10,7 @@ summon armor_stand ~ ~ ~ {
     ArmorItems:[{},{},{},{
         id:"minecraft:furnace",
         Count:1b,
-        tag:{CustomModelData:4260001}
+        tag:{CustomModelData: offering_altar.disabled}
     }]
 }
 
@@ -20,14 +24,14 @@ as @e[type=armor_stand,tag=coc.natural_rift,sort=nearest,limit=1,distance=..8] a
             unless score $altars coc.dummy matches f'..{numAltars[i]}' function ./place/disable
             if score $altars coc.dummy matches f'..{numAltars[i]}' function ./place/enable
 
-unless entity @e[type=armor_stand,tag=coc.natural_rift,distance=..8] data modify entity @e[type=armor_stand,tag=coc.offering_altar,distance=..1,sort=nearest,limit=1] ArmorItems[3].tag.CustomModelData set value 4260002
+unless entity @e[type=armor_stand,tag=coc.natural_rift,distance=..8] data modify entity @e[type=armor_stand,tag=coc.offering_altar,distance=..1,sort=nearest,limit=1] ArmorItems[3].tag.CustomModelData set value offering_altar.disabled
 
 
 append function ./place/disable:
     as @e[type=armor_stand,tag=coc.offering_altar,sort=nearest,distance=..8] function ./place/clean_altars:
         tag @s add coc.disabled
         tag @s remove coc.has_item
-        data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260002
+        data modify entity @s ArmorItems[3].tag.CustomModelData set value offering_altar.disabled
 
     positioned ~ ~1 ~ as @e[type=item,tag=coc.offering_item,sort=nearest,distance=..8] function ./place/clean_items:
         tag @s remove coc.offering_item
@@ -36,6 +40,6 @@ append function ./place/disable:
 append function ./place/enable:
     as @e[type=armor_stand,tag=coc.offering_altar,sort=nearest,distance=..8] function ./place/enable_altars:
         tag @s remove coc.disabled
-        data modify entity @s ArmorItems[3].tag.CustomModelData set value 4260001
+        data modify entity @s ArmorItems[3].tag.CustomModelData set value offering_altar.enabled
 
     

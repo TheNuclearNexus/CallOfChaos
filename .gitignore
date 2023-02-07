@@ -2,3 +2,4 @@ __dist__/
 .beet_cache/
 .vscode/
 **/__pycache__/
+.vscode/settings.json

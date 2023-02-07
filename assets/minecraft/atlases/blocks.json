@@ -1,0 +1,9 @@
+{
+    "sources": [
+      {
+        "type": "directory",
+        "source": "coc_entity",
+        "prefix": "entity/"
+      }
+    ]
+  }

@@ -1,12 +1,13 @@
 import nbtlib
-
+from plugins.smithed.custom_items import get_item
+crystalizer = get_item(ctx, 'coc:crystalizer').models
 def summonStand(model, rot):
     rot = nbtlib.Float(rot)
 
     tags = ["coc.crystalizer","coc.ticking","coc.energy.receiver"]
-    if model == 4260009:
+    if model == crystalizer.disabled_up:
         tags.append("coc.up")
-    elif model == 4260011:
+    elif model == crystalizer.disabled_down:
         tags.append("coc.down")
         
     summon armor_stand ~ ~ ~ {
@@ -21,22 +22,22 @@ def summonStand(model, rot):
     } 
 
 if block ~ ~ ~ dropper[facing=south]:
-    summonStand(4260007, 0f)
+    summonStand(crystalizer.disabled, 0f)
 
 if block ~ ~ ~ dropper[facing=north]:
-    summonStand(4260007, 180f)
+    summonStand(crystalizer.disabled, 180f)
 
 if block ~ ~ ~ dropper[facing=west]:
-    summonStand(4260007, 90f)
+    summonStand(crystalizer.disabled, 90f)
 
 if block ~ ~ ~ dropper[facing=east]:
-    summonStand(4260007, -90f)
+    summonStand(crystalizer.disabled, -90f)
 
 if block ~ ~ ~ dropper[facing=up]:
-    summonStand(4260009, 0f)
+    summonStand(crystalizer.disabled_up, 0f)
 
 if block ~ ~ ~ dropper[facing=down]:
-    summonStand(4260011, 0f)
+    summonStand(crystalizer.disabled_down, 0f)
 
 setblock ~ ~ ~ furnace{Lock:'\\uf001coc.crystalizer',CustomName:'{"translate":"block.coc.crystalizer"}'}
 

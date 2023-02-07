@@ -1,0 +1,13 @@
+{
+  "id": "crystalizer",
+  "type": "smithed:block",
+  "base": "minecraft:dropper",
+  "models": {
+    "disabled": "coc:block/crystalizer_disabled",
+    "enabled": "coc:block/crystalizer",
+    "disabled_up": "coc:block/crystalizer_disabled_up",
+    "enabled_up": "coc:block/crystalizer_up",
+    "disabled_down": "coc:block/crystalizer_disabled_down",
+    "enabled_down": "coc:block/crystalizer_down"
+  }
+}

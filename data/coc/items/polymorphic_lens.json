@@ -1,0 +1,9 @@
+{
+    "id": "polymorphic_lens",
+    "type": "smithed:simple",
+    "base": "minecraft:structure_block",
+  
+    "models": {
+		"default": "coc:item/polymorphic_lens"
+	}
+}

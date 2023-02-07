@@ -1,3 +1,5 @@
+from plugins.smithed.custom_items import get_item
+
 positioned ~ ~1 ~ data modify storage coc:temp Item set from entity @e[type=item,tag=coc.offering_item,dx=0,limit=1] Item 
 
 if data storage coc:temp Item.tag.smithed{id:"coc:blood_vial"} if data storage coc:temp Item.tag.coc.player:
@@ -23,7 +25,7 @@ if data storage coc:temp Item.tag.smithed{id:"coc:blood_vial"} if data storage c
                 Invisible:1b,Marker:1b,NoGravity:1b,
                 ArmorItems:[
                     {},{},{},
-                    {id:"minecraft:potion",Count:1b,tag:{CustomModelData:4260001,CustomPotionColor:16777215}}
+                    {id:"minecraft:potion",Count:1b,tag:{CustomModelData: get_item(ctx, 'coc:blood_vial').models.default ,CustomPotionColor:16777215}}
                 ]
             }
 

@@ -1,5 +1,5 @@
 from beet import Model
-ores = ['diamond','emerald','redstone','lapis','chaos']
+ores = ['diamond','emerald','redstone','lapis','chaos', 'quartz']
 
 cmd = 4260001
 predicates = []
@@ -31,7 +31,7 @@ ctx.assets[f'minecraft:item/amethyst_cluster'] = Model({"parent": "minecraft:ite
 
 cmd = 4260001
 predicates = []
-blocks = ['diamond_ore', 'deepslate_diamond_ore', 'emerald_ore', 'deepslate_emerald_ore', 'redstone_ore', 'deepslate_redstone_ore', 'lapis_ore', 'deepslate_lapis_ore', 'nether_quartz_ore', 'crying_obsidian']
+blocks = ['diamond_ore', 'deepslate_diamond_ore', 'emerald_ore', 'deepslate_emerald_ore', 'redstone_ore', 'deepslate_redstone_ore', 'lapis_ore', 'deepslate_lapis_ore', 'nether_quartz_ore', 'crying_obsidian', 'nether_quartz_ore']
 for block in blocks:
     models['block'][block] = {0: cmd, 1: cmd+1}
     for state in [0,1]:
@@ -46,22 +46,27 @@ for block in blocks:
 ctx.assets[f'minecraft:item/stone'] = Model({"parent": "minecraft:block/stone", "overrides": predicates })
 
 
-def spawnBroken(block):
+baseBlocks = ['stone', 'deepslate', 'obsidian', 'netherrack']
+
+def spawnBroken(block, crystal):
     cmd = models['block'][block][0]
     id = 'coc.stone'
     if 'deepslate' in block:
         id = 'coc.deepslate'
     elif block == 'crying_obsidian':
-        id = 'coc.crying_obsidian'
+        id = 'coc.obsidian'
+    elif block == 'nether_quartz_ore':
+        id = 'coc.netherrack'
 
-    align xyz summon armor_stand ~.5 ~ ~.5 {Tags:["coc.crystalizer.block", f"coc.{block}", id],ArmorItems:[{},{},{},{id:"minecraft:stone",Count:1b,tag:{CustomModelData:cmd}}],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+    align xyz summon armor_stand ~.5 ~ ~.5 {Tags:["coc.crystalizer.block", "coc.ticking", f"coc.{block}", f"coc.{crystal}", id],ArmorItems:[{},{},{},{id:"minecraft:stone",Count:1b,tag:{CustomModelData:cmd}}],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 def spawnCrystal(crystal):
     cmd = models['crystal'][crystal]['small']
-    align xyz summon armor_stand ~.5 ~1 ~.5 {Tags:["coc.crystalizer.crystal", f"coc.{crystal}"],ArmorItems:[{},{},{},{id:"minecraft:amethyst_cluster",Count:1b,tag:{CustomModelData:cmd}}],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+    align xyz summon armor_stand ~.5 ~1 ~.5 {Tags:["coc.crystalizer.crystal", "coc.ticking", f"coc.{crystal}"],ArmorItems:[{},{},{},{id:"minecraft:amethyst_cluster",Count:1b,tag:{CustomModelData:cmd}}],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 
 def handleBlock(block, crystal, hasIf= True):
     def content():
-        spawnBroken(block)
+        playsound minecraft:block.amethyst_block.hit block @s ~ ~ ~ 1 0
+        spawnBroken(block, crystal)
         spawnCrystal(crystal)
         setblock ~ ~1 ~ small_amethyst_bud[waterlogged=true]
     if hasIf:
@@ -69,6 +74,8 @@ def handleBlock(block, crystal, hasIf= True):
             content()
     else:
         content()
+
+playsound minecraft:block.respawn_anchor.deplete block @a ~ ~ ~ 1 2
 if entity @s[tag=coc.up]  rotated 0 -90 positioned ^ ^ ^0.5001 function ./shoot_beam
 if entity @s[tag=coc.down] rotated 0 90 positioned ^ ^ ^0.5001 function ./shoot_beam
 if entity @s[tag=!coc.up,tag=!coc.down] positioned ^ ^ ^0.5001 function ./shoot_beam:
@@ -76,24 +83,49 @@ if entity @s[tag=!coc.up,tag=!coc.down] positioned ^ ^ ^0.5001 function ./shoot_
     particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^ ^0.25 0 0 0 0 1
     particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^ ^0.50 0 0 0 0 1
     particle minecraft:dust 0.82745 0.21568 0.82745 0.5 ^ ^ ^0.75 0 0 0 0 1
-
-    if block ~ ~ ~ #coc:crystalizer/substrate if block ~ ~1 ~ water function ./try_grow:
+    
+    if block ~ ~ ~ #coc:crystalizer/substrate if block ~ ~1 ~ water function ./setup:
         if block ~ ~ ~ #coc:crystalizer/deepslate_base function ./setup/deepslate:
             handleBlock('deepslate_diamond_ore', 'diamond')
             handleBlock('deepslate_emerald_ore', 'emerald')
             handleBlock('deepslate_redstone_ore', 'redstone')
             handleBlock('deepslate_lapis_ore', 'lapis')
             setblock ~ ~ ~ deepslate
+            tag @s add coc.done
         if block ~ ~ ~ #coc:crystalizer/stone_base function ./setup/stone:
             handleBlock('diamond_ore', 'diamond')
             handleBlock('emerald_ore', 'emerald')
             handleBlock('redstone_ore', 'redstone')
             handleBlock('lapis_ore', 'lapis')
             setblock ~ ~ ~ stone
+            tag @s add coc.done
         if block ~ ~ ~ crying_obsidian function ./setup/crying_obsidian:
             handleBlock('crying_obsidian', 'chaos', hasIf=False)
             setblock ~ ~ ~ obsidian
+            tag @s add coc.done
+        if block ~ ~ ~ nether_quartz_ore function ./setup/nether_quartz:
+            handleBlock('nether_quartz_ore', 'quartz', hasIf=False)
+            setblock ~ ~ ~ netherrack
+            tag @s add coc.done
+    if entity @s[tag=!coc.done] align xyz positioned ~.5 ~ ~.5 if entity @e[type=armor_stand,tag=coc.crystalizer.block,distance=..0.5] function ./grow:
+        if score @s coc.rift_energy matches 7..12 positioned ~ ~1 ~ function ./grow/add_stage:
+            playsound minecraft:block.amethyst_block.fall master @s ~ ~ ~ 1 1
+            as @e[type=armor_stand,tag=coc.crystalizer.crystal,distance=..0.5] function ./grow/as_crystal:
+                scoreboard players set $found coc.dummy 1
+                unless score @s coc.dummy matches 5.. scoreboard players add @s coc.dummy 1
+                if score @s coc.dummy matches ..3 store result entity @s ArmorItems[3].tag.CustomModelData int -1 data get entity @s ArmorItems[3].tag.CustomModelData -1.0000001
+        if score @s coc.rift_energy matches 10..11 function ./grow/add_stage
+        as @e[type=armor_stand,tag=coc.crystalizer.block,distance=..0.5] function ./grow/use_block:
+            scoreboard players add @s coc.dummy 1
+            if score @s coc.dummy matches 2 store result entity @s ArmorItems[3].tag.CustomModelData int -1 data get entity @s ArmorItems[3].tag.CustomModelData -1.0000001
+            if score @s coc.dummy matches 4 function ./grow/break:
+                kill @s
+                setblock ~ ~ ~ air
+                for b in baseBlocks:
+                    if entity @s[tag=f'coc.{b}'] setblock ~ ~ ~ f'minecraft:{b}'
+                setblock ~ ~1 ~ small_amethyst_bud[waterlogged=true]
     if block ~ ~ ~ #coc:air unless entity @s[tag=coc.done] if entity @s[distance=..5] positioned ^ ^ ^1 function ./shoot_beam
+
 
 tag @s remove coc.done
 

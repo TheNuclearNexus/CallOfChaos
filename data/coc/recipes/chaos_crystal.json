@@ -1,0 +1,16 @@
+{
+    "type": "smithed:crafting_shaped",
+    "category": "resource",
+    "key": {
+      "C": {
+        "item": "coc:chaos_shard"
+      }
+    },
+    "pattern": [
+      "CC",
+      "CC"
+    ],
+    "result": {
+      "item": "coc:chaos_crystal"
+    }
+  }

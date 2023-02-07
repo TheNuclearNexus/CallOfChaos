@@ -1,5 +1,5 @@
 import nbtlib
-
+from plugins.smithed.custom_items import get_item
 
 def summon(rotation):
     summon armor_stand ~ ~ ~ {
@@ -8,7 +8,7 @@ def summon(rotation):
         ArmorItems:[{},{},{},{
             id:"minecraft:furnace",
             Count:1b,
-            tag:{CustomModelData:4260008}
+            tag:{CustomModelData: get_item(ctx,'coc:amalgam_forge').models.disabled}
         }],
         Rotation:[nbtlib.Float(rotation), 0.0f]
     }

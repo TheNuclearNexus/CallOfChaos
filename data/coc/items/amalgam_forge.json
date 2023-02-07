@@ -1,0 +1,10 @@
+{
+  "id": "amalgam_forge",
+  "type": "smithed:block",
+  "base": "minecraft:furnace",
+  "models": {
+    "disabled": "coc:block/amalgam_forge_disabled",
+    "enabled": "coc:block/amalgam_forge",
+    "smelting": "coc:block/amalgam_forge_smelting"
+  }
+}

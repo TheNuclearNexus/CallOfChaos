@@ -1,0 +1,9 @@
+{
+  "id": "blood_vial",
+  "type": "smithed:simple",
+  "base": "minecraft:potion",
+  "models": {
+    "default": "coc:item/blood_vial"
+  },
+  "additional_nbt": "CustomPotionColor:16777215"
+}

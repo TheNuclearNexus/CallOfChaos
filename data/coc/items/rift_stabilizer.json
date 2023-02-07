@@ -1,0 +1,8 @@
+{
+  "id": "rift_stabilizer",
+  "type": "smithed:block",
+  "base": "minecraft:furnace",
+  "models": {
+    "default": "coc:block/rift_stabilizer"
+  }
+}

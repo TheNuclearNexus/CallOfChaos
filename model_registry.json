@@ -1,0 +1,58 @@
+{
+  "minecraft:furnace": {
+    "coc:block/offering_altar": 4260001,
+    "coc:block/offering_altar_disabled": 4260002,
+    "coc:block/eternal_burner_disabled": 4260005,
+    "coc:block/eternal_burner": 4260006,
+    "coc:block/eternal_burner_flame": 4260007,
+    "coc:block/amalgam_forge_disabled": 4260008,
+    "coc:block/amalgam_forge": 4260009,
+    "coc:block/amalgam_forge_smelting": 4260010,
+    "coc:block/focusing_crystal_tier1": 4260011,
+    "coc:block/focusing_crystal_tier2": 4260012,
+    "coc:block/gathering_lantern_disabled": 4260013,
+    "coc:block/gathering_lantern": 4260014,
+    "coc:block/gathering_lantern_hanging_disabled": 4260015,
+    "coc:block/gathering_lantern_hanging": 4260016,
+    "coc:block/rift_stabilizer": 4260017
+  },
+  "minecraft:structure_block": {
+    "coc:item/chaos_crystal": 4260001,
+    "coc:item/chaos_shard": 4260002,
+    "coc:item/blight_steel": 4260003,
+    "coc:item/nebulous_powder": 4260004,
+    "coc:item/nebulous_crystal": 4260005,
+    "coc:item/crystaline_lens": 4260006,
+    "coc:item/entropic_lens": 4260007,
+    "coc:item/polymorphic_lens": 4260008,
+    "coc:block/chaos_focuser": 4260009,
+    "coc:item/raw_copper_chunk": 4260010,
+    "coc:item/raw_gold_chunk": 4260011,
+    "coc:item/raw_iron_chunk": 4260012
+  },
+  "minecraft:iron_sword": {
+    "coc:item/blight_steel_dagger": 4260001
+  },
+  "minecraft:carrot_on_a_stick": {
+    "coc:item/syringe": 4260001,
+    "coc:item/blightsight_goggles": 4260002,
+    "coc:item/rift_blade": 4260003
+  },
+  "minecraft:potion": {
+    "coc:item/blood_vial": 4260001
+  },
+  "minecraft:dropper": {
+    "coc:block/entropic_accelerator_disabled": 4260001,
+    "coc:block/entropic_accelerator": 4260002,
+    "coc:block/entropic_accelerator_disabled_up": 4260003,
+    "coc:block/entropic_accelerator_up": 4260004,
+    "coc:block/entropic_accelerator_disabled_down": 4260005,
+    "coc:block/entropic_accelerator_down": 4260006,
+    "coc:block/crystalizer_disabled": 4260007,
+    "coc:block/crystalizer": 4260008,
+    "coc:block/crystalizer_disabled_up": 4260009,
+    "coc:block/crystalizer_up": 4260010,
+    "coc:block/crystalizer_disabled_down": 4260011,
+    "coc:block/crystalizer_down": 4260012
+  }
+}

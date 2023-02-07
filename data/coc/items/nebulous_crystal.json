@@ -1,0 +1,8 @@
+{
+    "id": "nebulous_crystal",
+    "type": "smithed:simple",
+    "base": "minecraft:structure_block",
+    "models": {
+		"default": "coc:item/nebulous_crystal"
+	}
+}

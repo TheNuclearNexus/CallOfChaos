@@ -1,0 +1,13 @@
+{
+  "id": "entropic_accelerator",
+  "type": "smithed:block",
+  "base": "minecraft:dropper",
+  "models": {
+    "disabled": "coc:block/entropic_accelerator_disabled",
+    "enabled": "coc:block/entropic_accelerator",
+    "disabled_up": "coc:block/entropic_accelerator_disabled_up",
+    "enabled_up": "coc:block/entropic_accelerator_up",
+    "disabled_down": "coc:block/entropic_accelerator_disabled_down",
+    "enabled_down": "coc:block/entropic_accelerator_down"
+  }
+}

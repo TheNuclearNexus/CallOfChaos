@@ -1,5 +1,5 @@
 name: Call of Chaos
-version: '0.0.4-2'
+version: '0.0.5'
 author: Back Burner
 description: COC
 minecraft: 1.19
@@ -9,13 +9,14 @@ pipeline:
   - beet.contrib.copy_files
 
 require:
+  - plugins.smithed
   - bolt
   - bolt_expressions
   - plugins.nbt_literals
   - beet.contrib.lantern_load.base_data_pack
   - beet.contrib.worldgen
   - plugins.update_lang
-
+  - plugins.completed
 
 data_pack:
   name: Call of Chaos
@@ -39,3 +40,8 @@ meta:
   copy_files:
     data_pack: 
      data/coc/item_groups: data/coc/item_groups
+  smithed.items:
+      starting_cmd: 4260000
+      dummy_score: 'coc.dummy'
+ignore:
+  - "model_registry.json"

@@ -1,0 +1,8 @@
+{
+    "id": "syringe",
+    "type": "smithed:simple",
+    "base": "minecraft:carrot_on_a_stick",
+    "models": {
+		"default": "coc:item/syringe"
+	}
+}

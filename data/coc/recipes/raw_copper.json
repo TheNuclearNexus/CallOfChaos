@@ -1,0 +1,17 @@
+{
+    "type": "smithed:crafting_shaped",
+    "category": "resource",
+    "key": {
+      "R": {
+        "item": "coc:raw_copper_chunk"
+      }
+    },
+    "pattern": [
+      "RRR",
+      "RRR",
+      "RRR"
+    ],
+    "result": {
+      "item": "minecraft:raw_copper"
+    }
+  }
