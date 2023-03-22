@@ -15,8 +15,7 @@ def checkVersion(dependency):
                 scoreboard players set $temp coc.dummy 1
     if score $temp coc.dummy matches 0 function f'coc:technical/load/fail/{dependency.name}':
         tellraw @a [{"text":f"[Call of Chaos]","color":"dark_red"},{"text":f" {dependency.name} is not present or is not version {dependency.version}","color":"red"}]
-
-
+        
 dependencies = [
     {"name": 'smithed.item',"version": "0.0.1"},
     {"name": 'smithed.damage',"version": "0.0.4"},
@@ -28,7 +27,7 @@ for i in range(len(dependencies)):
 
 unless score $dependencies coc.dummy matches len(dependencies) function ./fail_load:
     tellraw @a [{"text":"------------\nCall of Chaos failed to load because some dependencies are missing or are incorrect versions!","color":"red"}]
-
+    
 if score $dependencies coc.dummy matches len(dependencies) function ./post_load:
     scoreboard players set #coc.major load.status 0
     scoreboard players set #coc.minor load.status 0

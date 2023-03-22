@@ -10,28 +10,29 @@ def summonStand(model, rot):
     elif model == crystalizer.disabled_down:
         tags.append("coc.down")
         
-    summon armor_stand ~ ~ ~ {
+    summon item_display ~ ~ ~ {
         Tags:tags,
-        Invisible:1b,Invulnerable:1b,Marker:1b,NoGravity:1b,
-        ArmorItems:[{},{},{},{
+        transformation:{translation:[0f,0f,0f],scale:[2.005f,2.005f,2.005f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},
+        brightness: {sky: 15, block: 15},
+        item:{
             id:"minecraft:dropper",
             Count:1b,
             tag:{CustomModelData: model}
-        }],
+        },
         Rotation:[rot,0f]
     } 
 
 if block ~ ~ ~ dropper[facing=south]:
-    summonStand(crystalizer.disabled, 0f)
-
-if block ~ ~ ~ dropper[facing=north]:
     summonStand(crystalizer.disabled, 180f)
 
+if block ~ ~ ~ dropper[facing=north]:
+    summonStand(crystalizer.disabled, 0f)
+
 if block ~ ~ ~ dropper[facing=west]:
-    summonStand(crystalizer.disabled, 90f)
+    summonStand(crystalizer.disabled, -90f)
 
 if block ~ ~ ~ dropper[facing=east]:
-    summonStand(crystalizer.disabled, -90f)
+    summonStand(crystalizer.disabled, 90f)
 
 if block ~ ~ ~ dropper[facing=up]:
     summonStand(crystalizer.disabled_up, 0f)

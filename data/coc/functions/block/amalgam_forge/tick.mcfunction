@@ -18,6 +18,6 @@ if score @s coc.rift_energy matches 1.. function ./update_model:
     
     scoreboard players set $cmd coc.dummy states.enabled
 
-    positioned ~ ~-1 ~ if entity @e[type=armor_stand,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}] if score @s coc.rift_energy matches 20..:
+    positioned ~ ~-1 ~ if entity @e[type=item_display,tag=coc.eternal_burner,distance=..0.5,scores={coc.rift_energy=1..}] if score @s coc.rift_energy matches 20..:
         scoreboard players set $cmd coc.dummy states.smelting
-store result entity @s ArmorItems[3].tag.CustomModelData int 1 scoreboard players get $cmd coc.dummy
+store result entity @s item.tag.CustomModelData int 1 scoreboard players get $cmd coc.dummy

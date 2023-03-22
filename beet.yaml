@@ -9,6 +9,7 @@ pipeline:
   - beet.contrib.copy_files
 
 require:
+  - mecha.contrib.raw
   - plugins.smithed
   - bolt
   - bolt_expressions

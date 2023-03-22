@@ -14,13 +14,13 @@ append function ./draw_wire:
 
 
 def handleReciever(distance):
-    if score $naturalRift coc.rift_energy matches 1.. as @e[type=armor_stand,tag=coc.energy.receiver,distance=distance,sort=random,limit=4,tag=!coc.received] facing entity @s feet function ./draw_wire
-    as @e[type=armor_stand,tag=coc.energy.receiver,distance=distance,sort=random,tag=!coc.received] function ./try_distribute
+    if score $naturalRift coc.rift_energy matches 1.. as @e[type=item_display,tag=coc.energy.receiver,distance=distance,sort=random,limit=4,tag=!coc.received] facing entity @s feet function ./draw_wire
+    as @e[type=item_display,tag=coc.energy.receiver,distance=distance,sort=random,tag=!coc.received] function ./try_distribute
 
 
 def handleTransferer(distance):
-    as @e[type=armor_stand,tag=coc.energy.transferer,distance=distance,sort=random,limit=4,tag=!coc.transfered] facing entity @s feet function ./draw_wire
-    as @e[type=armor_stand,tag=coc.energy.transferer,tag=!coc.transfered,distance=distance,sort=random] at @s:
+    as @e[type=item_display,tag=coc.energy.transferer,distance=distance,sort=random,limit=4,tag=!coc.transfered] facing entity @s feet function ./draw_wire
+    as @e[type=item_display,tag=coc.energy.transferer,tag=!coc.transfered,distance=distance,sort=random] at @s:
         function ./transfer
 
 
@@ -33,7 +33,7 @@ append function ./transfer:
 
 append function ./get_energy_stats:
     scoreboard players set $naturalRift coc.rift_energy 1
-    as @e[type=armor_stand,tag=coc.focusing_crystal,distance=..8,limit=4,sort=nearest] function ./get_focusing:
+    as @e[type=item_display,tag=coc.focusing_crystal,distance=..8,limit=4,sort=nearest] function ./get_focusing:
         scoreboard players add $naturalRift coc.rift_energy 1
         positioned ~ ~2 ~ facing entity @s feet function ./draw_wire
 

@@ -4,12 +4,12 @@ if score @s coc.rift_energy matches 20.. scoreboard players set @s coc.rift_ener
 
 
 if score @s coc.rift_energy matches 1.. function ./set_on:
-    if entity @s[tag=!coc.up,tag=!coc.down] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled
-    if entity @s[tag=coc.up] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled_up
-    if entity @s[tag=coc.down] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled_down
+    if entity @s[tag=!coc.up,tag=!coc.down] data modify entity @s item.tag.CustomModelData set value states.enabled
+    if entity @s[tag=coc.up] data modify entity @s item.tag.CustomModelData set value states.enabled_up
+    if entity @s[tag=coc.down] data modify entity @s item.tag.CustomModelData set value states.enabled_down
 
 unless score @s coc.rift_energy matches 1.. function ./set_off:
-    if entity @s[tag=!coc.up,tag=!coc.down] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled
-    if entity @s[tag=coc.up] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled_up
-    if entity @s[tag=coc.down] data modify entity @s ArmorItems[3].tag.CustomModelData set value states.disabled_down
+    if entity @s[tag=!coc.up,tag=!coc.down] data modify entity @s item.tag.CustomModelData set value states.disabled
+    if entity @s[tag=coc.up] data modify entity @s item.tag.CustomModelData set value states.disabled_up
+    if entity @s[tag=coc.down] data modify entity @s item.tag.CustomModelData set value states.disabled_down
     
