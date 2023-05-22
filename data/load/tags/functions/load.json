@@ -3,6 +3,6 @@
         "#smithed.item:load",
         "#smithed.damage:load",
         "#smithed.crafter:load",
-        "coc:technical/load"
+        "coc:global/load"
     ]
 }

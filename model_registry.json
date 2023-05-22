@@ -36,7 +36,8 @@
   "minecraft:carrot_on_a_stick": {
     "coc:item/syringe": 4260001,
     "coc:item/blightsight_goggles": 4260002,
-    "coc:item/rift_blade": 4260003
+    "coc:item/rift_blade": 4260003,
+    "coc:item/chalk": 4260004
   },
   "minecraft:potion": {
     "coc:item/blood_vial": 4260001

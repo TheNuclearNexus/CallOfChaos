@@ -1,0 +1,8 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "coc:block/chalk/circle/output",
+		"particle": "coc:block/chalk/circle/output"
+	},
+	"parent": "coc:block/chalk/mark"
+}

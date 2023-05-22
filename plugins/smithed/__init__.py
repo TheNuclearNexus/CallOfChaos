@@ -8,6 +8,6 @@ def extend(ctx: Context):
 def beet_default(ctx: Context):
     extend(ctx)
     yield 
-    # custom_items.create_items(ctx)
+    custom_items.create_items(ctx)
     nbt_recipes.create_recipes(ctx)
     

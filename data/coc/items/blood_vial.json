@@ -5,5 +5,5 @@
   "models": {
     "default": "coc:item/blood_vial"
   },
-  "additional_nbt": "CustomPotionColor:16777215"
+  "additional_nbt": "CustomPotionColor:16777215,HideFlags:127"
 }

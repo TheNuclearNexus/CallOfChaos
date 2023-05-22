@@ -1,0 +1,122 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/string"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 4260000
+            },
+            "model": "coc:block/chalk/dot/0"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260001
+            },
+            "model": "coc:block/chalk/dot/1"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260002
+            },
+            "model": "coc:block/chalk/dot/2"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260003
+            },
+            "model": "coc:block/chalk/dot/3"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260004
+            },
+            "model": "coc:block/chalk/dot/4"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260005
+            },
+            "model": "coc:block/chalk/dot/5"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260006
+            },
+            "model": "coc:block/chalk/dot/6"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260007
+            },
+            "model": "coc:block/chalk/dot/7"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260008
+            },
+            "model": "coc:block/chalk/dot/8"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260009
+            },
+            "model": "coc:block/chalk/dot/9"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260010
+            },
+            "model": "coc:block/chalk/dot/10"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260011
+            },
+            "model": "coc:block/chalk/dot/11"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260012
+            },
+            "model": "coc:block/chalk/dot/12"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260013
+            },
+            "model": "coc:block/chalk/dot/13"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260014
+            },
+            "model": "coc:block/chalk/dot/14"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260015
+            },
+            "model": "coc:block/chalk/dot/15"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260016
+            },
+            "model": "coc:block/chalk/circle/activation"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260017
+            },
+            "model": "coc:block/chalk/circle/item"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260018
+            },
+            "model": "coc:block/chalk/circle/output"
+        }
+    ]
+  }

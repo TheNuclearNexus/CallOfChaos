@@ -13,6 +13,7 @@ require:
   - plugins.smithed
   - bolt
   - bolt_expressions
+  - bolt_expressions.contrib.commands
   - plugins.nbt_literals
   - beet.contrib.lantern_load.base_data_pack
   - beet.contrib.worldgen

@@ -154,7 +154,7 @@ def create_items(ctx: Context):
     for itemPath in items:
         namespace = itemPath.split(":")[0]
         item = items[itemPath].data
-
+        # print(item)
         if item["type"] == "smithed:simple":
             cmd = generate_model(ctx, vanilla, namespace, item)
             generate_basic_loot(ctx, namespace, cmd, item)

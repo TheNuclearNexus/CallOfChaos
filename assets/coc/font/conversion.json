@@ -1,0 +1,141 @@
+{
+    "providers": [
+        {
+            "type": "space",
+            "advances": {
+                "S": -1,
+                " ": 4
+            }
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_left_unfilled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "("
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_left_filled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "["
+            ]
+        },
+
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_mid_1_unfilled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "-"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_mid_1_filled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "="
+            ]
+        },
+
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_mid_2_unfilled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "~"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_mid_2_filled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "*"
+            ]
+        },
+
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_right_unfilled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                ")"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/progress_right_filled.png",
+            "ascent": 6,
+            "height": 6,
+            "chars": [
+                "]"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_down_3.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_down_2.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_down_1.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "3"
+            ]
+        },
+
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_up_1.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_up_2.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "5"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "coc:gui/arrow_up_3.png",
+            "ascent": 6,
+            "height": 7,
+            "chars": [
+                "6"
+            ]
+        }
+    ]
+}

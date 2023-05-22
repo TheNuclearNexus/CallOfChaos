@@ -9,6 +9,12 @@
                 "custom_model_data": 4260001
             },
             "model": "coc:entity/rift"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4260002
+            },
+            "model": "coc:entity/small_rift"
         }
     ]
   }
