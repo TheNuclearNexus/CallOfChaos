@@ -71,7 +71,7 @@ def generate_set_count_table(ctx: Context, namespace: str, folder: str, item: An
                     "entries": [
                         {
                             "type": "minecraft:loot_table",
-                            "name": f"{namespace}:item/{item['id']}",
+                            "value": f"{namespace}:item/{item['id']}",
                             "functions": [
                                 {
                                     "function": "minecraft:set_count",
@@ -105,8 +105,17 @@ def generate_basic_loot(ctx: Context, namespace: str, cmd: int, item: Any):
                             "name": item["base"],
                             "functions": [
                                 {
-                                    "function": "minecraft:set_nbt",
-                                    "tag": f"{{CustomModelData:{cmd},display:{{Name:'{{\"translate\":\"item.{namespace}.{item['id']}\",\"italic\":false}}'}},smithed:{{id:\"{namespace}:{item['id']}\"}}{','+item['additional_nbt'] if 'additional_nbt' in item else ''}}}",
+                                    "function": "minecraft:set_components",
+                                    "components": {
+                                        "minecraft:custom_model_data": cmd,
+                                        "minecraft:item_name": f'{{"translate":"item.{namespace}.{item['id']}","italic":false}}',
+                                        "minecraft:custom_data": {
+                                            "smithed": {
+                                                "id": f"{namespace}:{item['id']}"
+                                            }
+                                        },
+                                        **item.setdefault("components", {})
+                                    }
                                 }
                             ],
                         }
@@ -130,8 +139,35 @@ def generate_block_loot(ctx: Context, namespace: str, cmd: int, item: Any):
                             "name": item["base"],
                             "functions": [
                                 {
-                                    "function": "minecraft:set_nbt",
-                                    "tag": f"{{CustomModelData:{cmd},display:{{Name:'{{\"translate\":\"block.{namespace}.{item['id']}\",\"italic\":false}}'}},smithed:{{id:\"{namespace}:{item['id']}\"}},BlockEntityTag:{{Items:[{{id:\"minecraft:stone\",Count:1b,Slot:0b,tag:{{smithed:{{block:{{id:\"{namespace}:{item['id']}\"}}}}}}}}]}}}}",
+                                    "function": "minecraft:set_components",
+                                    "components": {
+                                        "minecraft:custom_model_data": cmd,
+                                        "minecraft:item_name": f'{{"translate":"block.{namespace}.{item['id']}","italic":false}}',
+                                        "minecraft:custom_data": { 
+                                            "smithed": {
+                                                "id": f"{namespace}:{item['id']}"
+                                            }
+                                        },
+                                        "minecraft:container": [ 
+                                            {
+                                                "item": {
+                                                    "id": "minecraft:stone",
+                                                    "count": 1,
+                                                    "components":{
+                                                        "minecraft:custom_data": {
+                                                            "smithed":{
+                                                                "block": {
+                                                                    "id": f"{namespace}:{item['id']}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "slot": 0,
+                                            }
+                                        ],
+                                        **item.setdefault("components", {})
+                                    }
                                 }
                             ],
                         }

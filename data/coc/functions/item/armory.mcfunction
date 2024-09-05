@@ -37,6 +37,34 @@ def slotToArmor(slot):
         return 'netherite_helmet'
     return 'air'
 
+
+append function ./armory/equip:
+    tag @s add coc.equiped
+
+    data modify storage coc:temp filteredInventory set from storage coc:temp inventory
+    for slotNum, _ in getReplaceSlots():
+        data remove storage coc:temp filteredInventory[{Slot: Byte(slotNum)}]
+
+    if data storage coc:temp filteredInventory[{tag:{coc:{armory:1b}}}] clear @s #coc:armory{coc:{armory:1b}}
+
+    for slotNum, slotId in getReplaceSlots():
+        if data storage coc:temp inventory[{Slot: Byte(slotNum)}]:
+            unless data storage coc:temp inventory[{Slot: Byte(slotNum),tag:{coc:{armory:1b}}}] function (./armory/equip/replace_ + slotId.split('.')[1]):
+                data modify storage coc:temp armor set from storage coc:temp inventory[{Slot: Byte(slotNum)}]
+                summon item ~ ~ ~ {Item:{id: "minecraft:stone", Count:1b},Tags:["coc.armor_return"], PickupDelay: 0s}
+                as @e[type=item,tag=coc.armor_return,distance=..0.5,limit=1] function ./armory/equip/set_item
+    
+    ClassRegistry.set_gear()
+
+append function ./armory/unequip:
+    tag @s remove coc.equiped
+    clear @s #coc:armory{coc:{armory:1b}}
+
+    store result score $hasTransformedArmory coc.dummy clear @s #coc:armory{coc:{transformed:1b}} 0
+    if score $hasTransformedArmory coc.dummy matches 1.. function ./armory/fix_transformed:
+        for i in range(36):
+            if data storage coc:temp inventory[{Slot: Byte(i),tag:{coc:{transformed:1b}}}] item replace entity @s f"container.{i}" with carrot_on_a_stick{smithed:{id: "coc:armory"}}
+
 with onEvent("inventory_changed", ./armory/detect):
     store result score $hasArmory coc.dummy clear @s #coc:armory{smithed:{id: "coc:armory"}} 0
 
@@ -55,33 +83,8 @@ with onEvent("inventory_changed", ./armory/detect):
         append function ./armory/equip/set_item:
             data modify entity @s Item set from storage coc:temp armor
             tag @s remove coc.armor_return
-
-        
-
-        unless score $slot coc.dummy matches -1 unless data var armory_data({"class": "none"}) function ./armory/equip:
-            tag @s add coc.equiped
-
-            data modify storage coc:temp filteredInventory set from storage coc:temp inventory
-            for slotNum, _ in getReplaceSlots():
-                data remove storage coc:temp filteredInventory[{Slot: Byte(slotNum)}]
-
-            if data storage coc:temp filteredInventory[{tag:{coc:{armory:1b}}}] clear @s #coc:armory{coc:{armory:1b}}
-
-            for slotNum, slotId in getReplaceSlots():
-                if data storage coc:temp inventory[{Slot: Byte(slotNum)}]:
-                    unless data storage coc:temp inventory[{Slot: Byte(slotNum),tag:{coc:{armory:1b}}}] function (./armory/equip/replace_ + slotId.split('.')[1]):
-                        data modify storage coc:temp armor set from storage coc:temp inventory[{Slot: Byte(slotNum)}]
-                        summon item ~ ~ ~ {Item:{id: "minecraft:stone", Count:1b},Tags:["coc.armor_return"], PickupDelay: 0s}
-                        as @e[type=item,tag=coc.armor_return,distance=..0.5,limit=1] function ./armory/equip/set_item
             
-            ClassRegistry.set_gear()
+        unless score $slot coc.dummy matches -1 unless data var armory_data({"class": "none"}) function ./armory/equip
 
-        if score $slot coc.dummy matches -1 function ./armory/unequip:
-            tag @s remove coc.equiped
-            clear @s #coc:armory{coc:{armory:1b}}
-
-            store result score $hasTransformedArmory coc.dummy clear @s #coc:armory{coc:{transformed:1b}} 0
-            if score $hasTransformedArmory coc.dummy matches 1.. function ./armory/fix_transformed:
-                for i in range(36):
-                    if data storage coc:temp inventory[{Slot: Byte(i),tag:{coc:{transformed:1b}}}] item replace entity @s f"container.{i}" with carrot_on_a_stick{smithed:{id: "coc:armory"}}
+        if score $slot coc.dummy matches -1 function ./armory/unequip
     if score $hasArmory coc.dummy matches 1.. unless entity @s[tag=coc.equiped] function ./armory/unequip

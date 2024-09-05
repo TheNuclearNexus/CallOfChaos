@@ -156,6 +156,45 @@ append function ./conversion/correct_rotations:
             rotation[0] = dummy["$rotation"]
         dummy["$rotation"] += dummy["$rotationStep"]
 
+append function ./conversion/setup_display:
+    tag @s add coc.conversion_item
+    
+    self.item = tempStorage.Mainhand
+    itemConversion = tempStorage.conversion
+
+    ride @s mount @e[type=item_display,tag=coc.parent,distance=..0.5,limit=1]
+
+    self.transformation = {
+        translation: [2f, 1f, 0f],
+        scale: [0.5f, 0.5f, 0.5f],
+        left_rotation: [0f, 0f, 0f, 1f],
+        right_rotation: [0f, 0f, 0f, 1f]
+    }
+
+    tag @s add coc.bound_item
+
+    append function ./convesion/setup_text:
+        self.transformation = tempStorage.transformation
+        self.background = 0
+        # This view_range is approximately 24 blocks
+        self.view_range = 0.1875
+
+        ride @s mount @e[type=item_display,tag=coc.bound_item,distance=..0.5,limit=1]
+
+    def createText(rotation):
+        tempStorage.transformation = {
+            translation: [2f, 1.5f, 0f],
+            scale: [1f, 1f, 1f],
+            left_rotation: rotation,
+            right_rotation: [0f, 0f, 0f, 1f]
+        }
+        execute summon text_display function ./convesion/setup_text
+
+    # Use 2 text displays so they have a back side
+    createText([0f,0f,0f,1f])
+    createText([0f,-1f,0f,0f])
+    tag @s remove coc.bound_item
+
 append function ./conversion/interact:
     scoreboard players set $temp coc.dummy 0
     on passengers if entity @s[tag=coc.conversion_item] scoreboard players add $temp coc.dummy 1
@@ -169,44 +208,7 @@ append function ./conversion/interact:
         # conversion will only be set if validate found a proper result
         if data storage coc:temp conversion function ./conversion/create_display:
             tag @s add coc.parent
-            execute summon item_display function ./conversion/setup_display:
-                tag @s add coc.conversion_item
-                
-                self.item = tempStorage.Mainhand
-                itemConversion = tempStorage.conversion
-
-                ride @s mount @e[type=item_display,tag=coc.parent,distance=..0.5,limit=1]
-
-                self.transformation = {
-                    translation: [2f, 1f, 0f],
-                    scale: [0.5f, 0.5f, 0.5f],
-                    left_rotation: [0f, 0f, 0f, 1f],
-                    right_rotation: [0f, 0f, 0f, 1f]
-                }
-
-                tag @s add coc.bound_item
-
-                append function ./convesion/setup_text:
-                    self.transformation = tempStorage.transformation
-                    self.background = 0
-                    # This view_range is approximately 24 blocks
-                    self.view_range = 0.1875
-
-                    ride @s mount @e[type=item_display,tag=coc.bound_item,distance=..0.5,limit=1]
-
-                def createText(rotation):
-                    tempStorage.transformation = {
-                        translation: [2f, 1.5f, 0f],
-                        scale: [1f, 1f, 1f],
-                        left_rotation: rotation,
-                        right_rotation: [0f, 0f, 0f, 1f]
-                    }
-                    execute summon text_display function ./convesion/setup_text
-
-                # Use 2 text displays so they have a back side
-                createText([0f,0f,0f,1f])
-                createText([0f,-1f,0f,0f])
-                tag @s remove coc.bound_item
+            execute summon item_display function ./conversion/setup_display
             tag @s remove coc.parent
 
             function ./conversion/correct_rotations

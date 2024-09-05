@@ -1,3 +1,5 @@
+tellraw TheNuclearNexus [{"text":"Call of Chaos", "color":"dark_purple"},{"text":" is loaded", "color": "gray"}]
+
 scoreboard objectives add coc.dummy dummy
 scoreboard objectives add coc.rift_id dummy
 scoreboard objectives add coc.player_id dummy
@@ -12,6 +14,7 @@ scoreboard objectives add coc.cursor.d dummy
 
 scoreboard objectives add coc.screen.w dummy
 scoreboard objectives add coc.screen.h dummy
+scoreboard objectives add coc.screen.ppu dummy
 
 scoreboard objectives add coc.coas minecraft.used:minecraft.carrot_on_a_stick
 

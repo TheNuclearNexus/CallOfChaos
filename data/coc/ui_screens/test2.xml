@@ -1,0 +1,14 @@
+<screen w="192" h="192" d="2" name="test2" ppu="64">
+    <template id="standard_page">
+        <text key="header" x="$23 + template.setdefault('offset', 0)" y="139" w="146" alignment="center" content="$template['header']"/>
+        <text key="header" x="$23 + template.setdefault('offset', 0)" y="119" w="146" alignment="center" content="$template['body']"/>
+    </template>
+    <group key="buttons" background="book" x="23" y="6">
+        <template.standard_page offset="20">
+            <header>[Test](color=red)</header>
+            <body>
+                Lol {nbt="CustomName", entity="@s"}
+            </body>
+        </template.standard_page>
+    </group>
+</screen>

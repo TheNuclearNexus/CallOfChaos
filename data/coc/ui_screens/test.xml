@@ -1,0 +1,16 @@
+<screen w="192" h="192" d="2" name="test" ppu="64">
+    <group key="buttons" background="book" x="23" y="6">
+        <group key="header" x="47" y="156" w="98" background="tome_of_foob"/>
+        <text key="coc" x="47" y="120" w="98" alignment="center">
+            [Call of Chaos](color=black) [v0.0.5](color=light_purple)
+        </text>
+        <button
+            key="2" x="126" y="26"
+            default="page_right" hover="page_right_hover"
+        >
+            <function path="/joe_smells" executor="player">
+                function coc:modules/ui/test2/swap
+            </function>
+        </button>
+    </group>
+</screen>

@@ -25,7 +25,7 @@ GUARDIAN = PlayerClass({
             "luminous": LuminousSkill()
         }, 
         gear = {
-            "weapon.armory": Gear("netherite_sword", Compound({display: {Name: '{"text":"shit"}'}}))
+            "weapon.armory": Gear("netherite_sword", {"custom_name": '{"text":"shit"}'})
         }),
     "infernal": Branch({
         "flame_retardant": PassiveSkill("Flame Retardant", "Damage received from flames is reduced by 10%")

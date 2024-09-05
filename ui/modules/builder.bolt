@@ -1,0 +1,194 @@
+import xml.etree.ElementTree as ET
+import allay
+import math
+import copy
+import re
+import mecha
+
+from beet import Font, Function
+from mecha import Mecha
+from ./screen import Screen
+from ./group import Group
+from ./button import Button
+from ./text import Text
+
+ALLAY = allay.Parser()
+
+def normalize_string(string):
+    if string == None:
+        return ""
+    space_amount = 0
+    content = ""
+    for line in string.split('\n'):
+        content += line.lstrip() + '\n'
+    return content
+
+
+def add_element(parent, element):
+    if element != None:
+        if isinstance(element, list):
+            for e in element:
+                parent.children.append(e)
+        else:
+            parent.children.append(element)
+
+class Builder():
+
+    def add_image_to_font(self, name):
+        path = "coc:gui/" + name
+        image = ctx.assets.textures[path].image
+
+        if path in self.font:
+            return {"char": self.font[path].chars[0], "size": image.size}
+        
+        char = chr(61440 + len(self.font) + 1)
+
+        self.font[path] = ({
+            "type": "bitmap",
+            "file": path + '.png',
+            "ascent": image.size[1] - 2,
+            "height": image.size[1],
+            "chars": [
+                char
+            ]
+        })
+
+        return {"char": char, "size": image.size}
+
+    def build_template(self, node, env=None):
+        templateData = node.attrib
+        for child in node:
+            if 'content' in child.attrib:
+                templateData[child.tag] = child.attrib["content"]
+            else:
+                templateData[child.tag] = child.text
+
+        templateNodes = copy.deepcopy(self.templates['.'.join(node.tag.split('.')[1:])])
+
+        if env == None:
+            env = {}
+        else:
+            env = env.copy()
+
+        env["template"] = templateData
+        outputNodes = []
+        for templateNode in templateNodes:
+            outputNodes.append(self.get_element(templateNode, env))
+        return outputNodes
+
+    def create_template(self, node, env=None):
+        id = node.attrib["id"]
+        self.builders[f'template.{id}'] = self.build_template
+        self.templates[id] = node
+
+
+    def create_group(self, node, env=None):
+        group = Group(**node.attrib)
+        for child in node:
+            add_element(group, self.get_element(child, env))
+
+
+        if 'background' in node.attrib:
+            background = self.add_image_to_font(node.attrib.background)
+            group.w = background.size[0]
+            group.h = background.size[1]
+            group.background = background.char
+
+        return group
+
+    def create_button(self, node, env=None):
+        textures = ctx.assets.textures
+
+        default = self.add_image_to_font(node.attrib.default)
+        hover = self.add_image_to_font(node.attrib.hover)
+
+        node.attrib['default'] = default.char
+        node.attrib['hover'] = hover.char
+
+        for child in node:
+            if child.tag == 'function':
+                function_path = f"coc:modules/ui/{self.screen.name}/{child.attrib.path}".replace('//', '/')
+                func = Function('playsound ui.button.click master @p\n' + child.text)
+
+                ctx.data[function_path] = func
+                if 'function' not in node.attrib:
+                    node.attrib['function'] = function_path
+
+                if 'executor' not in node.attrib and 'executor' in child.attrib:
+                    node.attrib['executor'] = child.attrib['executor']
+
+        return Button(**node.attrib, w=default.size[0], h=default.size[1])
+
+    def create_text(self, node, env=None):
+        if 'content' in node.attrib:
+            if node.text == None:
+                node.text = node.attrib['content']
+            else:
+                node.text += node.attrib['content']
+            del node.attrib['content']
+
+        content = (normalize_string(node.text)) + '[' + ('SPACE' * int(node.attrib.w)) + f'](font="coc:ui/{self.screen.name}")'
+        content = ALLAY.parse(content).replace('SPACE', ' ')
+        return Text(**node.attrib, content=content)
+
+    def get_element(self, node, env=None):
+        for attrib in node.attrib:
+            value = node.attrib[attrib]
+            if value.startswith("$"):
+                node.attrib[attrib] = eval(value[1:], env)
+            elif attrib == 'key':
+                continue
+            elif re.match(r'^[0-9]+$', value):
+                node.attrib[attrib] = int(value)
+            elif re.match(r'true|false|True|False', value):
+                node.attrib[attrib] = bool(value)
+
+        if node.tag in self.builders:
+            return self.builders[node.tag](node, env)
+
+    def create_screen(self, node): 
+        screen = Screen(**node.attrib)
+        
+        self.screen = screen
+        
+        initial_env = {
+            "ctx": self.ctx
+        }
+
+        for child in node:
+            element = self.get_element(child, initial_env)
+            add_element(screen, element)
+
+        print(screen.children)
+
+        ctx.assets[f"coc:ui/{screen.name}"] = Font({
+            "providers": [
+                {
+                    "type": "space",
+                    "advances": {
+                        " ": 1,
+                    }
+                }
+            ] + list(self.font.values())
+        })
+
+        return screen
+
+    def __init__(self, data, ctx):
+        self.font = {}
+        root = ET.fromstring(data)
+
+        if root.tag != 'screen':
+            raise SyntaxError("XML must have a screen root")
+        
+        self.templates = {}
+        self.builders = {
+            'group': self.create_group,
+            'button': self.create_button,
+            'text': self.create_text,
+            'template': self.create_template
+        }
+        self.ctx = ctx
+
+        self.create_screen(root).generate()
+

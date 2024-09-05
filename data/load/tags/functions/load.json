@@ -1,8 +1,5 @@
 {
     "values": [
-        "#smithed.item:load",
-        "#smithed.damage:load",
-        "#smithed.crafter:load",
         "coc:global/load"
     ]
 }

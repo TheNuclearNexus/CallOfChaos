@@ -1,17 +1,14 @@
 
 class Gear:
-    def __init__(self, id, nbt={}):
+    def __init__(self, id, components={}):
         self.id = id
 
-        self.nbt = nbt
+        self.components = components
 
     def replace(self, slot):
         if slot == 'weapon.armory':
-            self.nbt['smithed'] = {id: "coc:armory"}
-            if 'coc' not in self.nbt:
-                self.nbt['coc'] = {transformed: 1b}
-            else:
-                self.nbt['coc'].transformed = 1b
+            self.components.setdefault('custom_data', {})['smithed'] = {id: "coc:armory"}
+            self.components['custom_data'].setdefault('coc', {})['transformed'] = 1b
                 
             for slot in range(9):
                 if score $slot coc.dummy matches slot item replace entity @s f"hotbar.{slot}" with self.id{**(self.nbt)}
