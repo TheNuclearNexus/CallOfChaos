@@ -54,7 +54,7 @@ append function coc:entity/player/tick:
     if entity @s[tag=coc.has_tracked_ui] function ./in_world_ui/process:
         tag @s add coc.root_player
         temp.rotation = atSelf.Rotation
-        rotation = temp.rotation(type='float')
+        rotation = temp.rotation
         rotation[0] = (rotation[0] * 1000 - CURSOR_R) / 1000
 
         dummy["$d"] = CURSOR_D * (SCREEN_PPU / 16)

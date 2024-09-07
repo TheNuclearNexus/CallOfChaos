@@ -1,5 +1,5 @@
 from coc:modules/playerdb import PlayerDB
-from coc:modules/armory import ClassRegistry
+# from coc:modules/armory import ClassRegistry
 
 append function ./player/tick:
     if score @s coc.coas matches 1.. function ./player/tick/_coas:
@@ -25,7 +25,7 @@ append function ./player/tick:
 
     at @s if entity @s[tag=coc.equiped] function ./player/check_class:
         PlayerDB.get()
-        ClassRegistry.run_passives()
+        # ClassRegistry.run_passives()
 
 
 append function ./player/second:

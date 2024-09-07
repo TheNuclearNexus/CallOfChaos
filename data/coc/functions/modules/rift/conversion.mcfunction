@@ -149,7 +149,7 @@ append function ./conversion/correct_rotations:
     dummy["$rotation"] = 0
 
     on passengers if entity @s[tag=coc.conversion_item] function ./conversion/rotate:   
-        rotation = self.Rotation(type="float")
+        rotation = self.Rotation
 
         rotation[0] = dummy["$rotation"]
         on passengers:

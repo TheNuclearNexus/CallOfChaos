@@ -5,7 +5,7 @@ dummy = Scoreboard("coc.dummy")
 atSelf = Data.entity("@s")
 
 def fix_rotation():
-    rotation = atSelf.Rotation(type='float')
+    rotation = atSelf.Rotation
     rotation[0] = dummy["$r"] / 1000
 
 class Element:

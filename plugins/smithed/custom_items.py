@@ -108,7 +108,7 @@ def generate_basic_loot(ctx: Context, namespace: str, cmd: int, item: Any):
                                     "function": "minecraft:set_components",
                                     "components": {
                                         "minecraft:custom_model_data": cmd,
-                                        "minecraft:item_name": f'{{"translate":"item.{namespace}.{item['id']}","italic":false}}',
+                                        "minecraft:item_name": f'',
                                         "minecraft:custom_data": {
                                             "smithed": {
                                                 "id": f"{namespace}:{item['id']}"
@@ -142,7 +142,7 @@ def generate_block_loot(ctx: Context, namespace: str, cmd: int, item: Any):
                                     "function": "minecraft:set_components",
                                     "components": {
                                         "minecraft:custom_model_data": cmd,
-                                        "minecraft:item_name": f'{{"translate":"block.{namespace}.{item['id']}","italic":false}}',
+                                        "minecraft:item_name": '',
                                         "minecraft:custom_data": { 
                                             "smithed": {
                                                 "id": f"{namespace}:{item['id']}"
