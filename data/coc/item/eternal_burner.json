@@ -1,0 +1,10 @@
+{
+  "id": "eternal_burner",
+  "type": "smithed:placeable",
+  "base": "minecraft:furnace",
+  "models": {
+    "disabled": "coc:eternal_burner_disabled",
+    "enabled": "coc:eternal_burner",
+    "burning": "coc:eternal_burner_flame"
+  }
+}

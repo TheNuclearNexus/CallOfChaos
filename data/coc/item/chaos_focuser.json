@@ -1,0 +1,7 @@
+{
+    "id": "chaos_focuser",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:chaos_focuser"
+	}
+}

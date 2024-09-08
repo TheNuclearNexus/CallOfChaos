@@ -1,0 +1,7 @@
+{
+    "id": "polymorphic_lens",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:polymorphic_lens"
+	}
+}

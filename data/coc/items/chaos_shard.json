@@ -1,8 +1,0 @@
-{
-    "id": "chaos_shard",
-    "type": "smithed:simple",
-    "base": "minecraft:structure_block",
-    "models": {
-		"default": "coc:item/chaos_shard"
-	}
-}

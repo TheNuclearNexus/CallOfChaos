@@ -1,25 +1,23 @@
 name: Call of Chaos
-version: '0.0.5'
+version: '0.2.0'
 author: Back Burner
 description: COC
-minecraft: "1.20"
+minecraft: "1.21"
 
 pipeline:
-  - plugins.completed
   - mecha
   - beet.contrib.copy_files
-  - ui.generate
+  - plugins.completed
 
 require:
+  - weld_deps
   - mecha.contrib.raw
   - plugins.smithed
-  - ui.resources
   - bolt
   - bolt_expressions
   - bolt_expressions.contrib.commands
   - plugins.nbt_literals
   - beet.contrib.lantern_load.base_data_pack
-  - beet.contrib.worldgen
   - plugins.update_lang
 
 data_pack:
@@ -44,8 +42,8 @@ meta:
   copy_files:
     data_pack: 
      data/coc/item_groups: data/coc/item_groups
-  smithed.items:
-      starting_cmd: 4260000
-      dummy_score: 'coc.dummy'
-ignore:
-  - "model_registry.json"
+
+  weld_deps:
+    deps:
+      crafter: "0.4.2"
+      custom-block: "0.4.2"

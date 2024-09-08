@@ -1,8 +1,0 @@
-{
-    "id": "blight_steel_dagger",
-    "type": "smithed:existing_loot",
-    "base": "minecraft:iron_sword",
-    "models": {
-      "default": "coc:item/blight_steel_dagger"
-    }
-}

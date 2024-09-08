@@ -1,0 +1,7 @@
+{
+    "id": "entropic_lens",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:entropic_lens"
+	}
+}

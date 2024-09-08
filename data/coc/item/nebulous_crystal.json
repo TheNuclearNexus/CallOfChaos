@@ -1,0 +1,7 @@
+{
+    "id": "nebulous_crystal",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:nebulous_crystal"
+	}
+}

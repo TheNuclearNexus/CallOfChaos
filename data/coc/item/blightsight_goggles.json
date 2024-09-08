@@ -1,0 +1,7 @@
+{
+    "id": "blightsight_goggles",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:blightsight_goggles"
+	}
+}

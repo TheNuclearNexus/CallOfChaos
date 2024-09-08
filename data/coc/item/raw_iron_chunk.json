@@ -1,0 +1,7 @@
+{
+  "id": "raw_iron_chunk",
+  "type": "smithed:simple",
+  "models": {
+    "default": "coc:raw_iron_chunk"
+  }
+}

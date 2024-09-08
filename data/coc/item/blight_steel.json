@@ -1,0 +1,7 @@
+{
+  "id": "blight_steel",
+  "type": "smithed:simple",
+  "models": {
+    "default": "coc:blight_steel"
+  }
+}

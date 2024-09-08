@@ -1,0 +1,7 @@
+{
+    "id": "chaos_shard",
+    "type": "smithed:simple",
+    "models": {
+		"default": "coc:chaos_shard"
+	}
+}

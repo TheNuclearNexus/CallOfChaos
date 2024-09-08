@@ -1,8 +1,0 @@
-{
-  "id": "imbuement_altar",
-  "type": "smithed:block",
-  "base": "minecraft:furnace",
-  "models": {
-    "default": "coc:block/offering_altar"
-  }
-}

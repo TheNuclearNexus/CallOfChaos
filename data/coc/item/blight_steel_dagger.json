@@ -1,0 +1,8 @@
+{
+    "id": "blight_steel_dagger",
+    "type": "smithed:simple",
+    "base": "minecraft:iron_sword",
+    "models": {
+      "default": "coc:blight_steel_dagger"
+    }
+}
