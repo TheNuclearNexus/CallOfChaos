@@ -24,4 +24,4 @@ toml==0.10.2
 typing_extensions==4.12.2
 tzdata==2024.1
 weld-deps==0.13.0
-smithed @ git+https://github.com/Smithed-MC/smithed-python@aca17c2347e38f6400d631540213361f82a83c1d
+smithed==0.19.0
