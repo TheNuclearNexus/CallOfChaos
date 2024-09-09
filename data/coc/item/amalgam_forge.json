@@ -2,9 +2,8 @@
   "id": "amalgam_forge",
   "type": "smithed:placeable",
   "base": "minecraft:furnace",
-  "models": {
-    "disabled": "coc:amalgam_forge_disabled",
-    "enabled": "coc:amalgam_forge",
-    "smelting": "coc:amalgam_forge_smelting"
+  "states": {
+    "enabled": "coc:block/amalgam_forge_enabled",
+    "smelting": "coc:block/amalgam_forge_smelting"
   }
 }

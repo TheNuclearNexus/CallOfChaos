@@ -1,20 +1,20 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "item/snowball"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "item/snowball"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 4260001
+      },
+      "model": "coc:entity/rift"
     },
-    "overrides": [
-        {
-            "predicate": {
-                "custom_model_data": 4260001
-            },
-            "model": "coc:entity/rift"
-        },
-        {
-            "predicate": {
-                "custom_model_data": 4260002
-            },
-            "model": "coc:entity/small_rift"
-        }
-    ]
-  }
+    {
+      "predicate": {
+        "custom_model_data": 4260002
+      },
+      "model": "coc:entity/small_rift"
+    }
+  ]
+}

@@ -1,8 +1,0 @@
-{
-  "id": "blood_vial",
-  "type": "smithed:simple",
-  "models": {
-    "default": "coc:blood_vial"
-  },
-  "components": {}
-}

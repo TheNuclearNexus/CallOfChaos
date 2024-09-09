@@ -1,7 +1,0 @@
-{
-  "id": "chalk",
-  "type": "smithed:simple",
-  "models": {
-    "default": "coc:chalk"
-  }
-}

@@ -1,7 +1,0 @@
-{
-    "id": "raw_copper_chunk",
-    "type": "smithed:simple",
-    "models": {
-		"default": "coc:raw_copper_chunk"
-	}
-}

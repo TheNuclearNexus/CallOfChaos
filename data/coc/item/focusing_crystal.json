@@ -1,8 +1,0 @@
-{
-  "id": "focusing_crystal",
-  "type": "smithed:placeable",
-  "base": "minecraft:furnace",
-  "models": {
-    "default": "coc:focusing_crystal_tier1"
-  }
-}

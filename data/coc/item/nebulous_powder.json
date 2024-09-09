@@ -1,7 +1,0 @@
-{
-    "id": "nebulous_powder",
-    "type": "smithed:simple",
-    "models": {
-		"default": "coc:nebulous_powder"
-	}
-}

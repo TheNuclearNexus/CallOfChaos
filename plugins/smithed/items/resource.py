@@ -8,8 +8,9 @@ from pydantic import BaseModel
 class ItemData(BaseModel):
     id: str
     type: str
-    base: str = "minecraft:poisonous_potato" 
-    models: dict[str, str] = {}
+    base: str = "minecraft:poisonous_potato"
+    model: Optional[str] = None
+    states: dict[str, str] = {}
     components: dict[str, dict | str] = {}
 
 

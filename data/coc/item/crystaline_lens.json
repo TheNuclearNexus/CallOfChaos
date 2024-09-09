@@ -1,7 +1,0 @@
-{
-    "id": "crystaline_lens",
-    "type": "smithed:simple",
-    "models": {
-		"default": "coc:crystaline_lens"
-	}
-}
