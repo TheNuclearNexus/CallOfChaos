@@ -1,3 +1,4 @@
+import datetime
 import logging
 import time
 from beet import Context
@@ -32,12 +33,16 @@ def finalize(ctx: Context):
 
     logger.debug("Connected to socket server, sending commands")
 
+    now = datetime.datetime.now()
+
     commands = [
-        '/tellraw @a ["", {{"text": "[Lively Reload] ", "bold": true, "color": "gray"}},{{"text": "Project has been built, time elapsed {time:.2f}s"}}]'.format(
-            time=time.time() - startTime
+        '/tellraw @a ["", {{"text": "[{curtime}] ", "color": "gray"}}, {{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Project has been built, reloading", "color": "gray"}}]'.format(
+            curtime=now.strftime("%H:%M")
         ),
         "/reload",
-        '/tellraw @a ["",{"text": "[Lively Reload] ", "bold": true, "color": "gray"},{"text": "Reload has been completed", "color": "green"}]',
+        '/tellraw @a ["",{{"text": "[{curtime}] ", "color": "gray"}},{{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Reload has been completed", "color": "gray"}}]'.format(
+            curtime=now.strftime("%H:%M")
+        ),
     ]
     s.send(bytes("\n".join(commands), "utf-8"))
     logger.debug("Done sending")

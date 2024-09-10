@@ -45,6 +45,7 @@ meta:
   bolt: 
     prelude: 
       - "smithed:items/prelude"
+      - "coc:prelude"
 
   copy_files:
     data_pack: 
