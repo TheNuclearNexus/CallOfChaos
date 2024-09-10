@@ -1,9 +1,6 @@
-append function_tag minecraft:tick {
-    "values": [
-        str(~/)
-    ]
-}
+schedule function ~/ 1t
 
+store result score #gametime coc.dummy time query gametime
 store result score #daytime coc.dummy time query daytime
 
 as @e[type=item_display,tag=coc.block] at @s function coc:block/tick

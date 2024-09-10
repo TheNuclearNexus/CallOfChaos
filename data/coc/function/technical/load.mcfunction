@@ -9,4 +9,5 @@ scoreboard objectives add coc.const dummy
 function ./set_consts
 
 
+function ./tick
 schedule function ./1second 1s

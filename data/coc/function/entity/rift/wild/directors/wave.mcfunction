@@ -68,9 +68,10 @@ function ~/roll:
     for card in POOL:
         if score #rand coc.dummy matches (weight, weight + card["weight"] - 1):
             if score #credits coc.dummy matches f'{card["cost"]}..' function ~/{card["id"].split(":")[-1]}:
-                summon card["id"] ~ ~ ~ {Tags: ["coc.rift.spawned"], DeathLootTable: "coc:technical/empty"}
                 scoreboard players remove #credits coc.dummy card["cost"]
-
+                data modify storage coc:temp mob set value card["id"]
+                function ./../spawner
+                
         weight += card["weight"]
 
 # Teleport the marker to a random location,
