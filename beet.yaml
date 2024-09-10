@@ -15,11 +15,8 @@ require:
   - bolt
   - weld_deps
   - mecha.contrib.raw
-  - bolt_expressions
-  - bolt_expressions.contrib.commands
   - plugins.nbt_literals
   - beet.contrib.lantern_load.base_data_pack
-  - plugins.update_lang
   - plugins.livelyreload
 
 data_pack:
@@ -39,17 +36,12 @@ resource_pack:
 output: '__dist__'
 
 meta:
-  bolt_expressions:
-    init_path: 'technical/init'
 
   bolt: 
     prelude: 
       - "smithed:items/prelude"
       - "coc:prelude"
 
-  copy_files:
-    data_pack: 
-     data/coc/item_groups: data/coc/item_groups
 
   weld_deps:
     deps:
