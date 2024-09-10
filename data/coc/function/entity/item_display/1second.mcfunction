@@ -1,0 +1,1 @@
+if entity @s[tag=coc.rift] function ../rift/1second

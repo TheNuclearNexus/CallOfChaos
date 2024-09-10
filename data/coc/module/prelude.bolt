@@ -1,1 +1,22 @@
 SMITHED_STRICT = ["smithed.entity", "smithed.strict"]
+
+
+registered_consts: set[int] = set()
+
+"""
+    Registers a constant a single time to be set from load
+"""
+def set_const(num: int):
+    if num not in registered_consts:
+        registered_consts.add(num)
+
+        append function coc:technical/set_consts:
+            scoreboard players set f"#{num}" coc.const num
+
+    return f"#{num}"
+
+"""
+    Logs the given score using tellraw
+"""
+def log_score(name: str, objective: str):
+    tellraw @a [f"{name}: ", {"score":{"objective": objective, "name": name}}]

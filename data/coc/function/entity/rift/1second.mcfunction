@@ -1,0 +1,1 @@
+if entity @s[tag=coc.rift.wild] function ./wild/1second

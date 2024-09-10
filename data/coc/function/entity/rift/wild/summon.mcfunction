@@ -24,3 +24,5 @@ summon interaction ~ ~ ~ {
         }
     ]
 }
+
+as @n[tag=coc.rift.wild] function ./directors/wave/init
