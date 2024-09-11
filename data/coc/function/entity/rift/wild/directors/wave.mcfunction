@@ -87,7 +87,7 @@ function ~/spawn:
     # Make sure that we don't spawn too many mobs at a time
     # You're welcome server
     store result score #mobs coc.dummy if entity @e[tag=coc.rift.spawned,distance=..48]
-    if score #mobs coc.dummy matches MAX_ENTITIES return 0
+    if score #mobs coc.dummy matches f"{MAX_ENTITIES}.." return 0
 
     load_credits()
     # This uses a marker because I'm lazy, its all good
