@@ -1,0 +1,1 @@
+const float tightening = 0.0625;

@@ -1,0 +1,9 @@
+#define DEFAULT 0
+#define HEAD 1
+#define ARM_SIDES 2
+#define ARM_TOP 3
+#define TORSO_SIDES 4
+#define TORSO_TOP 5
+#define TORSO_FRONT 6
+#define LEG_SIDES 7
+#define LEG_TOP 8

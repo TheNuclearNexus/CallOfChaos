@@ -17,11 +17,16 @@ def beet_default(ctx: Context):
     startTime = time.time()
 
     autosave.add_link(finalize)
+    send_commands(
+        [
+            '/tellraw @a ["\\n", {{"text": "[{curtime}] ", "color": "gray"}}, {{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Changes have been detected, building", "color": "gray"}}]'.format(
+                curtime=datetime.datetime.now().strftime("%H:%M")
+            ),
+        ]
+    )
 
 
-def finalize(ctx: Context):
-    logger.info("Plugins took %s to complete", time.time() - startTime)
-
+def send_commands(commands: list[str]):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     logger.debug("Connect to socket server")
 
@@ -33,17 +38,23 @@ def finalize(ctx: Context):
 
     logger.debug("Connected to socket server, sending commands")
 
-    now = datetime.datetime.now()
-
-    commands = [
-        '/tellraw @a ["", {{"text": "[{curtime}] ", "color": "gray"}}, {{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Project has been built, reloading", "color": "gray"}}]'.format(
-            curtime=now.strftime("%H:%M")
-        ),
-        "/reload",
-        '/tellraw @a ["",{{"text": "[{curtime}] ", "color": "gray"}},{{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Reload has been completed", "color": "gray"}}]'.format(
-            curtime=now.strftime("%H:%M")
-        ),
-    ]
     s.send(bytes("\n".join(commands), "utf-8"))
     logger.debug("Done sending")
     s.close()
+
+
+def finalize(ctx: Context):
+    logger.info("Plugins took %s to complete", time.time() - startTime)
+
+    now = datetime.datetime.now()
+    send_commands(
+        [
+            '/tellraw @a ["", {{"text": "[{curtime}] ", "color": "gray"}}, {{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Project has been built, reloading", "color": "gray"}}]'.format(
+                curtime=now.strftime("%H:%M")
+            ),
+            "/reload",
+            '/tellraw @a ["",{{"text": "[{curtime}] ", "color": "gray"}},{{"text": "[Lively Reload] ", "bold": true, "color": "white"}},{{"text": "Reload has been completed", "color": "gray"}}]'.format(
+                curtime=now.strftime("%H:%M")
+            ),
+        ]
+    )
