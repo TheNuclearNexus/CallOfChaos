@@ -1,2 +1,5 @@
-const float huskCutoffTuning = 0;
-const float zombieCutoffTuning = 0.04;
+#define AS_ENTITY_ZOMBIE 1
+#define AS_CUTOFF_ZOMBIE 0.04
+
+#define AS_ENTITY_HUSK 2
+#define AS_CUTOFF_HUSK 0

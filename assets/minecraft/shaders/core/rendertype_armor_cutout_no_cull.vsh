@@ -3,8 +3,6 @@
 #moj_import <light.glsl>
 #moj_import <fog.glsl>
 
-#define AS_VERT
-#moj_import <armor_shrink.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -29,14 +27,12 @@ out vec2 texCoord0;
 out vec2 texCoord1;
 out vec4 normal;
 
-// flat out int faceId;
+#define AS_VERT
+#moj_import <armor_shrink.glsl>
 
 void main() {
-    // faceId = getFaceId();
-    if (isShrink())
-        vert();
-    else  {
-        gl_Position = ProjMat * ModelViewMat * Position;
+    if (!as_vert())  {
+        gl_Position = ProjMat * ModelViewMat * vec4(Position, 1);
         vertexDistance = fog_distance(Position, FogShape);
     }
 
