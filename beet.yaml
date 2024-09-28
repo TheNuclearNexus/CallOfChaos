@@ -36,7 +36,6 @@ resource_pack:
 output: '__dist__'
 
 meta:
-
   bolt: 
     prelude: 
       - "smithed:items/prelude"
@@ -47,3 +46,7 @@ meta:
     deps:
       crafter: "0.4.2"
       custom-block: "0.4.2"
+
+  lsp:
+    excluded_plugins:
+      - plugins.livelyreload

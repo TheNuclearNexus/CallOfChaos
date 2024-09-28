@@ -1,7 +1,7 @@
 # Called by the item generator
 setblock ~ ~ ~ barrel{
     CustomName: '{"translate": "block.coc.amalgam_forge"}',
-    Lock: "\\uf001",
+    lock: {components:{custom_data:{impossible:"impossible"}}},
     components: {
         "minecraft:custom_data": {
             coc: {

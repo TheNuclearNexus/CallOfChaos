@@ -7,7 +7,7 @@ from beet import LootTable
 def model_path_to_component(path: str):
     namespace, path = path.split(":")
 
-    return f"{namespace}:{"/".join(path.split("/")[1:])}"
+    return f"{namespace}:{'/'.join(path.split('/')[1:])}"
 
 def populate_loot_table(entry: Any):
     return LootTable({
