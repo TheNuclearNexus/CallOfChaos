@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "coc:coc_entity/rift_circle",
+		"particle": "coc:coc_entity/rift_circle"
+	},
+	"elements": [
+		{
+			"from": [4, 0, -10],
+			"to": [12, 0, -9],
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, -10]},
+			"faces": {
+				"up": {"uv": [0, 15, 8, 16], "texture": "#0"},
+				"down": {"uv": [0, 16, 8, 15], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 0, 25],
+			"to": [12, 0, 26],
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, -10]},
+			"faces": {
+				"up": {"uv": [0, 15, 8, 16], "texture": "#0"},
+				"down": {"uv": [0, 16, 8, 15], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 0, -9.5],
+			"to": [12, 14, -9.5],
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, -9.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 14], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 14], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 0, 25.5],
+			"to": [12, 14, 25.5],
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 25.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 14], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 14], "texture": "#0"}
+			}
+		}
+	],
+	"display": {}
+}
