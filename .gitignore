@@ -4,3 +4,4 @@ __dist__/
 **/__pycache__/
 .vscode/settings.json
 .venv/
+link.sh
