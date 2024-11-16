@@ -1,13 +1,38 @@
 
+loot_table coc:technical/rift/mob_death {
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:stone",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_custom_data",
+                            "tag": "{coc:{rift_mob:1b}}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+
 # Spawn the mob and remove the item_display
 function ~/start_spawn:
     execute function ~/spawn with entity @s item.components."minecraft:custom_data".coc:
-        $summon $(mob) ~ ~ ~ {Tags: ["coc.rift.spawned"], DeathLootTable: "coc:technical/empty"}
+        $summon $(mob) ~ ~ ~ {Tags: ["coc.rift.spawned", "coc.setup"], DeathLootTable: "coc:technical/rift/mob_death"}
+
+        $scoreboard players operation @n[type=$(mob), tag=coc.setup] coc.rift_id = @s coc.rift_id 
+        tag @e remove coc.setup
 
 # This is a conditional tick function, it'll only run when there are spawners still alive
 function ~/tick:
     as @e[type=item_display,tag=coc.rift.wild.spawner] at @s function ~/internal
-    if entity @e[type=item_display,tag=coc.rift.wild.spawner] schedule function ~/ 1t replace
+
+    if entity @e[type=item_display,tag=coc.rift.wild.spawner,limit=1] schedule function ~/ 1t replace
 
 # This is ran as the display entities
 function ~/tick/internal:
@@ -40,7 +65,7 @@ function ~/init:
         item: {
             id: "minecraft:stone",
             components: {
-                "minecraft:item_model": "coc:technical/small_rift"
+                "minecraft:item_model": "coc:entity/small_rift"
             },
         },
         transformation: [0.001f,0f,0f,0f,0f,0f,-0.001f,0.01f,0f,0.001f,0f,0f,0f,0f,0f,1f],
@@ -53,6 +78,7 @@ function ~/init:
     }
 
     
+    scoreboard players operation @s coc.rift_id = #id coc.dummy
 
     data modify entity @s item.components."minecraft:custom_data".coc.mob set from storage coc:temp mob
 

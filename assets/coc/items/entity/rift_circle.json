@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:composite",
+    "models": [
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/0" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/1" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/2" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/3" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/4" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/5" },
+      { "type": "minecraft:model", "model": "coc:entity/rift_circle/6" }
+    ]
+  }
+}

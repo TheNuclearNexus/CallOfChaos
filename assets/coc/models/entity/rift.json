@@ -1,0 +1,113 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [
+		44,
+		72
+	],
+	"textures": {
+		"0": "coc:entity/rift",
+		"particle": "coc:entity/rift"
+	},
+	"elements": [
+		{
+			"from": [
+				-3,
+				-4,
+				8
+			],
+			"to": [
+				19,
+				32,
+				8
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					-13,
+					12,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						16,
+						0,
+						0,
+						16
+					],
+					"texture": "#0"
+				}
+			},
+			"light_emission": 15
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"thirdperson_lefthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"firstperson_righthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"firstperson_lefthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"ground": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"gui": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"head": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"fixed": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		}
+	}
+}

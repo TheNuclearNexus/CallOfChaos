@@ -19,4 +19,9 @@ def set_const(num: int):
     Logs the given score using tellraw
 """
 def log_score(name: str, objective: str):
+    if not is_debug():
+        return
     tellraw @a [f"{name}: ", {"score":{"objective": objective, "name": name}}]
+
+def is_debug():
+    return ctx.meta.coc.debug == True

@@ -70,6 +70,7 @@ function ~/roll:
             if score #credits coc.dummy matches f'{card["cost"]}..' function ~/{card["id"].split(":")[-1]}:
                 scoreboard players remove #credits coc.dummy card["cost"]
                 data modify storage coc:temp mob set value card["id"]
+
                 function ./../spawner
                 
         weight += card["weight"]
@@ -90,6 +91,8 @@ function ~/spawn:
     if score #mobs coc.dummy matches f"{MAX_ENTITIES}.." return 0
 
     load_credits()
+
+    scoreboard players operation #id coc.dummy = @s coc.rift_id
     # This uses a marker because I'm lazy, its all good
     execute summon marker function ~/../spread_marker
     save_credits()   
@@ -135,4 +138,13 @@ function ~/income:
     
     scoreboard players operation #credits coc.dummy += #players coc.dummy
 
+    save_credits()
+
+# Increase the amount of points held by the rift and potentially increase its credits
+function ~/increase_points:
+    scoreboard players add @s coc.points 1
+    load_credits()
+    if score @s coc.points matches 15 scoreboard players add #credits coc.dummy 200
+    if score @s coc.points matches 30 scoreboard players add #credits coc.dummy 350
+    if score @s coc.points matches 45 scoreboard players add #credits coc.dummy 500
     save_credits()

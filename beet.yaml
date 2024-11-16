@@ -8,7 +8,8 @@ pipeline:
   # Makes sure items are processed prior to Mecha running
   - plugins.smithed.pipeline
   - mecha
-  - beet.contrib.copy_files
+  - beet.contrib.unknown_files
+  - plugins.generate_rift_circles
 
 require:
   - plugins.smithed
@@ -21,15 +22,13 @@ require:
 
 data_pack:
   name: Call of Chaos
+  pack_format: 60
   load:
     - .
-  render:
-    functions:
-      - coc:*
-
 
 resource_pack:
   name: Call of Chaos [RP]
+  pack_format: 45
   load:
     - .
 
@@ -41,6 +40,8 @@ meta:
       - "smithed:items/prelude"
       - "coc:prelude"
 
+  coc:
+    debug: true
 
   weld_deps:
     deps:
