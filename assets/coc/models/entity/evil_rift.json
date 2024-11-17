@@ -1,0 +1,112 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [
+		128,
+		128
+	],
+	"textures": {
+		"0": "coc:entity/evil_rift",
+		"particle": "coc:entity/evil_rift"
+	},
+	"elements": [
+		{
+			"from": [
+				-7,
+				-15,
+				8
+			],
+			"to": [
+				23,
+				32,
+				8
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					-2,
+					-1,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						0,
+						0,
+						7.5,
+						11.75
+					],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						7.5,
+						0,
+						0,
+						5.875
+					],
+					"texture": "#0"
+				}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"thirdperson_lefthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"firstperson_righthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"firstperson_lefthand": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"ground": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"gui": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"head": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		},
+		"fixed": {
+			"scale": [
+				2,
+				2,
+				2
+			]
+		}
+	}
+}
