@@ -1,3 +1,8 @@
+append function_tag coc:load {
+    "values": [
+        (~/)
+    ]
+}
 as @e[type=item] if items entity @s contents *[custom_data~{coc:{rift_mob:1b}}] function ~/handle_kill:
     as @n[type=item_display,tag=coc.rift.wild] function ./directors/wave/increase_points
     kill @s

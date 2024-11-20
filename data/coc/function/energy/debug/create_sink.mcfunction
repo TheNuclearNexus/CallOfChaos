@@ -1,12 +1,15 @@
 
-unless function ./../api/get_bubble return run tellraw @s {"text": "You aren't not inside of a bubble", "color": "red"}
+unless function ./../api/get_bubble return run tellraw @s {"text": "You aren't inside of a bubble", "color": "red"}
 
-execute summon armor_stand function ~/setup:
+execute summon item_display function ~/setup:
     data merge entity @s {
-        Tags: ["debug_sink"],
+        Tags: ["debug_sink", "coc.energy.sink"],
         Marker: 1b,
         NoGravity: 1b,
-        Small: 1b
+        Small: 1b,
+        item: {
+            id: "minecraft:observer"
+        }
     }
 
     function gu:generate

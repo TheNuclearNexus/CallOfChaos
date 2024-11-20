@@ -1,18 +1,17 @@
-RIFT_HEIGHT = 4.5
 
-def create_rift(tags: list[str]):
+def create_rift(tags: list[str], model: str ="coc:entity/rift", height = (1.5, 3), width = 4.5/2):
     summon interaction ~ ~ ~ {
         Tags: ["coc.rift.interaction", "coc.lower", *SMITHED_STRICT],
-        height: (RIFT_HEIGHT / 3),
-        width: (RIFT_HEIGHT / 2),
+        height: height[0],
+        width: width,
 
         Passengers: [
             {
                 id: "minecraft:item_display",
                 item: {
-                    id: "minecraft:stone",
+                    id: "minecraft:diamond",
                     components: {
-                        "minecraft:item_model": "coc:entity/rift"
+                        "minecraft:item_model": model
                     }
                 },
                 item_display: "fixed",
@@ -23,8 +22,8 @@ def create_rift(tags: list[str]):
             {
                 id: "minecraft:interaction",
                 Tags:["coc.rift.interaction", "coc.upper", *SMITHED_STRICT],
-                height: (2 * RIFT_HEIGHT / 3),
-                width: (RIFT_HEIGHT / 2)
+                height: height[1],
+                width: width
             }
         ]
     }

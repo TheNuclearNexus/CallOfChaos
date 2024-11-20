@@ -23,12 +23,16 @@ if is_debug():
 
 $data modify storage coc:temp network set from storage coc:energy networks[{id: $(network_id)}]
 
-data modify storage coc:temp network.bubbles append value Bubble()
+bubble = Bubble()
+data modify storage coc:temp network.bubbles append value bubble
 
 $data modify storage coc:temp network.bubbles[-1].uuid set value "$(bubble_uuid)"
 $data modify storage coc:temp network.bubbles[-1].x set value "$(x)"
 $data modify storage coc:temp network.bubbles[-1].y set value "$(y)"
 $data modify storage coc:temp network.bubbles[-1].z set value "$(z)"
 $data modify storage coc:temp network.bubbles[-1].transfer set value $(transfer) 
+
+path = ./update_bubble
+raw f"$execute positioned $(x) $(y) $(z) as @e[distance=..{bubble['radius']},tag=coc.energy.sink] at @s run function {path}"
 
 $data modify storage coc:energy networks[{id: $(network_id)}] set from storage coc:temp network

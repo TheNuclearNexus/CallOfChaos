@@ -1,6 +1,7 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "coc:entity/evil_rift"
+    "model": "coc:entity/evil_rift",
+    "tints": [{ "type": "minecraft:constant", "value": 66046 }]
   }
 }

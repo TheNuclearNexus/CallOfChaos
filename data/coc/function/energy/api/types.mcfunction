@@ -3,6 +3,8 @@ from nbtlib import Compound
 class Sink(Compound):
     def __init__(self):
         self["uuid"] = ""
+        self["capacity"] = 50
+        self["consumption"] = 2
 
 class Bubble(Compound):
     def __init__(self):

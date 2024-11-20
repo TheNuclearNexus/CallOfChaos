@@ -21,7 +21,16 @@ def set_const(num: int):
 def log_score(name: str, objective: str):
     if not is_debug():
         return
-    tellraw @a [f"{name}: ", {"score":{"objective": objective, "name": name}}]
+    tellraw @a [f"{name}> ", {"score":{"objective": objective, "name": name}}]
+
+"""
+    Logs the given storage using tellraw
+"""
+def log_storage(storage: str, path: str):
+    if not is_debug():
+        return
+    tellraw @a [f"{storage} {path}> ", {"nbt": path, "storage": storage}]
+
 
 def is_debug():
     return ctx.meta.coc.debug == True

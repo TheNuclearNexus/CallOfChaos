@@ -11,7 +11,7 @@ align xyz positioned ~.5 ~ ~.5 summon armor_stand function ~/setup:
     store result storage coc:temp y int 1 data get storage coc:temp pos[1] 
     store result storage coc:temp z int 1 data get storage coc:temp pos[2] 
 
-    data modify storage coc:temp transfer set value 3
+    data modify storage coc:temp transfer set value 16
 
     function gu:generate
     data modify storage coc:temp bubble_uuid set from storage gu:main out

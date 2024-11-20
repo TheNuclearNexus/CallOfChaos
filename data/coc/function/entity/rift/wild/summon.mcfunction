@@ -1,7 +1,7 @@
 from ../default import create_rift
 
 # Create a rift with the coc.rift.wild tag
-create_rift(["coc.rift.wild"])
+create_rift(["coc.rift.wild"], model="coc:entity/evil_rift", height = (3, 2.5))
 
 schedule function ./item_tick 1t replace
 

@@ -12,5 +12,9 @@ scoreboard objectives add coc.points dummy
 function ./set_consts
 
 
+schedule function ./late_load 1s:
+    if entity @a function #coc:load
+    unless entity @a schedule function ./late_load 1s
+
 function ./tick
 schedule function ./1second 1s

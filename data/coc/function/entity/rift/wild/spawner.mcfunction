@@ -30,6 +30,12 @@ function ~/start_spawn:
 
 # This is a conditional tick function, it'll only run when there are spawners still alive
 function ~/tick:
+    append function_tag coc:load {
+        "values": [
+            (~/)
+        ]
+    }
+
     as @e[type=item_display,tag=coc.rift.wild.spawner] at @s function ~/internal
 
     if entity @e[type=item_display,tag=coc.rift.wild.spawner,limit=1] schedule function ~/ 1t replace
