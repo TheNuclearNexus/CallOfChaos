@@ -4,8 +4,10 @@ setblock ~ ~ ~ barrel{
     lock: {components:{custom_data:{impossible:"impossible"}}},
     components: {
         "minecraft:custom_data": {
-            coc: {
+            smithed: {
                 id: "coc:amalgam_forge",
+            },
+            coc: {
                 silent: 1
             }
         }

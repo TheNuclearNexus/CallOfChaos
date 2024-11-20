@@ -1,5 +1,5 @@
 {
-  "id": "amalgam_forge",
+  "id": "cruicible",
   "type": "smithed:placeable",
   "base": "minecraft:furnace",
   "states": {

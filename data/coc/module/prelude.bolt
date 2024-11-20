@@ -1,4 +1,5 @@
 SMITHED_STRICT = ["smithed.entity", "smithed.strict"]
+SMITHED_BLOCK = ["smithed.entity", "smithed.block"]
 
 
 registered_consts: set[int] = set()
