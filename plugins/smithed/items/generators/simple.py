@@ -1,6 +1,6 @@
 from typing import ClassVar
 from beet import DataPackNamespace, LootTable, Namespace
-from plugins.smithed.items.generators.shared import merge_components, model_path_to_component, populate_loot_table
+from plugins.smithed.items.generators.shared import merge_components, populate_loot_table
 from plugins.smithed.items.registry import ItemGenerator
 from plugins.smithed.items.resource import ItemFile
 
@@ -20,7 +20,7 @@ class SimpleItemGenerator(ItemGenerator):
         super().generate(namespace, item)
 
         components = {
-            "minecraft:item_model": model_path_to_component(item.data.model),
+            "minecraft:item_model": item.data.model,
             "minecraft:item_name": f'{{"translate": "item.{namespace}.{item.data.id}"}}',
             "!minecraft:food": {},
             "!minecraft:consumable": {},

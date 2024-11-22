@@ -1,3 +1,5 @@
+from bolt_expressions import Data, Scoreboard
+
 predicate coc:technical/chance/10 {
     "condition": "minecraft:random_chance",
     "chance": 0.1
@@ -6,78 +8,106 @@ predicate coc:technical/chance/10 {
 
 BASE_PRODUCTION = 32
 
+ENERGY_STORAGE = Data.storage(coc:energy)
+TEMP_STORAGE = Data.storage(coc:temp)
+DUMMY_SCORE = Scoreboard("coc.dummy")
+
+current_network = TEMP_STORAGE.cur_network
+
+bubbles = TEMP_STORAGE.bubbles
+current_bubble = TEMP_STORAGE.cur_bubble 
+
+fuel_duration = DUMMY_SCORE["#fuel_duration"]
+
+remaining_production = DUMMY_SCORE["#remaining_production"]
+capacity = DUMMY_SCORE["#capacity"]
+max_capacity = DUMMY_SCORE["#max_capacity"]
+transfer = DUMMY_SCORE["#transfer"]
+
 set_const(0)
 
 function ~/networks:
-    unless data storage coc:energy networks[] return 0
 
-    data modify storage coc:temp networks set from storage coc:energy networks
-    data modify storage coc:energy networks set value []
-
+    if not ENERGY_STORAGE.networks[]:
+        return 0
+    
+    TEMP_STORAGE.networks = ENERGY_STORAGE.networks
+    ENERGY_STORAGE.networks = []
 
     # for cur_network in networks
     execute function ~/iter:
-        data modify storage coc:temp cur_network set from storage coc:temp networks[-1]
-        data remove storage coc:temp networks[-1]
+        current_network = TEMP_STORAGE.networks[-1]
+        TEMP_STORAGE.networks.remove(-1)
 
-        store result score #fuel_duration coc.dummy data get storage coc:temp cur_network.fuel.duration
+        fuel_duration = current_network.fuel.duration
 
         # If there is fuel burning, use it's production stat
-        if score #fuel_duration coc.dummy matches 1.. function ~/../handle_fuel:
-            store result score #remaining_production coc.dummy data get storage coc:temp cur_network.fuel.production  
-            store result storage coc:temp cur_network.fuel.duration int 1 scoreboard players remove #fuel_duration coc.dummy 1
+        if score var fuel_duration matches 1.. function ~/../handle_fuel:
+            remaining_production = current_network.fuel.production  
+            current_network.fuel.duration = fuel_duration - 1
+
         # Otherwise use the base rift production stat
-        unless score #fuel_duration coc.dummy matches 1.. scoreboard players set #remaining_production coc.dummy BASE_PRODUCTION
+        unless score var fuel_duration matches 1..:
+            remaining_production = BASE_PRODUCTION
 
         # Iterate through all bubbles
-        if data storage coc:temp cur_network.bubbles[] function ~/../../bubbles
+        if current_network.bubbles[]:
+            function ~/../../bubbles
 
 
-        data modify storage coc:energy networks prepend from storage coc:temp cur_network
-        if data storage coc:temp networks[] function ~/
+        ENERGY_STORAGE.networks.prepend(current_network)
+        if TEMP_STORAGE.networks[]:
+            function ~/
 
 function ~/bubbles:
-    data modify storage coc:temp bubbles set from storage coc:temp cur_network.bubbles
-    data modify storage coc:temp cur_network.bubbles set value []
+    bubbles = current_network.bubbles
+
+    current_network.bubbles = []
 
 
     # for cur_network in networks
     execute function ~/iter:
-        data modify storage coc:temp cur_bubble set from storage coc:temp bubbles[-1]
-        data remove storage coc:temp bubbles[-1]
+        current_bubble = bubbles[-1]
+        bubbles.remove(-1)
 
-        store result score #max_capacity coc.dummy data get storage coc:temp cur_bubble.max_capacity
-        store result score #capacity coc.dummy data get storage coc:temp cur_bubble.capacity
-        store result score #transfer coc.dummy data get storage coc:temp cur_bubble.transfer
+        max_capacity = current_bubble.max_capacity
+        capacity = current_bubble.capacity
+        transfer = current_bubble.transfer
 
         execute function ~/transfer_energy:
-            if score #remaining_production coc.dummy matches ..0 return 0
-            if score #capacity coc.dummy >= #max_capacity coc.dummy return 1
+            if remaining_production <= 0:
+                return 0
+            if capacity > max_capacity:
+                return 1
 
             # transfer == -1 is reserved for the rift and makes sure that the rift receives all the scraps
-            if score #transfer coc.dummy matches -1 return run function ~/steal_all:
-                scoreboard players operation #capacity coc.dummy += #remaining_production coc.dummy  
-                scoreboard players set #remaining_production coc.dummy 0
+            if transfer == -1:
+                return run function ~/steal_all:
+                    capacity += remaining_production
+                    remaining_production = 0
 
             # If transfer <= remaining_production, apply only our transfer stat
-            if score #transfer coc.dummy <= #remaining_production coc.dummy return run function ~/apply_transfer:
-                scoreboard players operation #capacity coc.dummy += #transfer coc.dummy
-                scoreboard players operation #remaining_production coc.dummy -= #transfer coc.dummy
+            if transfer <= remaining_production:
+                return run function ~/apply_transfer:
+                    capacity += transfer
+                    remaining_production -= transfer
 
             # If transfer > remaining_production, take all thats left in the pool
             function ~/steal_all 
 
-        scoreboard players operation #capacity coc.dummy < #max_capacity coc.dummy
+        capacity = min(capacity, max_capacity) 
 
 
 
         # handle sinks
-        if data storage coc:temp cur_bubble.sinks[] function ~/../../sinks with storage coc:temp cur_bubble
+        if current_bubble.sinks[]:
+            function ~/../../sinks with storage coc:temp cur_bubble
 
-        store result storage coc:temp cur_bubble.capacity int 1 scoreboard players get #capacity coc.dummy
+        current_bubble.capacity = capacity
 
-        data modify storage coc:temp cur_network.bubbles prepend from storage coc:temp cur_bubble
-        if data storage coc:temp bubbles[] function ~/
+        current_network.bubbles.prepend(current_bubble)
+        if bubbles[]:
+            function ~/
 
 
 function ~/sinks:
@@ -108,7 +138,7 @@ function ~/sinks:
         store result score #consumption coc.dummy data get storage coc:temp cur_sink.consumption
         scoreboard players operation #capacity coc.dummy -= #consumption coc.dummy
 
-        log_score("#capacity", "coc.dummy")
+        # log_score("#capacity", "coc.dummy")
         #execute if score #loaded coc.dummy matches 1 function ~/tick with storage coc:temp cur_sink:
         #    $execute as $(uuid) at @s run say hi
 

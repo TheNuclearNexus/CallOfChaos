@@ -1,5 +1,5 @@
 {
-  "id": "cruicible",
+  "id": "crucible",
   "type": "smithed:placeable",
   "base": "minecraft:furnace",
   "states": {

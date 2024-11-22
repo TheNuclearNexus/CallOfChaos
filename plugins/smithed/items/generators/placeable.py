@@ -2,7 +2,6 @@ from typing import Callable, ClassVar
 from beet import DataPackNamespace, Function, LootTable, Model, Namespace
 from plugins.smithed.items.generators.shared import (
     merge_components,
-    model_path_to_component,
     populate_loot_table,
 )
 from plugins.smithed.items.registry import ItemGenerator
@@ -37,7 +36,7 @@ SUMMON_TEMPLATE: Callable[[str, ItemData, float], str] = (
         namespace=namespace,
         id=data.id,
         base=data.base,
-        item_model=model_path_to_component(data.model),
+        item_model=data.model,
     )
 )
 
@@ -71,7 +70,7 @@ TICK_TEMPLATE: Callable[[str, ItemData], Function] = (
             loot replace entity @s contents loot {namespace}:blocks/{data.id}
 
             data modify entity @s Item.count set from storage {namespace}:temp count           
-
+        function ./break
         kill @s
 """
 )
@@ -82,7 +81,7 @@ class PlaceableItemGenerator(ItemGenerator):
 
     def validate(self, namespace: str, item: ItemFile) -> list[str]:
         if item.data.model is None:
-            item.data.model = f"{namespace}:item/{item.data.id}"
+            item.data.model = f"{namespace}:block/{item.data.id}"
 
         if item.data.model not in self.ctx.assets.models:
             self.ctx.assets.models[item.data.model] = Model(
@@ -97,7 +96,7 @@ class PlaceableItemGenerator(ItemGenerator):
         super().generate(namespace, item)
 
         components = {
-            "minecraft:item_model": model_path_to_component(item.data.model),
+            "minecraft:item_model": item.data.model,
             "minecraft:item_name": f'{{"translate": "block.{namespace}.{item.data.id}"}}',
             "minecraft:container": CONTAINER_TEMPLATE(f"{namespace}:{item.data.id}"),
             "!minecraft:food": {},

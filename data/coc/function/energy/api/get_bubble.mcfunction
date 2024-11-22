@@ -4,7 +4,7 @@ data modify storage coc:temp bubbles set value []
 data modify storage coc:temp bubbles append from storage coc:energy networks[].bubbles[]
 
 function ~/check_distance:
-    $execute positioned $(x) ~ $(z) if entity @s[distance=..$(radius)] at @s positioned ~ $(y) ~ if entity @s[dy=2] run summon marker ~ ~ ~ {Tags: ["coc.bubble.root"], data: {bubble_uuid: "$(uuid)"}}
+    $execute positioned $(x) ~ $(z) if entity @s[distance=..$(radius)] at @s positioned ~-0.5 $(y) ~-0.5 positioned ~ ~-1 ~ if entity @s[dy=3] run summon marker ~ ~ ~ {Tags: ["coc.bubble.root"], data: {bubble_uuid: "$(uuid)"}}
 
 execute function ~/iter:
     function ~/../check_distance with storage coc:temp bubbles[-1]
