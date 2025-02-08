@@ -1,0 +1,5 @@
+{
+    "id": "ichor",
+    "type": "smithed:simple",
+    "base": "minecraft:poisonous_potato"
+}

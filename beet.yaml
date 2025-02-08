@@ -26,13 +26,13 @@ data_pack:
   name: Call of Chaos
   pack_format: 60
   load:
-    - .
+    - src
 
 resource_pack:
   name: Call of Chaos [RP]
   pack_format: 46
   load:
-    - .
+    - src
     - dependencies/shaders
 
 output: '__dist__'

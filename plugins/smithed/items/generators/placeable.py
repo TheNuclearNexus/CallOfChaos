@@ -1,5 +1,6 @@
 from typing import Callable, ClassVar
-from beet import DataPackNamespace, Function, LootTable, Model, Namespace
+from beet import BlockTag, DataPackNamespace, Function, LootTable, Model, Namespace
+from plugins.smithed.items.generators.constants import OPAQUE_BLOCKS
 from plugins.smithed.items.generators.shared import (
     merge_components,
     populate_loot_table,
@@ -79,6 +80,51 @@ TICK_TEMPLATE: Callable[[str, ItemData], Function] = (
 class PlaceableItemGenerator(ItemGenerator):
     type: ClassVar[str] = "smithed:placeable"
 
+    def __init__(self, ctx, registry):
+        super().__init__(ctx, registry)
+
+        self.ctx.data["smithed.item_gen:opaque"] = OPAQUE_BLOCKS
+
+        self.ctx.data["smithed.item_gen:update_light"] = Function("""
+            data remove entity @s brightness
+            scoreboard players set #light smithed.item_gen.dummy 0
+            if block ~ ~ ~ #smithed.item_gen:opaque align xyz positioned ~ ~-0.5 ~ function ~/edit_brightness
+        """)
+
+        self.ctx.data["smithed.item_gen:update_light/edit_brightness"] = Function("""
+            data merge entity @s {brightness:{sky:0,block:0}}
+            positioned ~1 ~ ~ positioned over motion_blocking_no_leaves positioned ~-1 ~ ~ if entity @s[dx=0,dy=1000,dz=0] data modify entity @s brightness.sky set value 15
+            positioned ~ ~ ~1 positioned over motion_blocking_no_leaves positioned ~ ~ ~-1 if entity @s[dx=0,dy=1000,dz=0] data modify entity @s brightness.sky set value 15
+            positioned ~-1 ~ ~ positioned over motion_blocking_no_leaves positioned ~1 ~ ~ if entity @s[dx=0,dy=1000,dz=0] data modify entity @s brightness.sky set value 15
+            positioned ~ ~ ~-1 positioned over motion_blocking_no_leaves positioned ~ ~ ~1 if entity @s[dx=0,dy=1000,dz=0] data modify entity @s brightness.sky set value 15
+            positioned ~1 ~ ~ function ./check_light
+            positioned ~ ~ ~1 function ./check_light
+            positioned ~-1 ~ ~ function ./check_light
+            positioned ~ ~ ~-1 function ./check_light
+            positioned ~ ~-1 ~ function ./check_light
+            if score #temp_0 tcc.dummy matches 1.. scoreboard players remove #light smithed.item_gen.dummy 1
+            store result entity @s brightness.block int 1 run scoreboard players get #light smithed.item_gen.dummy
+        """)
+
+        self.ctx.data["smithed.item_gen:update_light/check_light"] = Function("""
+            unless score #light smithed.item_gen.dummy matches 1.. if predicate smithed.item_gen:location_check/light/0 scoreboard players set #light smithed.item_gen.dummy 0
+            unless score #light smithed.item_gen.dummy matches 2.. if predicate smithed.item_gen:location_check/light/1 scoreboard players set #light smithed.item_gen.dummy 1
+            unless score #light smithed.item_gen.dummy matches 3.. if predicate smithed.item_gen:location_check/light/2 scoreboard players set #light smithed.item_gen.dummy 2
+            unless score #light smithed.item_gen.dummy matches 4.. if predicate smithed.item_gen:location_check/light/3 scoreboard players set #light smithed.item_gen.dummy 3
+            unless score #light smithed.item_gen.dummy matches 5.. if predicate smithed.item_gen:location_check/light/4 scoreboard players set #light smithed.item_gen.dummy 4
+            unless score #light smithed.item_gen.dummy matches 6.. if predicate smithed.item_gen:location_check/light/5 scoreboard players set #light smithed.item_gen.dummy 5
+            unless score #light smithed.item_gen.dummy matches 7.. if predicate smithed.item_gen:location_check/light/6 scoreboard players set #light smithed.item_gen.dummy 6
+            unless score #light smithed.item_gen.dummy matches 8.. if predicate smithed.item_gen:location_check/light/7 scoreboard players set #light smithed.item_gen.dummy 7
+            unless score #light smithed.item_gen.dummy matches 9.. if predicate smithed.item_gen:location_check/light/8 scoreboard players set #light smithed.item_gen.dummy 8
+            unless score #light smithed.item_gen.dummy matches 10.. if predicate smithed.item_gen:location_check/light/9 scoreboard players set #light smithed.item_gen.dummy 9
+            unless score #light smithed.item_gen.dummy matches 11.. if predicate smithed.item_gen:location_check/light/10 scoreboard players set #light smithed.item_gen.dummy 10
+            unless score #light smithed.item_gen.dummy matches 12.. if predicate smithed.item_gen:location_check/light/11 scoreboard players set #light smithed.item_gen.dummy 11
+            unless score #light smithed.item_gen.dummy matches 13.. if predicate smithed.item_gen:location_check/light/12 scoreboard players set #light smithed.item_gen.dummy 12
+            unless score #light smithed.item_gen.dummy matches 14.. if predicate smithed.item_gen:location_check/light/13 scoreboard players set #light smithed.item_gen.dummy 13
+            unless score #light smithed.item_gen.dummy matches 15.. if predicate smithed.item_gen:location_check/light/14 scoreboard players set #light smithed.item_gen.dummy 14
+            if predicate smithed.item_gen:location_check/light/15 run scoreboard players set #light smithed.item_gen.dummy 15
+        """)
+
     def validate(self, namespace: str, item: ItemFile) -> list[str]:
         if item.data.model is None:
             item.data.model = f"{namespace}:block/{item.data.id}"
@@ -125,5 +171,19 @@ class PlaceableItemGenerator(ItemGenerator):
         ).prepend(TICK_TEMPLATE(namespace, item.data))
 
         self.ctx.data.functions.setdefault(
+            f"{namespace}:block/{item.data.id}/1second", Function("")
+        ).append("function smithed.item_gen:update_light")
+
+        self.ctx.data.functions.setdefault(
+            f"{namespace}:block/{item.data.id}/place", Function("")
+        ).append("function smithed.item_gen:update_light")
+
+
+        self.ctx.data.functions.setdefault(
             f"{namespace}:block/tick", Function()
         ).append(f"if entity @s[tag={namespace}.{item.data.id}] return run function ./{item.data.id}/tick")
+
+        self.ctx.data.functions.setdefault(
+            f"{namespace}:block/1second", Function()
+        ).append(f"if entity @s[tag={namespace}.{item.data.id}] return run function ./{item.data.id}/1second")
+

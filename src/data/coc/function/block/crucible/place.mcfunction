@@ -1,11 +1,11 @@
 # called by the item generator
-setblock ~ ~ ~ hopper{
+setblock ~ ~ ~ hopper[enabled=false,facing=north]{
     TransferCooldown: (pow(2, 31) - 1),
     lock: {components:{custom_data:{impossible:"impossible"}}},
     components: {
         "minecraft:custom_data": {
             smithed: {
-                id: "coc:cruicble",
+                id: "coc:crucible",
             },
             coc: {
                 silent: 1
@@ -13,6 +13,9 @@ setblock ~ ~ ~ hopper{
         }
     }
 }
+
+function gu:generate
+data modify block ~ ~ ~ components."minecraft:custom_data".coc.uuid set from storage gu:main out
 
 data merge entity @s {
     item: {
@@ -44,11 +47,13 @@ ride @n[tag=coc.crucible.item, distance=..0.25] mount @s
 
 on passengers rotate @s ~ ~
 
-summon interaction ^ ^-.275 ^.26 {
-    height: 0.45,
-    width: 0.5,
-    Tags: ["coc.crucible.interaction"]
-}
+# summon interaction ^ ^-.275 ^.26 {
+#     height: 0.45,
+#     width: 0.5,
+#     Tags: ["coc.crucible.interaction"]
+# }
+
+
 at @s if function coc:energy/api/block_entity/register_sink:
     data modify entity @s item.components."minecraft:custom_model_data" set value {
         floats: [1]

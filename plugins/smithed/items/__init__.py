@@ -1,7 +1,9 @@
 import logging
 import time
-from beet import Context
+from beet import Context, FunctionTag
 from bolt import Module, bolt
+
+from plugins.smithed.items.generators.constants import LOAD_FUNCTION
 
 
 
@@ -30,6 +32,10 @@ def inject(ctx: Context):
 
 def extend(ctx: Context):
     inject_resource(ctx)
+
+    ctx.data.function_tags.setdefault("minecraft:load", FunctionTag()).add("smithed.item_gen:load")
+    ctx.data["smithed.item_gen:load"] = LOAD_FUNCTION
+
     registry = ctx.inject(ItemRegistry)
     registry.extend_generators(SimpleItemGenerator)
     registry.extend_generators(PlaceableItemGenerator)
