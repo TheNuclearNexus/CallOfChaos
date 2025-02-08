@@ -14,6 +14,7 @@ pipeline:
 require:
   - plugins.smithed
   - bolt
+  - bolt_selectors
   - bolt_expressions
   - weld_deps
   - mecha.contrib.raw
@@ -39,7 +40,7 @@ output: '__dist__'
 meta:
   bolt: 
     prelude: 
-      - "smithed:items/prelude"
+      # - "smithed:items/prelude"
       - "coc:prelude"
 
   coc:
@@ -53,6 +54,7 @@ meta:
   lsp:
     excluded_plugins:
       - plugins.livelyreload
+      - weld_deps
 
   mecha:
     commands: "https://raw.githubusercontent.com/misode/mcmeta/summary/commands/data.json"
