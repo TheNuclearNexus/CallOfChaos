@@ -171,6 +171,10 @@ class PlaceableItemGenerator(ItemGenerator):
         ).prepend(TICK_TEMPLATE(namespace, item.data))
 
         self.ctx.data.functions.setdefault(
+            f"{namespace}:block/{item.data.id}/5tick", Function("")
+        )
+
+        self.ctx.data.functions.setdefault(
             f"{namespace}:block/{item.data.id}/1second", Function("")
         ).append("function smithed.item_gen:update_light")
 
@@ -182,6 +186,10 @@ class PlaceableItemGenerator(ItemGenerator):
         self.ctx.data.functions.setdefault(
             f"{namespace}:block/tick", Function()
         ).append(f"if entity @s[tag={namespace}.{item.data.id}] return run function ./{item.data.id}/tick")
+
+        self.ctx.data.functions.setdefault(
+            f"{namespace}:block/5tick", Function()
+        ).append(f"if entity @s[tag={namespace}.{item.data.id}] return run function ./{item.data.id}/5tick")
 
         self.ctx.data.functions.setdefault(
             f"{namespace}:block/1second", Function()

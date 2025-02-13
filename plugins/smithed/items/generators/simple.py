@@ -24,6 +24,11 @@ class SimpleItemGenerator(ItemGenerator):
             "minecraft:item_name": f'{{"translate": "item.{namespace}.{item.data.id}"}}',
             "!minecraft:food": {},
             "!minecraft:consumable": {},
+            "minecraft:custom_data": {
+                "smithed": {
+                    "id": f"{namespace}:{item.data.id}"
+                }
+            }
         }
 
         merge_components(components, item.data.components)

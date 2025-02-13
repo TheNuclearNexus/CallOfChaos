@@ -31,6 +31,8 @@ function ~/networks:
     if not ENERGY_STORAGE.networks[]:
         return 0
     
+    scoreboard players reset * coc.powered
+    
     TEMP_STORAGE.networks = ENERGY_STORAGE.networks
     ENERGY_STORAGE.networks = []
 
@@ -53,7 +55,6 @@ function ~/networks:
         # Iterate through all bubbles
         if current_network.bubbles[]:
             function ~/../../bubbles
-
 
         ENERGY_STORAGE.networks.prepend(current_network)
         if TEMP_STORAGE.networks[]:
@@ -139,8 +140,8 @@ function ~/sinks:
         scoreboard players operation #capacity coc.dummy -= #consumption coc.dummy
 
         # log_score("#capacity", "coc.dummy")
-        #execute if score #loaded coc.dummy matches 1 function ~/tick with storage coc:temp cur_sink:
-        #    $execute as $(uuid) at @s run say hi
+        execute function ~/tick with storage coc:temp cur_sink:
+            $scoreboard players set $(uuid) coc.powered 1
 
         store result storage coc:temp i int 1 scoreboard players remove #i coc.dummy 1
         if score #i coc.dummy matches 0.. function ~/ with storage coc:temp {}

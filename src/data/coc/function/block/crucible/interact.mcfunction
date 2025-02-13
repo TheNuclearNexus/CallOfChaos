@@ -1,5 +1,8 @@
 
+
+CUSTOM_DATA = 'components."minecraft:custom_data"'
 ADVANCEMENT_PATH = coc:technical/default_block_use/crucible 
+
 advancement ADVANCEMENT_PATH {
     "criteria": {
         "requirement": {
@@ -25,6 +28,7 @@ advancement ADVANCEMENT_PATH {
 
 advancement revoke @s only ADVANCEMENT_PATH
 
+
 store result storage coc:temp block_interaction_range double 1 attribute @s minecraft:block_interaction_range get 
 anchored eyes positioned ^ ^ ^0.1 function ~/find_block with storage coc:temp {}
 
@@ -37,5 +41,21 @@ function ~/find_block:
     raw f"$execute positioned ^ ^ ^0.1 if entity @s[distance=..$(block_interaction_range)] run function {(~/)} with storage coc:temp {{}}"
 
 
+
 function ~/as_entity:
-    say clicked
+    data modify storage coc:temp crucible set from entity @s f"item.{CUSTOM_DATA}.coc.crucible"
+
+    data modify storage coc:temp crucible.new_item set from entity @p SelectedItem.id
+
+    if data entity @p f"SelectedItem.{CUSTOM_DATA}.smithed.id":
+        data modify storage coc:temp crucible.new_item set from entity @p f"SelectedItem.{CUSTOM_DATA}.smithed.id"
+
+    tellraw @a {"nbt": "crucible", "storage": "coc:temp"}
+
+    store result score #temp coc.dummy function ./validate_infusion with storage coc:temp crucible     
+
+    if score #temp coc.dummy matches 1 item modify entity @p weapon.mainhand {
+        "function": "minecraft:set_count",
+        "count": -1,
+        "add": True
+    }
