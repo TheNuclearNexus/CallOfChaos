@@ -1,6 +1,25 @@
 {
-    "model": {
-        "type": "minecraft:model",
-        "model": "coc:block/crucible"
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "fluid",
+        "model": {
+          "type": "minecraft:model",
+          "model": "coc:block/crucible_fluid",
+          "tints": [
+            {
+              "type": "minecraft:custom_model_data",
+              "default": 16777215
+            }
+          ]
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "coc:block/crucible"
     }
+  }
 }

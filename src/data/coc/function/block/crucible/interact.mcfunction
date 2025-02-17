@@ -43,6 +43,7 @@ function ~/find_block:
 
 
 function ~/as_entity:
+    data remove storage coc:temp crucible
     data modify storage coc:temp crucible set from entity @s f"item.{CUSTOM_DATA}.coc.crucible"
 
     data modify storage coc:temp crucible.new_item set from entity @p SelectedItem.id
@@ -50,9 +51,7 @@ function ~/as_entity:
     if data entity @p f"SelectedItem.{CUSTOM_DATA}.smithed.id":
         data modify storage coc:temp crucible.new_item set from entity @p f"SelectedItem.{CUSTOM_DATA}.smithed.id"
 
-    tellraw @a {"nbt": "crucible", "storage": "coc:temp"}
-
-    store result score #temp coc.dummy function ./validate_infusion with storage coc:temp crucible     
+    store result score #temp coc.dummy at @p function ./validate_infusion with storage coc:temp crucible     
 
     if score #temp coc.dummy matches 1 item modify entity @p weapon.mainhand {
         "function": "minecraft:set_count",

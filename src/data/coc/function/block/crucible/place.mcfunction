@@ -33,19 +33,19 @@ data merge entity @s {
     Tags: ["coc.block", "coc.crucible", "coc.energy.sink", *SMITHED_BLOCK],
 }
 
-summon item_display ~ ~ ~ {
-    transformation: {
-        translation: [0.0,0.0,(9/16)],
-        scale: [0.5,0.5,0.5],
-        left_rotation: [0,0,0,1],
-        right_rotation: [0,0,0,1]
-    },
-    Tags: ["coc.crucible.item"]
-}
+# summon item_display ~ ~ ~ {
+#     transformation: {
+#         translation: [0.0,0.0,(9/16)],
+#         scale: [0.5,0.5,0.5],
+#         left_rotation: [0,0,0,1],
+#         right_rotation: [0,0,0,1]
+#     },
+#     Tags: ["coc.crucible.item"]
+# }
 
-ride @n[tag=coc.crucible.item, distance=..0.25] mount @s  
+# ride @n[tag=coc.crucible.item, distance=..0.25] mount @s  
 
-on passengers rotate @s ~ ~
+# on passengers rotate @s ~ ~
 
 # summon interaction ^ ^-.275 ^.26 {
 #     height: 0.45,

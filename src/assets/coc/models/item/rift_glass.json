@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "coc:item/blood_vial"
+        "layer0": "coc:item/entropic_lens"
     }
 }

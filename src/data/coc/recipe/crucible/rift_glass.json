@@ -1,0 +1,16 @@
+{
+    "type": "coc:crucible",
+    "required_heat": 1,
+    "process": [
+        {
+            "progress": "coagulated",
+            "id": "coc:ichor"
+        },
+        {
+            "progress": "coagulated",
+            "id": "minecraft:redstone"
+        }
+    ],
+    "infusion": "minecraft:tinted_glass",
+    "output": "coc:rift_glass"
+}
