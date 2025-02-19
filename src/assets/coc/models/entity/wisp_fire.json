@@ -1,0 +1,86 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "coc:entity/wisp_fire",
+		"particle": "coc:entity/wisp_fire"
+	},
+	"elements": [
+		{
+			"from": [
+				2,
+				-2,
+				8
+			],
+			"to": [
+				14,
+				14,
+				8
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					6,
+					-2,
+					3
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						2,
+						0,
+						14,
+						16
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						0,
+						5,
+						5,
+						10
+					],
+					"texture": "#missing"
+				},
+				"south": {
+					"uv": [
+						14,
+						0,
+						2,
+						16
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						10,
+						5,
+						15,
+						10
+					],
+					"texture": "#missing"
+				},
+				"up": {
+					"uv": [
+						5,
+						0,
+						10,
+						5
+					],
+					"texture": "#missing"
+				},
+				"down": {
+					"uv": [
+						10,
+						0,
+						15,
+						5
+					],
+					"texture": "#missing"
+				}
+			}
+		}
+	]
+}
