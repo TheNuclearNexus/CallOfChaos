@@ -11,9 +11,5 @@ execute summon item_display function ~/setup:
             id: "minecraft:observer"
         }
     }
-
-    function gu:generate
-
-    data modify storage coc:temp sink_uuid set from storage gu:main out
-
-    function ./../api/add_sink with storage coc:temp {}
+    
+    function ./../api/sink/register with storage coc:temp {}

@@ -75,16 +75,20 @@ def fail(message_text: str):
 
 if is_debug():
     with suite(FIELDS):
-        NETWORK_UUID = "0-0-0-0-1"
-        BUBBLE_UUID = "0-0-0-0-2"
-        SINK_UUID = "0-0-0-0-3"
+        NETWORK_UUID = "00000000-0000-0000-0000-000000000001"
+        BUBBLE_UUID = "00000000-0000-0000-0000-000000000002"
+        SINK_UUID = "00000000-0000-0000-0000-000000000003"
+
+        summon item_display ~ ~ ~ {UUID: [I; 0,0,0,1], item: {id: "minecraft:stone"}} 
+        summon item_display ~ 64 ~ {UUID: [I; 0,0,0,2], item: {id: "minecraft:stone"}} 
+        summon item_display ~ 64 ~ {UUID: [I; 0,0,0,3], item: {id: "minecraft:stone"}} 
         
         with test("create_network"):
-            with try_command("Failed to instantiate create network"):
-                function ./api/create_network {
-                    network_id: 1,
-                    network_uuid: NETWORK_UUID
-                }
+            as NETWORK_UUID at @s:
+                with try_command("Failed to instantiate create network"):
+                    function ./api/network/register {
+                        network_uuid: NETWORK_UUID
+                    }
 
             unless data storage coc:energy networks{keys: [{uuid: NETWORK_UUID}]} return:
                 fail(f"Network database is missing key {NETWORK_UUID}")
@@ -93,21 +97,15 @@ if is_debug():
                 fail(f"Network database is missing entry {NETWORK_UUID}")
 
             unless data storage coc:energy f'networks."{NETWORK_UUID}".bubbles[{{uuid: "{NETWORK_UUID}"}}]' return:
+                tellraw @a {"nbt": "networks", "storage": "coc:energy"}
                 fail(f"Network entry is missing the bubble")
 
             return 1
 
         with test("create_bubble"):
-
-            with try_command("Failed to instantiate create bubble"):
-                function ./api/create_bubble {
-                    network_uuid: NETWORK_UUID,
-                    bubble_uuid: BUBBLE_UUID,
-                    transfer: 16,
-                    x: 0,
-                    y: 64,
-                    z: 0
-                }
+            as BUBBLE_UUID at @s:
+                with try_command("Failed to instantiate create bubble"):
+                    function ./api/bubble/register
 
             unless data storage coc:energy f'networks."{NETWORK_UUID}".bubbles[{{ uuid: "{BUBBLE_UUID}" }}]' return:
                 fail(f"Network entry is missing bubble {BUBBLE_UUID}")
@@ -121,11 +119,9 @@ if is_debug():
             return 1
         
         with test("create_sink"):
-            with try_command("Failed to instantiate create sink"):
-                function ./api/create_sink {
-                    bubble_uuid: BUBBLE_UUID,
-                    sink_uuid: SINK_UUID
-                }
+            as SINK_UUID at @s:
+                with try_command("Failed to instantiate create sink"):
+                    function ./api/sink/register
 
             unless data storage coc:energy f'bubbles."{BUBBLE_UUID}".sinks[{{ uuid: "{SINK_UUID}" }}]' return:
                 fail(f"Bubble entry is missing sink {SINK_UUID}")
@@ -137,7 +133,7 @@ if is_debug():
 
         with test("calculate_capacity"):
             with try_command("Failed to instantiate calculate capacity"):
-                function ./api/calculate_capacity {
+                function ./api/bubble/calculate_capacity {
                     bubble_uuid: BUBBLE_UUID
                 }
             
@@ -150,7 +146,7 @@ if is_debug():
 
         with test("get_bubble"):
             positioned 0 0 0 summon item_display:
-                function ./api/get_bubble
+                function ./api/sink/get_bubble
                 kill @s
 
             unless data storage coc:temp bubble_uuid return:
@@ -159,7 +155,7 @@ if is_debug():
                 fail("Marker was in the wrong bubble")  
             
             positioned 0 64 0 summon item_display:
-                function ./api/get_bubble
+                function ./api/sink/get_bubble
                 kill @s
 
             unless data storage coc:temp bubble_uuid return:
@@ -169,7 +165,7 @@ if is_debug():
                 fail(f"Marker was not in bubble {BUBBLE_UUID}")  
 
             positioned 0 128 0 summon item_display:
-                function ./api/get_bubble
+                function ./api/sink/get_bubble
                 kill @s
 
             if data storage coc:temp bubble_uuid return:
@@ -180,10 +176,9 @@ if is_debug():
 
         with test("destroy_sink"):
 
-            with try_command("Failed to instantiate destroy sink"):
-                function ./api/destroy_sink {
-                    sink_uuid: SINK_UUID
-                }
+            as SINK_UUID:
+                with try_command("Failed to instantiate destroy sink"):
+                    function ./api/sink/unregister
 
             if data storage coc:energy f'sinks."{SINK_UUID}"' return:
                 fail(f"Sink database still contains {SINK_UUID}")
@@ -194,17 +189,14 @@ if is_debug():
             return 1
 
         with test("destroy_bubble"):
-            with try_command("Failed to instantiate create sink"):
-                function ./api/create_sink {
-                    bubble_uuid: BUBBLE_UUID,
-                    sink_uuid: SINK_UUID
-                }
 
+            as SINK_UUID at @s:
+                with try_command("Failed to instantiate create sink"):
+                    function ./api/sink/register
 
-            with try_command("Failed to instantiate destroy bubble"):
-                function ./api/destroy_bubble {
-                    bubble_uuid: BUBBLE_UUID
-                }
+            as BUBBLE_UUID:
+                with try_command("Failed to instantiate destroy bubble"):
+                    function ./api/bubble/unregister 
 
             if data storage coc:energy f'bubbles."{BUBBLE_UUID}"' return:
                 fail(f"Bubble database still contains {BUBBLE_UUID}")
@@ -217,37 +209,22 @@ if is_debug():
 
             if data storage coc:energy f'sinks."{SINK_UUID}".bubbles[{{uuid: "{BUBBLE_UUID}"}}]' return:
                 fail(f"Sink entry still has bubble {BUBBLE_UUID}")
-
-            with try_command("Failed to instantiate destroy sink"):
-                function ./api/destroy_sink {
-                    sink_uuid: SINK_UUID
-                }
-
+                
             return 1
 
         with test("destroy_network"):
             
+            as BUBBLE_UUID at @s:
+                with try_command("Failed to instantiate create bubble"):
+                    function ./api/bubble/register
 
-            with try_command("Failed to instantiate create bubble"):
-                function ./api/create_bubble {
-                    bubble_uuid: BUBBLE_UUID,
-                    network_uuid: NETWORK_UUID,
-                    transfer: 16,
-                    x: 0,
-                    y: 64,
-                    z: 0
-                }
+            as SINK_UUID at @s:
+                with try_command("Failed to instantiate create sink"):
+                    function ./api/sink/register
 
-            with try_command("Failed to instantiate create sink"):
-                function ./api/create_sink {
-                    bubble_uuid: BUBBLE_UUID,
-                    sink_uuid: SINK_UUID
-                }
-
-            with try_command("Failed to instantiate destroy network"):
-                function ./api/destroy_network {
-                    network_uuid: NETWORK_UUID
-                }
+            as NETWORK_UUID:
+                with try_command("Failed to instantiate destroy network"):
+                    function ./api/network/unregister
 
             if data storage coc:energy f'networks."{NETWORK_UUID}"' return:
                 fail(f"Network database still contains {NETWORK_UUID}")
@@ -260,3 +237,6 @@ if is_debug():
 
             return 1
 
+        kill NETWORK_UUID
+        kill BUBBLE_UUID
+        kill SINK_UUID

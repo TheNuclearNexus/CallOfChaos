@@ -22,7 +22,7 @@ data merge entity @s {
         components: {
             "minecraft:custom_data": {
                 coc: {
-                    energy: {
+                    sink: {
                         capacity: 25,
                         consumption: 2
                     }
@@ -53,8 +53,4 @@ data merge entity @s {
 #     Tags: ["coc.crucible.interaction"]
 # }
 
-
-at @s if function coc:energy/api/block_entity/register_sink:
-    data modify entity @s item.components."minecraft:custom_model_data" set value {
-        floats: [1]
-    }
+at @s function coc:energy/api/sink/register
