@@ -1,4 +1,7 @@
 from nbtlib import IntArray
+
+from coc:energy/api/sink import SINK_DATA
+
 # -------------------------------
 # System Constants
 # -------------------------------
@@ -6,6 +9,9 @@ STAGE_DURATION = 300
 ACTIVE_TAG = "coc.has_creature"
 TEXT_DISPLAY_UUID = "e09fa29a-0d1c-0b98-0d27-45aee6a5e4d8"
 TEXT_DISPLAY_UUID_ARRAY = IntArray([-526409062,219941784,220677550,-425335592])
+
+IDLE_CONSUMPTION = 5
+ACTIVE_CONSUMPTION = 10
 
 # -------------------------------
 # Score Constants
@@ -18,12 +24,38 @@ TEXT_DISPLAY_UUID_ARRAY = IntArray([-526409062,219941784,220677550,-425335592])
 CUSTOM_DATA = 'components."minecraft:custom_data"'
 CREATURE_DATA = f'{CUSTOM_DATA}.coc.creature'
 
+def change_model(state: str):
+    item modify entity @s contents {
+        "function": "minecraft:set_custom_model_data",
+        "strings": {
+            "values": [
+                state
+            ],
+            "mode": "replace_section",
+            "offset": 0,
+            "size": 1
+        }
+    }
+
 function ./reset:
     on passengers kill @s
     scoreboard players set @s coc.dummy 0
 
     data remove entity @s f"item.{CREATURE_DATA}"
     tag @s remove ACTIVE_TAG
+
+    data modify entity @s f"item.{SINK_DATA}.consumption" set value IDLE_CONSUMPTION
+    function coc:energy/api/sink/sync_storage with entity @s f"item.{SINK_DATA}"
+
+function ./activate:
+    say activate
+    tag @s add ACTIVE_TAG
+
+    data modify entity @s f"item.{SINK_DATA}.consumption" set value ACTIVE_CONSUMPTION
+    function coc:energy/api/sink/sync_storage with entity @s f"item.{SINK_DATA}"
+
+    if score @s coc.powered matches 1:
+        change_model("on")
 
 function ./insert_seed:
     unless data storage coc:temp f"item.{CREATURE_DATA}" return 0
@@ -54,11 +86,11 @@ function ./insert_seed:
 
         ride @n[type=item_display, tag=coc.creature] mount @s
 
-    tag @s add ACTIVE_TAG
-
     data modify entity @s f'item.{CREATURE_DATA}' set from storage coc:temp f'item.{CREATURE_DATA}'
     data modify entity @s f'item.{CREATURE_DATA}.seed' set from storage coc:temp item
     playsound minecraft:entity.generic.splash block @a ~ ~ ~ 1 2
+
+    function ./activate
 
 function ./remove_contents:
     data modify storage coc:temp creature set from entity @s f'item.{CREATURE_DATA}'

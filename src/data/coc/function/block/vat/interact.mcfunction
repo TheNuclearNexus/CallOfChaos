@@ -1,6 +1,6 @@
 from ./creatures import ACTIVE_TAG, CREATURE_DATA, CUSTOM_DATA
 
-ADVANCEMENT_PATH = coc:technical/default_block_use/small_vat 
+ADVANCEMENT_PATH = coc:technical/default_block_use/vat 
 
 advancement ADVANCEMENT_PATH {
     "criteria": {
@@ -12,7 +12,7 @@ advancement ADVANCEMENT_PATH {
                         "condition": "minecraft:location_check",
                         "predicate": {
                             "block": {
-                                "nbt": "{components:{\"minecraft:custom_data\":{smithed:{id: \"coc:small_vat\"}}}}"
+                                "nbt": "{components:{\"minecraft:custom_data\":{smithed:{id: \"coc:vat\"}}}}"
                             }
                         }
                     }
@@ -35,7 +35,7 @@ anchored eyes positioned ^ ^ ^0.1 function ~/find_block with storage coc:temp {}
 
 
 function ~/find_block:
-    if data block ~ ~ ~ f'{CUSTOM_DATA}.smithed{{id: "coc:small_vat"}}':
+    if data block ~ ~ ~ f'{CUSTOM_DATA}.smithed{{id: "coc:vat"}}':
         return run function ~/../get_entity with block ~ ~ ~ f"{CUSTOM_DATA}.coc":
             at @s as $(uuid) run function ~/../as_entity
 

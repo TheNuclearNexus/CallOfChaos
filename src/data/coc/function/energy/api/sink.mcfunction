@@ -1,7 +1,7 @@
 from ./mod import MAX_BUBBLE_RADIUS
 from ./bubble import BUBBLE_DATA
 
-SINK_DATA = 'item.components."minecraft:custom_data".coc.sink'
+SINK_DATA = 'components."minecraft:custom_data".coc.sink'
 
 function ~/set_bubble:
     #> Set the parent bubble for a sink
@@ -36,7 +36,7 @@ function ~/reset_bubble:
 function ~/update_bubble:
     #> Update the parent bubble to the nearest for a sink
     
-    data modify storage coc:temp sink_uuid set from entity @s f"{SINK_DATA}.uuid"
+    data modify storage coc:temp sink_uuid set from entity @s f"item.{SINK_DATA}.uuid"
 
     unless function ~/../get_bubble:
         return 0
@@ -86,26 +86,26 @@ function ~/register:
 
     tag @s add coc.energy.sink
     data modify storage coc:temp sink_uuid set from storage gu:main out
-    data modify entity @s SINK_DATA merge value {}
-    data modify entity @s f'{SINK_DATA}.uuid' set from storage gu:main out
+    data modify entity @s f'item.{SINK_DATA}' merge value {}
+    data modify entity @s f'item.{SINK_DATA}.uuid' set from storage gu:main out
 
     function ~/../create with storage coc:temp {}
 
-    unless data entity @s f'{SINK_DATA}.capacity':
-        data modify entity @s f'{SINK_DATA}.capacity' set value 50
+    unless data entity @s f'item.{SINK_DATA}.capacity':
+        data modify entity @s f'item.{SINK_DATA}.capacity' set value 50
 
-    unless data entity @s f'{SINK_DATA}.consumption':
-        data modify entity @s f'{SINK_DATA}.consumption' set value 2
+    unless data entity @s f'item.{SINK_DATA}.consumption':
+        data modify entity @s f'item.{SINK_DATA}.consumption' set value 2
 
     if function ~/../get_bubble:
         function ~/../set_bubble with storage coc:temp {}
 
-    function ~/../sync_storage with entity @s SINK_DATA
+    function ~/../sync_storage with entity @s f'item.{SINK_DATA}'
 
     return 1
 
 function ~/unregister:
-    data modify storage coc:temp sink_uuid set from entity @s f"{SINK_DATA}.uuid"
+    data modify storage coc:temp sink_uuid set from entity @s f"item.{SINK_DATA}.uuid"
 
     function ~/../destroy with storage coc:temp {} 
 
@@ -116,8 +116,15 @@ function ~/sync_storage:
     #   consumption: int
     # }
 
+    store result score #capacity coc.dummy data get storage coc:energy sinks.$(uuid).capacity
+
     data modify storage coc:energy sinks.$(uuid).capacity set value $(capacity)
     data modify storage coc:energy sinks.$(uuid).consumption set value $(consumption)
+
+    data modify storage coc:temp bubble_uuid set from storage coc:energy sinks.$(uuid).bubble
+
+    unless score #capacity coc.dummy matches $(capacity):
+        function ./bubble/calculate_capacity with storage coc:temp {}
 
 # Get the first bubble that the execution context is within
 function ~/get_bubble:

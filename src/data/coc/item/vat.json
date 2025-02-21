@@ -1,0 +1,5 @@
+{
+  "id": "vat",
+  "type": "smithed:placeable",
+  "base": "minecraft:furnace"
+}

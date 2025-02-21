@@ -1,0 +1,26 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "powered",
+        "model": {
+          "type": "minecraft:model",
+          "model": "coc:block/vat_powered"
+        }
+      },
+      {
+        "when": "on",
+        "model": {
+          "type": "minecraft:model",
+          "model": "coc:block/vat_on"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "coc:block/vat"
+    }
+  }
+}

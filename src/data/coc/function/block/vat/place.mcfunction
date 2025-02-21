@@ -1,5 +1,7 @@
+from ./creatures import IDLE_CONSUMPTION
+
 unless block ~ ~1 ~ #coc:air return:
-    loot spawn ~ ~ ~ loot coc:blocks/small_vat
+    loot spawn ~ ~ ~ loot coc:blocks/vat
     setblock ~ ~ ~ air
     kill @s
 
@@ -10,7 +12,7 @@ setblock ~ ~ ~ minecraft:dropper{
     components: {
         "minecraft:custom_data": {
             smithed: {
-                id: "coc:small_vat",
+                id: "coc:vat",
             },
             coc: {
                 silent: 1
@@ -32,13 +34,13 @@ data merge entity @s {
                 coc: {
                     sink: {
                         capacity: 50,
-                        consumption: 5
+                        consumption: IDLE_CONSUMPTION
                     }
                 }
             }
         }
     },
-    Tags: ["coc.block", "coc.small_vat", "coc.energy.sink", *SMITHED_BLOCK],
+    Tags: ["coc.block", "coc.vat", "coc.energy.sink", *SMITHED_BLOCK],
 }
 
 
