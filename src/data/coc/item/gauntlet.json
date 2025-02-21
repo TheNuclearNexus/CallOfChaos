@@ -1,0 +1,14 @@
+{
+    "id": "gauntlet",
+    "type": "smithed:simple",
+    "components": {
+        "minecraft:consumable": {
+            "animation": "none",
+            "sound": {
+                "sound_id": ""
+            },
+            "has_consume_particles": false,
+            "consume_seconds": 2147483647
+        }
+    }
+}

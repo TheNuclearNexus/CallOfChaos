@@ -1,0 +1,11 @@
+{
+    "id": "small_vat",
+    "type": "smithed:placeable",
+    "base": "minecraft:furnace",
+    "states": {
+      "enabled": "coc:block/amalgam_forge_enabled",
+      "smelting": "coc:block/amalgam_forge_smelting"
+    }
+  }
+  
+  

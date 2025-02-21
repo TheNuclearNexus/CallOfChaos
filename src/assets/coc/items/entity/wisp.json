@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "coc:entity/wisp"
+        "model": "coc:entity/wisp",
+        "tints": [{ "type": "minecraft:constant", "value": 66046 }]
     }
 }

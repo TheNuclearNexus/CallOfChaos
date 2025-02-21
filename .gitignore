@@ -5,3 +5,4 @@ __dist__/
 .vscode/settings.json
 .venv/
 link.sh
+*.DS_Store

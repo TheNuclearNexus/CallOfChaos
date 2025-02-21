@@ -1,2 +1,2 @@
-if entity @s[tag=coc.rift] function ../rift/tick
+if entity @s[tag=coc.rift] return run function ../rift/tick
 

@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "coc:entity/wisp_fire"
+        "model": "coc:entity/wisp_fire",
+        "tints": [{ "type": "minecraft:constant", "value": 66046 }]
     }
 }

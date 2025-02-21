@@ -436,6 +436,7 @@ def get_parsers(parsers: dict[str, Parser]):
         "word": macro(parsers, "word", priority=True),
         "phrase": macro(parsers, "phrase", priority=True),
         "greedy": macro(parsers, "greedy", priority=True),
+        "entity": macro(parsers, "entity", priority=True),
         "nbt": parse_nbt,
         "nbt_path": AlternativeParser(
             [parsers["nbt_path"], MacroNbtPathParser(nbt_compound_parser=parse_nbt)]

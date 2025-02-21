@@ -1,0 +1,21 @@
+{
+    "id": "wisp_seed",
+    "type": "smithed:simple",
+    "model": "coc:item/wisp_seed",
+    "components": {
+        "minecraft:custom_data": {
+            "coc": {
+                "creature": {
+                    "id": "coc:wisp",
+                    "name": "entity.coc.wisp",
+                    "seed": "coc:item/wisp_seed",
+                    "stages": {
+                        "1": "coc:entity/wisp",
+                        "2": "coc:entity/wisp_large"
+                    },
+                    "corrupted": "coc:entity/wisp/corrupted"
+                }
+            }
+        }
+    }
+}

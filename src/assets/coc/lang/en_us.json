@@ -52,6 +52,9 @@
     "text.coc.goggles.energy_output": "Chaos Flux Output: %s/%s",
     "text.coc.goggles.flow": "Remaining Flow: %s",
 
+    "text.coc.gauntlet.creature_name": "Holding: %s",
+    "text.coc.gauntlet.creature_stage": "Stage: %s",
+
     "text.coc.level": "Level %s",
     "text.coc.refresh_knowledge": "Knowledge successfully refreshed!",
     

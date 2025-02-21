@@ -1,0 +1,9 @@
+{
+  "id": "blightsight_goggles",
+  "type": "smithed:simple",
+  "components": {
+    "minecraft:equippable": {
+      "slot": "head"
+    }
+  }
+}

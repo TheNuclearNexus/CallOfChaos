@@ -1,3 +1,7 @@
 {
-  "model": { "type": "minecraft:model", "model": "coc:entity/spawner_rift" }
+  "model": {
+    "type": "minecraft:model",
+    "model": "coc:entity/spawner_rift",
+    "tints": [{ "type": "minecraft:constant", "value": 66046 }]
+  }
 }
