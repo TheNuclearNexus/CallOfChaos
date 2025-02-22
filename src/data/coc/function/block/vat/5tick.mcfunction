@@ -73,7 +73,6 @@ if score @s coc.dummy matches f"{STAGE_DURATION}.." function ~/progress_stage:
     store result storage coc:temp stage int 1 scoreboard players add #stage coc.dummy 1
 
     execute function ~/increment_stage with storage coc:temp {}:
-        say increment
         unless data storage coc:temp creature.stages.$(stage) return:
             execute function ~/../breach with storage coc:temp creature:    
                 function ./explode

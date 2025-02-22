@@ -48,7 +48,6 @@ function ./reset:
     function coc:energy/api/sink/sync_storage with entity @s f"item.{SINK_DATA}"
 
 function ./activate:
-    say activate
     tag @s add ACTIVE_TAG
 
     data modify entity @s f"item.{SINK_DATA}.consumption" set value ACTIVE_CONSUMPTION
@@ -56,7 +55,7 @@ function ./activate:
 
     if score @s coc.powered matches 1:
         change_model("on")
-
+ 
 function ./insert_seed:
     unless data storage coc:temp f"item.{CREATURE_DATA}" return 0
     data modify storage coc:temp creature set from storage coc:temp f"item.{CREATURE_DATA}"

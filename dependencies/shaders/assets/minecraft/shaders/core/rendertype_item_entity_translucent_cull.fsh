@@ -19,7 +19,8 @@ out vec4 fragColor;
 
 bool shouldShade() {
     return abs(vertexColor.r * 255.0 - 1) < 0.5 &&
-        abs(vertexColor.g * 255.0 - 1) < 0.5;
+        abs(vertexColor.g * 255.0 - 1) < 0.5 &&
+        abs(vertexColor.b * 255.0 - 254) < 0.5;
 }
 
 void main() {
