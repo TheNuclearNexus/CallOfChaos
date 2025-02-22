@@ -7,6 +7,8 @@ from coc:energy/api/sink import SINK_DATA
 # -------------------------------
 STAGE_DURATION = 300
 ACTIVE_TAG = "coc.has_creature"
+LIQUID_TAG = "coc.has_liquid"
+
 TEXT_DISPLAY_UUID = "e09fa29a-0d1c-0b98-0d27-45aee6a5e4d8"
 TEXT_DISPLAY_UUID_ARRAY = IntArray([-526409062,219941784,220677550,-425335592])
 
@@ -24,7 +26,7 @@ ACTIVE_CONSUMPTION = 10
 CUSTOM_DATA = 'components."minecraft:custom_data"'
 CREATURE_DATA = f'{CUSTOM_DATA}.coc.creature'
 
-def change_model(state: str):
+def change_model(state: str, offset: int = 0):
     item modify entity @s contents {
         "function": "minecraft:set_custom_model_data",
         "strings": {
@@ -32,7 +34,7 @@ def change_model(state: str):
                 state
             ],
             "mode": "replace_section",
-            "offset": 0,
+            "offset": offset,
             "size": 1
         }
     }
@@ -43,6 +45,8 @@ function ./reset:
 
     data remove entity @s f"item.{CREATURE_DATA}"
     tag @s remove ACTIVE_TAG
+
+    change_model("off")
 
     data modify entity @s f"item.{SINK_DATA}.consumption" set value IDLE_CONSUMPTION
     function coc:energy/api/sink/sync_storage with entity @s f"item.{SINK_DATA}"
@@ -55,8 +59,18 @@ function ./activate:
 
     if score @s coc.powered matches 1:
         change_model("on")
- 
+
+function ./fill_vat:
+    unless data storage coc:temp f'item.{CUSTOM_DATA}.smithed{{id: "coc:life_bucket"}}' return 0
+
+    as @p item replace entity @s[gamemode=!creative] weapon.mainhand with bucket
+
+    tag @s add LIQUID_TAG
+    change_model("filled", 0)
+    playsound minecraft:item.bucket.empty block @a
+
 function ./insert_seed:
+    say ran
     unless data storage coc:temp f"item.{CREATURE_DATA}" return 0
     data modify storage coc:temp creature set from storage coc:temp f"item.{CREATURE_DATA}"
 
@@ -76,18 +90,23 @@ function ./insert_seed:
                 scale: [1, 1, 1]
             },
             teleport_duration: 5,
-            item_display: "ground"
+            item_display: "ground",
+            brightness: {sky: 15, block: 15}
         }
 
         as @n[type=minecraft:item_display, tag=coc.creature] function ./animate/up
-
-        data modify entity @n[type=item_display, tag=coc.creature] brightness set from entity @s brightness
 
         ride @n[type=item_display, tag=coc.creature] mount @s
 
     data modify entity @s f'item.{CREATURE_DATA}' set from storage coc:temp f'item.{CREATURE_DATA}'
     data modify entity @s f'item.{CREATURE_DATA}.seed' set from storage coc:temp item
     playsound minecraft:entity.generic.splash block @a ~ ~ ~ 1 2
+
+    as @p item modify entity @s[gamemode=!creative] weapon.mainhand {
+        "function": "minecraft:set_count",
+        "count": -1,
+        "add": True
+    }
 
     function ./activate
 
@@ -116,18 +135,6 @@ function ./remove_contents:
 
             data modify storage coc:temp info.name set from storage coc:temp creature.name
             data modify storage coc:temp info.stage set from storage coc:temp creature.stage
-
-            # summon text_display ~ ~512 ~ {UUID: TEXT_DISPLAY_UUID_ARRAY, text: ""} 
-            
-            # as TEXT_DISPLAY_UUID function ~/resolve_lore:
-            #     data modify entity @s text set value '{"nbt": "info.name", "storage": "coc:temp", "interpret": true}'
-            #     data modify storage coc:temp info.name set from entity @s text
-
-            #     data modify entity @s text set value '{"nbt": "info.stage", "storage": "coc:temp", "interpret": true}'
-            #     data modify storage coc:temp info.stage set from entity @s text
-
-            #     kill @s
-
 
 
             store result storage coc:temp held_creature.stage int 1:
@@ -180,3 +187,5 @@ function ./remove_contents:
                 }
 
             function ./reset
+
+    

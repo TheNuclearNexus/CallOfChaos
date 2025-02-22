@@ -2,6 +2,7 @@
 setblock ~ ~ ~ hopper[enabled=false,facing=north]{
     TransferCooldown: (pow(2, 31) - 1),
     lock: {components:{custom_data:{impossible:"impossible"}}},
+    CustomName: '{"translate":"block.coc.crucible"}',
     components: {
         "minecraft:custom_data": {
             smithed: {

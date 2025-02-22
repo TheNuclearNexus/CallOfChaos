@@ -9,6 +9,7 @@ unless block ~ ~1 ~ #coc:air return:
 # called by the item generator
 setblock ~ ~ ~ minecraft:dropper{
     lock: {components:{custom_data:{impossible:"impossible"}}},
+    CustomName: '{"translate":"block.coc.vat"}',
     components: {
         "minecraft:custom_data": {
             smithed: {
@@ -37,6 +38,9 @@ data merge entity @s {
                         consumption: IDLE_CONSUMPTION
                     }
                 }
+            },
+            "minecraft:custom_model_data": {
+                strings: ["off", "empty"]
             }
         }
     },

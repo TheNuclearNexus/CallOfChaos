@@ -1,4 +1,4 @@
-from ./creatures import ACTIVE_TAG, CREATURE_DATA, CUSTOM_DATA
+from ./creatures import ACTIVE_TAG, LIQUID_TAG, CREATURE_DATA, CUSTOM_DATA
 
 ADVANCEMENT_PATH = coc:technical/default_block_use/vat 
 
@@ -27,7 +27,7 @@ advancement ADVANCEMENT_PATH {
 
 advancement revoke @s only ADVANCEMENT_PATH
 
-
+data remove storage coc:temp item
 data modify storage coc:temp item set from entity @s SelectedItem
 
 store result storage coc:temp block_interaction_range double 1 attribute @s minecraft:block_interaction_range get 
@@ -44,7 +44,10 @@ function ~/find_block:
 
 
 function ~/as_entity:
-    if entity @s[tag=ACTIVE_TAG] return:
-        function ./remove_contents
+    if entity @s[tag=!LIQUID_TAG] return:
+        function ./fill_vat
 
-    function ./insert_seed
+    if entity @s[tag=!ACTIVE_TAG] return:
+        function ./insert_seed
+
+    function ./remove_contents

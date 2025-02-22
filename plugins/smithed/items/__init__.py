@@ -29,11 +29,12 @@ def inject(ctx: Context):
         from plugins.smithed.items.registry import ItemRegistry
         ITEM_REGISTRY = ctx.inject(ItemRegistry)
     """)
+    
+    ctx.data.function_tags.setdefault("minecraft:load", FunctionTag()).data["values"].append("smithed.item_gen:load")
 
 def extend(ctx: Context):
     inject_resource(ctx)
 
-    ctx.data.function_tags.setdefault("minecraft:load", FunctionTag()).add("smithed.item_gen:load")
     ctx.data["smithed.item_gen:load"] = LOAD_FUNCTION
 
     registry = ctx.inject(ItemRegistry)

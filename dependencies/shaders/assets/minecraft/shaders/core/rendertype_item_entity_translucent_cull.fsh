@@ -27,10 +27,20 @@ void main() {
     vec4 color;
 
     if(shouldShade()) {
-        fragColor = texture(Sampler0, texCoord0);
+
+        color = texture(Sampler0, texCoord0);
+
+        if(color.a < 0.1) {
+            discard;
+        }
+        
+        fragColor = color;
+
         return;
-    } else
+    } else {
+
         color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator * lightColor;
+    }
 
     if(color.a < 0.1) {
         discard;
