@@ -1,0 +1,6 @@
+{
+	"parent": "coc:block/vat_glow",
+	"textures": {
+		"0": "coc:block/vat_glow_on"
+	}
+}

@@ -3,27 +3,30 @@
     "type": "minecraft:composite",
     "models": [
       {
+        "type": "minecraft:model",
+        "model": "coc:block/vat"
+      },
+      {
         "type": "minecraft:select",
         "property": "minecraft:custom_model_data",
         "cases": [
           {
-            "when": "filled",
+            "when": "fluid",
             "model": {
               "type": "minecraft:model",
-              "model": "coc:block/vat_filled"
-            }
-          },
-          {
-            "when": "on",
-            "model": {
-              "type": "minecraft:model",
-              "model": "coc:block/vat_on"
+              "model": "coc:block/vat_inside_fluid",
+              "tints": [
+                {
+                  "type": "minecraft:constant",
+                  "value": 66046
+                }
+              ]
             }
           }
         ],
         "fallback": {
           "type": "minecraft:model",
-          "model": "coc:block/vat"
+          "model": "coc:block/vat_inside"
         }
       },
       {
@@ -32,10 +35,23 @@
         "index": 1,
         "cases": [
           {
-            "when": "powered",
+            "when": "power",
             "model": {
               "type": "minecraft:model",
-              "model": "coc:block/vat_power",
+              "model": "coc:block/vat_glow",
+              "tints": [
+                {
+                  "type": "minecraft:constant",
+                  "value": 66046
+                }
+              ]
+            }
+          },
+          {
+            "when": "on",
+            "model": {
+              "type": "minecraft:model",
+              "model": "coc:block/vat_glow_on",
               "tints": [
                 {
                   "type": "minecraft:constant",
