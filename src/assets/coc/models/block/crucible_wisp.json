@@ -1,0 +1,6 @@
+{
+	"parent": "coc:block/crucible_fire",
+	"textures": {
+		"1": "coc:block/crucible_wisp"
+	}
+}

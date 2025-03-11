@@ -1,25 +1,46 @@
 {
   "model": {
-    "type": "minecraft:select",
-    "property": "minecraft:custom_model_data",
-    "cases": [
+    "type": "minecraft:composite",
+    "models": [
       {
-        "when": "fluid",
-        "model": {
-          "type": "minecraft:model",
-          "model": "coc:block/crucible_fluid",
-          "tints": [
-            {
-              "type": "minecraft:custom_model_data",
-              "default": 16777215
+        "type": "minecraft:model",
+        "model": "coc:block/crucible"
+      },
+      {
+        "type": "minecraft:select",
+        "property": "minecraft:custom_model_data",
+        "cases": [
+          {
+            "when": "fire",
+            "model": {
+              "type": "minecraft:model",
+              "model": "coc:block/crucible_fire",
+              "tints": [
+                {
+                  "type": "minecraft:constant",
+                  "value": 66046
+                }
+              ]
             }
-          ]
+          },
+          {
+            "when": "wisp",
+            "model": {
+              "type": "minecraft:model",
+              "model": "coc:block/crucible_wisp",
+              "tints": [
+                {
+                  "type": "minecraft:constant",
+                  "value": 66046
+                }
+              ]
+            }
+          }
+        ],
+        "fallback": {
+          "type": "minecraft:empty"
         }
       }
-    ],
-    "fallback": {
-      "type": "minecraft:model",
-      "model": "coc:block/crucible"
-    }
+    ]
   }
 }
