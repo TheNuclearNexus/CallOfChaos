@@ -1,0 +1,6 @@
+{
+	"parent": "coc:block/alembic_off",
+	"textures": {
+		"0": "coc:block/alembic_on"
+	}
+}

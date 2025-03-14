@@ -1,0 +1,119 @@
+{
+    "model": {
+        "type": "minecraft:composite",
+        "models": [
+            {
+                "type": "minecraft:model",
+                "model": "coc:block/alembic"
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "cases": [
+                    {
+                        "when": "on",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_on",
+                            "tints": [
+                                {
+                                    "type": "minecraft:constant",
+                                    "value": 66046
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:model",
+                    "model": "coc:block/alembic_off"
+                }
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "index": 1,
+                "cases": [
+                    {
+                        "when": "open",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_open"
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:empty"
+                }
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "index": 2,
+                "cases": [
+                    {
+                        "when": "n",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_side_n"
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:empty"
+                }
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "index": 3,
+                "cases": [
+                    {
+                        "when": "s",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_side_s"
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:empty"
+                }
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "index": 4,
+                "cases": [
+                    {
+                        "when": "w",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_side_w"
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:empty"
+                }
+            },
+            {
+                "type": "minecraft:select",
+                "property": "minecraft:custom_model_data",
+                "index": 5,
+                "cases": [
+                    {
+                        "when": "e",
+                        "model": {
+                            "type": "minecraft:model",
+                            "model": "coc:block/alembic_side_e"
+                        }
+                    }
+                ],
+                "fallback": {
+                    "type": "minecraft:empty"
+                }
+            }
+        ]
+    }
+}
